@@ -1,4 +1,4 @@
-package language
+package languages
 
 import "github.com/mikerourke/go-twain/pkg/twain"
 

@@ -1,4 +1,4 @@
-package country
+package countries
 
 import "github.com/mikerourke/go-twain/pkg/twain"
 

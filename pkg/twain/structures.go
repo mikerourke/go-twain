@@ -1,6 +1,6 @@
 package twain
 
-import "github.com/mikerourke/go-twain/pkg/twain/country"
+import "github.com/mikerourke/go-twain/pkg/twain/countries"
 
 // Fix32 (TW_FIX32) is a fixed point structure type.
 type Fix32 struct {
@@ -199,7 +199,7 @@ type Version struct {
 	MajorNum UInt16
 	MinorNum UInt16
 	Language UInt16
-	Country  country.Country
+	Country  countries.Country
 	Info     Str32
 }
 
