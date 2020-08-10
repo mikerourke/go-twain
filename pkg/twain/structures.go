@@ -1,6 +1,9 @@
 package twain
 
-import "github.com/mikerourke/go-twain/pkg/twain/countries"
+import (
+	"github.com/mikerourke/go-twain/pkg/twain/capabilities"
+	"github.com/mikerourke/go-twain/pkg/twain/countries"
+)
 
 // Fix32 (TW_FIX32) is a fixed point structure type.
 type Fix32 struct {
@@ -61,7 +64,7 @@ type CallBack2 struct {
 // from/in a data source.
 type Capability struct {
 	// Cap represents the capability ID to get or set.
-	Cap UInt16
+	Cap capabilities.Capability
 
 	// ConType is the type of container to use.
 	ConType ContainerType
@@ -103,14 +106,14 @@ type CustomDSData struct {
 // DeviceEvent (TW_DEVICEEVENT) provides information about the Event that was
 // raised by the Source.
 type DeviceEvent struct {
-	Event                  UInt32
+	Event                  capabilities.DeviceEventType
 	DeviceName             Str255
 	BatteryMinutes         UInt32
 	BatteryPercentage      Int16
-	PowerSupply            Int32
+	PowerSupply            capabilities.PowerSupply
 	XResolution            Fix32
 	YResolution            Fix32
-	FlashUsed2             UInt32
+	FlashUsed2             capabilities.FlashUsed2
 	AutomaticCapture       UInt32
 	TimeBeforeFirstCapture UInt32
 	TimeBetweenCaptures    UInt32
@@ -214,8 +217,8 @@ type ImageInfo struct {
 	BitsPerSample   [8]Int16
 	BitsPerPixel    Int16
 	Planar          Bool
-	PixelType       Int16
-	Compression     UInt16
+	PixelType       capabilities.PixelType
+	Compression     capabilities.Compression
 }
 
 // ImageLayout (TW_IMAGELAYOUT) contains information about the original size
@@ -237,7 +240,7 @@ type Memory struct {
 // ImageMemTransfer (TW_IMAGEMEMXFER) describes the form of the acquired data
 // being passed from the Source to the application.
 type ImageMemTransfer struct {
-	Compression  UInt16
+	Compression  capabilities.Compression
 	BytesPerRow  UInt32
 	Columns      UInt32
 	Rows         UInt32
@@ -251,7 +254,7 @@ type ImageMemTransfer struct {
 // to transfer a JPEG-compressed image.
 type JPEGCompression struct {
 	ColorSpace       UInt16
-	SubSampling      UInt32
+	SubSampling      capabilities.JPEGSubSampling
 	NumComponents    UInt16
 	RestartFrequency UInt16
 	QuantMap         [4]UInt16
@@ -287,7 +290,7 @@ type Palette8 struct {
 type PassThru struct {
 	Command              MemRef
 	CommandBytes         UInt32
-	Direction            Int32
+	Direction            capabilities.PassThruDirection
 	DataHandle           MemRef
 	DataBytes            UInt32
 	DataBytesTransferred UInt32

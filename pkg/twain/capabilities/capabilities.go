@@ -4,509 +4,509 @@ import "github.com/mikerourke/go-twain/pkg/twain"
 
 type Capability twain.UInt16
 
-// CustomBase is the base of custom capabilities. It is an alias for
+// UseCustomBase is the base of custom capabilities. It is an alias for
 // CAP_CUSTOMBASE.
-const CustomBase Capability = 0x8000
+const UseCustomBase Capability = 0x8000
 
-// TransferCount is an alias for CAP_XFERCOUNT. All data sources are required
+// UseTransferCount is an alias for CAP_XFERCOUNT. All data sources are required
 // to support this capability.
-const TransferCount Capability = 0x8000
+const UseTransferCount Capability = 0x8000
 
 // Image data sources are _required_ to support these capabilities.
 const (
-	// Compression is an alias for ICAP_COMPRESSION.
-	Compression Capability = 0x0100
+	// UseCompression is an alias for ICAP_COMPRESSION.
+	UseCompression Capability = 0x0100
 
-	// PixelType is an alias for ICAP_PIXELTYPE.
-	PixelType Capability = 0x0101
+	// UsePixelType is an alias for ICAP_PIXELTYPE.
+	UsePixelType Capability = 0x0101
 
-	// Units is an alias for ICAP_UNITS.
-	Units Capability = 0x0102
+	// UseUnits is an alias for ICAP_UNITS.
+	UseUnits Capability = 0x0102
 
-	// TransferMechanism is an alias for ICAP_XFERMECH.
-	TransferMechanism Capability = 0x0103
+	// UseTransferMechanism is an alias for ICAP_XFERMECH.
+	UseTransferMechanism Capability = 0x0103
 )
 
 // All data sources _may_ support these capabilities.
 const (
-	// Author is an alias for CAP_AUTHOR.
-	Author Capability = 0x1000
+	// UseAuthor is an alias for CAP_AUTHOR.
+	UseAuthor Capability = 0x1000
 
-	// Caption is an alias for CAP_CAPTION.
-	Caption Capability = 0x1001
+	// UseCaption is an alias for CAP_CAPTION.
+	UseCaption Capability = 0x1001
 
-	// FeederEnabled is an alias for CAP_FEEDERENABLED.
-	FeederEnabled Capability = 0x1002
+	// UseFeederEnabled is an alias for CAP_FEEDERENABLED.
+	UseFeederEnabled Capability = 0x1002
 
-	// FeederLoaded is an alias for CAP_FEEDERLOADED.
-	FeederLoaded Capability = 0x1003
+	// UseFeederLoaded is an alias for CAP_FEEDERLOADED.
+	UseFeederLoaded Capability = 0x1003
 
-	// TimeDate is an alias for CAP_TIMEDATE.
-	TimeDate Capability = 0x1004
+	// UseTimeDate is an alias for CAP_TIMEDATE.
+	UseTimeDate Capability = 0x1004
 
-	// SupportedCaps is an alias for CAP_SUPPORTEDCAPS.
-	SupportedCaps Capability = 0x1005
+	// UseSupportedCaps is an alias for CAP_SUPPORTEDCAPS.
+	UseSupportedCaps Capability = 0x1005
 
-	// ExtendedCaps is an alias for CAP_EXTENDEDCAPS.
-	ExtendedCaps Capability = 0x1006
+	// UseExtendedCaps is an alias for CAP_EXTENDEDCAPS.
+	UseExtendedCaps Capability = 0x1006
 
-	// AutoFeed is an alias for CAP_AUTOFEED.
-	AutoFeed Capability = 0x1007
+	// UseAutoFeed is an alias for CAP_AUTOFEED.
+	UseAutoFeed Capability = 0x1007
 
-	// ClearPage is an alias for CAP_CLEARPAGE.
-	ClearPage Capability = 0x1008
+	// UseClearPage is an alias for CAP_CLEARPAGE.
+	UseClearPage Capability = 0x1008
 
-	// FeedPage is an alias for CAP_FEEDPAGE.
-	FeedPage Capability = 0x1009
+	// UseFeedPage is an alias for CAP_FEEDPAGE.
+	UseFeedPage Capability = 0x1009
 
-	// RewindPage is an alias for CAP_REWINDPAGE.
-	RewindPage Capability = 0x100a
+	// UseRewindPage is an alias for CAP_REWINDPAGE.
+	UseRewindPage Capability = 0x100a
 
-	// Indicators is an alias for CAP_INDICATORS.
-	Indicators Capability = 0x100b
+	// UseIndicators is an alias for CAP_INDICATORS.
+	UseIndicators Capability = 0x100b
 
-	// PaperDetectable is an alias for CAP_PAPERDETECTABLE.
-	PaperDetectable Capability = 0x100d
+	// UsePaperDetectable is an alias for CAP_PAPERDETECTABLE.
+	UsePaperDetectable Capability = 0x100d
 
-	// UIControllable is an alias for CAP_UICONTROLLABLE.
-	UIControllable Capability = 0x100e
+	// UseUIControllable is an alias for CAP_UICONTROLLABLE.
+	UseUIControllable Capability = 0x100e
 
-	// DeviceOnline is an alias for CAP_DEVICEONLINE.
-	DeviceOnline Capability = 0x100f
+	// UseDeviceOnline is an alias for CAP_DEVICEONLINE.
+	UseDeviceOnline Capability = 0x100f
 
-	// AutoScan is an alias for CAP_AUTOSCAN.
-	AutoScan Capability = 0x1010
+	// UseAutoScan is an alias for CAP_AUTOSCAN.
+	UseAutoScan Capability = 0x1010
 
-	// ThumbnailsEnabled is an alias for CAP_THUMBNAILSENABLED.
-	ThumbnailsEnabled Capability = 0x1011
+	// UseThumbnailsEnabled is an alias for CAP_THUMBNAILSENABLED.
+	UseThumbnailsEnabled Capability = 0x1011
 
-	// Duplex is an alias for CAP_DUPLEX.
-	Duplex Capability = 0x1012
+	// UseDuplex is an alias for CAP_DUPLEX.
+	UseDuplex Capability = 0x1012
 
-	// DuplexEnabled is an alias for CAP_DUPLEXENABLED.
-	DuplexEnabled Capability = 0x1013
+	// UseDuplexEnabled is an alias for CAP_DUPLEXENABLED.
+	UseDuplexEnabled Capability = 0x1013
 
-	// EnabledSUIOnly is an alias for CAP_ENABLEDSUIONLY.
-	EnabledSUIOnly Capability = 0x1014
+	// UseEnabledSUIOnly is an alias for CAP_ENABLEDSUIONLY.
+	UseEnabledSUIOnly Capability = 0x1014
 
-	// CustomdsData is an alias for CAP_CUSTOMDSDATA.
-	CustomdsData Capability = 0x1015
+	// UseCustomdsData is an alias for CAP_CUSTOMDSDATA.
+	UseCustomdsData Capability = 0x1015
 
-	// Endorser is an alias for CAP_ENDORSER.
-	Endorser Capability = 0x1016
+	// UseEndorser is an alias for CAP_ENDORSER.
+	UseEndorser Capability = 0x1016
 
-	// JobControl is an alias for CAP_JOBCONTROL.
-	JobControl Capability = 0x1017
+	// UseJobControl is an alias for CAP_JOBCONTROL.
+	UseJobControl Capability = 0x1017
 
-	// Alarms is an alias for CAP_ALARMS.
-	Alarms Capability = 0x1018
+	// UseAlarms is an alias for CAP_ALARMS.
+	UseAlarms Capability = 0x1018
 
-	// AlarmVolume is an alias for CAP_ALARMVOLUME.
-	AlarmVolume Capability = 0x1019
+	// UseAlarmVolume is an alias for CAP_ALARMVOLUME.
+	UseAlarmVolume Capability = 0x1019
 
-	// AutomaticCapture is an alias for CAP_AUTOMATICCAPTURE.
-	AutomaticCapture Capability = 0x101a
+	// UseAutomaticCapture is an alias for CAP_AUTOMATICCAPTURE.
+	UseAutomaticCapture Capability = 0x101a
 
-	// TimeBeforeFirstCapture is an alias for CAP_TIMEBEFOREFIRSTCAPTURE.
-	TimeBeforeFirstCapture Capability = 0x101b
+	// UseTimeBeforeFirstCapture is an alias for CAP_TIMEBEFOREFIRSTCAPTURE.
+	UseTimeBeforeFirstCapture Capability = 0x101b
 
-	// TimeBetweenCaptures is an alias for CAP_TIMEBETWEENCAPTURES.
-	TimeBetweenCaptures Capability = 0x101c
+	// UseTimeBetweenCaptures is an alias for CAP_TIMEBETWEENCAPTURES.
+	UseTimeBetweenCaptures Capability = 0x101c
 
-	// MaxBatchBuffers is an alias for CAP_MAXBATCHBUFFERS.
-	MaxBatchBuffers Capability = 0x101e
+	// UseMaxBatchBuffers is an alias for CAP_MAXBATCHBUFFERS.
+	UseMaxBatchBuffers Capability = 0x101e
 
-	// DeviceTimeDate is an alias for CAP_DEVICETIMEDATE.
-	DeviceTimeDate Capability = 0x101f
+	// UseDeviceTimeDate is an alias for CAP_DEVICETIMEDATE.
+	UseDeviceTimeDate Capability = 0x101f
 
-	// PowerSupply is an alias for CAP_POWERSUPPLY.
-	PowerSupply Capability = 0x1020
+	// UsePowerSupply is an alias for CAP_POWERSUPPLY.
+	UsePowerSupply Capability = 0x1020
 
-	// CameraPreviewUI is an alias for CAP_CAMERAPREVIEWUI.
-	CameraPreviewUI Capability = 0x1021
+	// UseCameraPreviewUI is an alias for CAP_CAMERAPREVIEWUI.
+	UseCameraPreviewUI Capability = 0x1021
 
-	// DeviceEvent is an alias for CAP_DEVICEEVENT.
-	DeviceEvent Capability = 0x1022
+	// UseDeviceEvent is an alias for CAP_DEVICEEVENT.
+	UseDeviceEvent Capability = 0x1022
 
-	// SerialNumber is an alias for CAP_SERIALNUMBER.
-	SerialNumber Capability = 0x1024
+	// UseSerialNumber is an alias for CAP_SERIALNUMBER.
+	UseSerialNumber Capability = 0x1024
 
-	// Printer is an alias for CAP_PRINTER.
-	Printer Capability = 0x1026
+	// UsePrinter is an alias for CAP_PRINTER.
+	UsePrinter Capability = 0x1026
 
-	// PrinterEnabled is an alias for CAP_PRINTERENABLED.
-	PrinterEnabled Capability = 0x1027
+	// UsePrinterEnabled is an alias for CAP_PRINTERENABLED.
+	UsePrinterEnabled Capability = 0x1027
 
-	// PrinterIndex is an alias for CAP_PRINTERINDEX.
-	PrinterIndex Capability = 0x1028
+	// UsePrinterIndex is an alias for CAP_PRINTERINDEX.
+	UsePrinterIndex Capability = 0x1028
 
-	// PrinterMode is an alias for CAP_PRINTERMODE.
-	PrinterMode Capability = 0x1029
+	// UsePrinterMode is an alias for CAP_PRINTERMODE.
+	UsePrinterMode Capability = 0x1029
 
-	// PrinterString is an alias for CAP_PRINTERSTRING.
-	PrinterString Capability = 0x102a
+	// UsePrinterString is an alias for CAP_PRINTERSTRING.
+	UsePrinterString Capability = 0x102a
 
-	// PrinterSuffix is an alias for CAP_PRINTERSUFFIX.
-	PrinterSuffix Capability = 0x102b
+	// UsePrinterSuffix is an alias for CAP_PRINTERSUFFIX.
+	UsePrinterSuffix Capability = 0x102b
 
-	// Language is an alias for CAP_LANGUAGE.
-	Language Capability = 0x102c
+	// UseLanguage is an alias for CAP_LANGUAGE.
+	UseLanguage Capability = 0x102c
 
-	// FeederAlignment is an alias for CAP_FEEDERALIGNMENT.
-	FeederAlignment Capability = 0x102d
+	// UseFeederAlignment is an alias for CAP_FEEDERALIGNMENT.
+	UseFeederAlignment Capability = 0x102d
 
-	// FeederOrder is an alias for CAP_FEEDERORDER.
-	FeederOrder Capability = 0x102e
+	// UseFeederOrder is an alias for CAP_FEEDERORDER.
+	UseFeederOrder Capability = 0x102e
 
-	// ReacquireAllowed is an alias for CAP_REACQUIREALLOWED.
-	ReacquireAllowed Capability = 0x1030
+	// UseReacquireAllowed is an alias for CAP_REACQUIREALLOWED.
+	UseReacquireAllowed Capability = 0x1030
 
-	// BatteryMinutes is an alias for CAP_BATTERYMINUTES.
-	BatteryMinutes Capability = 0x1032
+	// UseBatteryMinutes is an alias for CAP_BATTERYMINUTES.
+	UseBatteryMinutes Capability = 0x1032
 
-	// BatteryPercentage is an alias for CAP_BATTERYPERCENTAGE.
-	BatteryPercentage Capability = 0x1033
+	// UseBatteryPercentage is an alias for CAP_BATTERYPERCENTAGE.
+	UseBatteryPercentage Capability = 0x1033
 
-	// CameraSide is an alias for CAP_CAMERASIDE.
-	CameraSide Capability = 0x1034
+	// UseCameraSide is an alias for CAP_CAMERASIDE.
+	UseCameraSide Capability = 0x1034
 
-	// Segmented is an alias for CAP_SEGMENTED.
-	Segmented Capability = 0x1035
+	// UseSegmented is an alias for CAP_SEGMENTED.
+	UseSegmented Capability = 0x1035
 
-	// CameraEnabled is an alias for CAP_CAMERAENABLED.
-	CameraEnabled Capability = 0x1036
+	// UseCameraEnabled is an alias for CAP_CAMERAENABLED.
+	UseCameraEnabled Capability = 0x1036
 
-	// CameraOrder is an alias for CAP_CAMERAORDER.
-	CameraOrder Capability = 0x1037
+	// UseCameraOrder is an alias for CAP_CAMERAORDER.
+	UseCameraOrder Capability = 0x1037
 
-	// MICREnabled is an alias for CAP_MICRENABLED.
-	MICREnabled Capability = 0x1038
+	// UseMICREnabled is an alias for CAP_MICRENABLED.
+	UseMICREnabled Capability = 0x1038
 
-	// FeederPrep is an alias for CAP_FEEDERPREP.
-	FeederPrep Capability = 0x1039
+	// UseFeederPrep is an alias for CAP_FEEDERPREP.
+	UseFeederPrep Capability = 0x1039
 
-	// FeederPocket is an alias for CAP_FEEDERPOCKET.
-	FeederPocket Capability = 0x103a
+	// UseFeederPocket is an alias for CAP_FEEDERPOCKET.
+	UseFeederPocket Capability = 0x103a
 
-	// AutomaticSenseMedium is an alias for CAP_AUTOMATICSENSEMEDIUM.
-	AutomaticSenseMedium Capability = 0x103b
+	// UseAutomaticSenseMedium is an alias for CAP_AUTOMATICSENSEMEDIUM.
+	UseAutomaticSenseMedium Capability = 0x103b
 
-	// CustomInterfaceGUID is an alias for CAP_CUSTOMINTERFACEGUID.
-	CustomInterfaceGUID Capability = 0x103c
+	// UseCustomInterfaceGUID is an alias for CAP_CUSTOMINTERFACEGUID.
+	UseCustomInterfaceGUID Capability = 0x103c
 
-	// SupportedCapsSegmentUnique is an alias for CAP_SUPPORTEDCAPSSEGMENTUNIQUE.
-	SupportedCapsSegmentUnique Capability = 0x103d
+	// UseSupportedCapsSegmentUnique is an alias for CAP_SUPPORTEDCAPSSEGMENTUNIQUE.
+	UseSupportedCapsSegmentUnique Capability = 0x103d
 
-	// SupportedDATs is an alias for CAP_SUPPORTEDDATS.
-	SupportedDATs Capability = 0x103e
+	// UseSupportedDATs is an alias for CAP_SUPPORTEDDATS.
+	UseSupportedDATs Capability = 0x103e
 
-	// DoubleFeedDetection is an alias for CAP_DOUBLEFEEDDETECTION.
-	DoubleFeedDetection Capability = 0x103f
+	// UseDoubleFeedDetection is an alias for CAP_DOUBLEFEEDDETECTION.
+	UseDoubleFeedDetection Capability = 0x103f
 
-	// DoubleFeedDetectionLength is an alias for CAP_DOUBLEFEEDDETECTIONLENGTH.
-	DoubleFeedDetectionLength Capability = 0x1040
+	// UseDoubleFeedDetectionLength is an alias for CAP_DOUBLEFEEDDETECTIONLENGTH.
+	UseDoubleFeedDetectionLength Capability = 0x1040
 
-	// DoubleFeedDetectionSensitivity is an alias for CAP_DOUBLEFEEDDETECTIONSENSITIVITY.
-	DoubleFeedDetectionSensitivity Capability = 0x1041
+	// UseDoubleFeedDetectionSensitivity is an alias for CAP_DOUBLEFEEDDETECTIONSENSITIVITY.
+	UseDoubleFeedDetectionSensitivity Capability = 0x1041
 
-	// DoubleFeedDetectionResponse is an alias for CAP_DOUBLEFEEDDETECTIONRESPONSE.
-	DoubleFeedDetectionResponse Capability = 0x1042
+	// UseDoubleFeedDetectionResponse is an alias for CAP_DOUBLEFEEDDETECTIONRESPONSE.
+	UseDoubleFeedDetectionResponse Capability = 0x1042
 
-	// PaperHandling is an alias for CAP_PAPERHANDLING.
-	PaperHandling Capability = 0x1043
+	// UsePaperHandling is an alias for CAP_PAPERHANDLING.
+	UsePaperHandling Capability = 0x1043
 
-	// IndicatorsMode is an alias for CAP_INDICATORSMODE.
-	IndicatorsMode Capability = 0x1044
+	// UseIndicatorsMode is an alias for CAP_INDICATORSMODE.
+	UseIndicatorsMode Capability = 0x1044
 
-	// PrinterVerticalOffset is an alias for CAP_PRINTERVERTICALOFFSET.
-	PrinterVerticalOffset Capability = 0x1045
+	// UsePrinterVerticalOffset is an alias for CAP_PRINTERVERTICALOFFSET.
+	UsePrinterVerticalOffset Capability = 0x1045
 
-	// PowerSaveTime is an alias for CAP_POWERSAVETIME.
-	PowerSaveTime Capability = 0x1046
+	// UsePowerSaveTime is an alias for CAP_POWERSAVETIME.
+	UsePowerSaveTime Capability = 0x1046
 
-	// PrinterCharRotation is an alias for CAP_PRINTERCHARROTATION.
-	PrinterCharRotation Capability = 0x1047
+	// UsePrinterCharRotation is an alias for CAP_PRINTERCHARROTATION.
+	UsePrinterCharRotation Capability = 0x1047
 
-	// PrinterFontStyle is an alias for CAP_PRINTERFONTSTYLE.
-	PrinterFontStyle Capability = 0x1048
+	// UsePrinterFontStyle is an alias for CAP_PRINTERFONTSTYLE.
+	UsePrinterFontStyle Capability = 0x1048
 
-	// PrinterIndexLeadChar is an alias for CAP_PRINTERINDEXLEADCHAR.
-	PrinterIndexLeadChar Capability = 0x1049
+	// UsePrinterIndexLeadChar is an alias for CAP_PRINTERINDEXLEADCHAR.
+	UsePrinterIndexLeadChar Capability = 0x1049
 
-	// PrinterIndexMaxValue is an alias for CAP_PRINTERINDEXMAXVALUE.
-	PrinterIndexMaxValue Capability = 0x104A
+	// UsePrinterIndexMaxValue is an alias for CAP_PRINTERINDEXMAXVALUE.
+	UsePrinterIndexMaxValue Capability = 0x104A
 
-	// PrinterIndexNumDigits is an alias for CAP_PRINTERINDEXNUMDIGITS.
-	PrinterIndexNumDigits Capability = 0x104B
+	// UsePrinterIndexNumDigits is an alias for CAP_PRINTERINDEXNUMDIGITS.
+	UsePrinterIndexNumDigits Capability = 0x104B
 
-	// PrinterIndexStep is an alias for CAP_PRINTERINDEXSTEP.
-	PrinterIndexStep Capability = 0x104C
+	// UsePrinterIndexStep is an alias for CAP_PRINTERINDEXSTEP.
+	UsePrinterIndexStep Capability = 0x104C
 
-	// PrinterIndexTrigger is an alias for CAP_PRINTERINDEXTRIGGER.
-	PrinterIndexTrigger Capability = 0x104D
+	// UsePrinterIndexTrigger is an alias for CAP_PRINTERINDEXTRIGGER.
+	UsePrinterIndexTrigger Capability = 0x104D
 
-	// PrinterStringPreview is an alias for CAP_PRINTERSTRINGPREVIEW.
-	PrinterStringPreview Capability = 0x104E
+	// UsePrinterStringPreview is an alias for CAP_PRINTERSTRINGPREVIEW.
+	UsePrinterStringPreview Capability = 0x104E
 
-	// SheetCount is an alias for CAP_SHEETCOUNT.
-	SheetCount Capability = 0x104F
+	// UseSheetCount is an alias for CAP_SHEETCOUNT.
+	UseSheetCount Capability = 0x104F
 )
 
 // Image data sources _may_ support these capabilities.
 const (
-	// ImageAutoBright is an alias for ICAP_AUTOBRIGHT.
-	ImageAutoBright Capability = 0x1100
+	// UseImageAutoBright is an alias for ICAP_AUTOBRIGHT.
+	UseImageAutoBright Capability = 0x1100
 
-	// ImageBrightness is an alias for ICAP_BRIGHTNESS.
-	ImageBrightness Capability = 0x1101
+	// UseImageBrightness is an alias for ICAP_BRIGHTNESS.
+	UseImageBrightness Capability = 0x1101
 
-	// ImageContrast is an alias for ICAP_CONTRAST.
-	ImageContrast Capability = 0x1103
+	// UseImageContrast is an alias for ICAP_CONTRAST.
+	UseImageContrast Capability = 0x1103
 
-	// ImageCustHalftone is an alias for ICAP_CUSTHALFTONE.
-	ImageCustHalftone Capability = 0x1104
+	// UseImageCustHalftone is an alias for ICAP_CUSTHALFTONE.
+	UseImageCustHalftone Capability = 0x1104
 
-	// ImageExposureTime is an alias for ICAP_EXPOSURETIME.
-	ImageExposureTime Capability = 0x1105
+	// UseImageExposureTime is an alias for ICAP_EXPOSURETIME.
+	UseImageExposureTime Capability = 0x1105
 
-	// ImageFilter is an alias for ICAP_FILTER.
-	ImageFilter Capability = 0x1106
+	// UseImageFilter is an alias for ICAP_FILTER.
+	UseImageFilter Capability = 0x1106
 
-	// ImageFlashUsed is an alias for ICAP_FLASHUSED.
-	ImageFlashUsed Capability = 0x1107
+	// UseImageFlashUsed is an alias for ICAP_FLASHUSED.
+	UseImageFlashUsed Capability = 0x1107
 
-	// ImageGamma is an alias for ICAP_GAMMA.
-	ImageGamma Capability = 0x1108
+	// UseImageGamma is an alias for ICAP_GAMMA.
+	UseImageGamma Capability = 0x1108
 
-	// ImageHalftones is an alias for ICAP_HALFTONES.
-	ImageHalftones Capability = 0x1109
+	// UseImageHalftones is an alias for ICAP_HALFTONES.
+	UseImageHalftones Capability = 0x1109
 
-	// ImageHighlight is an alias for ICAP_HIGHLIGHT.
-	ImageHighlight Capability = 0x110a
+	// UseImageHighlight is an alias for ICAP_HIGHLIGHT.
+	UseImageHighlight Capability = 0x110a
 
-	// ImageImageFileFormat is an alias for ICAP_IMAGEFILEFORMAT.
-	ImageImageFileFormat Capability = 0x110c
+	// UseImageImageFileFormat is an alias for ICAP_IMAGEFILEFORMAT.
+	UseImageImageFileFormat Capability = 0x110c
 
-	// ImageLampState is an alias for ICAP_LAMPSTATE.
-	ImageLampState Capability = 0x110d
+	// UseImageLampState is an alias for ICAP_LAMPSTATE.
+	UseImageLampState Capability = 0x110d
 
-	// ImageLightSource is an alias for ICAP_LIGHTSOURCE.
-	ImageLightSource Capability = 0x110e
+	// UseImageLightSource is an alias for ICAP_LIGHTSOURCE.
+	UseImageLightSource Capability = 0x110e
 
-	// ImageOrientation is an alias for ICAP_ORIENTATION.
-	ImageOrientation Capability = 0x1110
+	// UseImageOrientation is an alias for ICAP_ORIENTATION.
+	UseImageOrientation Capability = 0x1110
 
-	// ImagePhysicalWidth is an alias for ICAP_PHYSICALWIDTH.
-	ImagePhysicalWidth Capability = 0x1111
+	// UseImagePhysicalWidth is an alias for ICAP_PHYSICALWIDTH.
+	UseImagePhysicalWidth Capability = 0x1111
 
-	// ImagePhysicalHeight is an alias for ICAP_PHYSICALHEIGHT.
-	ImagePhysicalHeight Capability = 0x1112
+	// UseImagePhysicalHeight is an alias for ICAP_PHYSICALHEIGHT.
+	UseImagePhysicalHeight Capability = 0x1112
 
-	// ImageShadow is an alias for ICAP_SHADOW.
-	ImageShadow Capability = 0x1113
+	// UseImageShadow is an alias for ICAP_SHADOW.
+	UseImageShadow Capability = 0x1113
 
-	// ImageFrames is an alias for ICAP_FRAMES.
-	ImageFrames Capability = 0x1114
+	// UseImageFrames is an alias for ICAP_FRAMES.
+	UseImageFrames Capability = 0x1114
 
-	// ImageXNativeResolution is an alias for ICAP_XNATIVERESOLUTION.
-	ImageXNativeResolution Capability = 0x1116
+	// UseImageXNativeResolution is an alias for ICAP_XNATIVERESOLUTION.
+	UseImageXNativeResolution Capability = 0x1116
 
-	// ImageYNativeResolution is an alias for ICAP_YNATIVERESOLUTION.
-	ImageYNativeResolution Capability = 0x1117
+	// UseImageYNativeResolution is an alias for ICAP_YNATIVERESOLUTION.
+	UseImageYNativeResolution Capability = 0x1117
 
-	// ImageXResolution is an alias for ICAP_XRESOLUTION.
-	ImageXResolution Capability = 0x1118
+	// UseImageXResolution is an alias for ICAP_XRESOLUTION.
+	UseImageXResolution Capability = 0x1118
 
-	// ImageYResolution is an alias for ICAP_YRESOLUTION.
-	ImageYResolution Capability = 0x1119
+	// UseImageYResolution is an alias for ICAP_YRESOLUTION.
+	UseImageYResolution Capability = 0x1119
 
-	// ImageMaxFrames is an alias for ICAP_MAXFRAMES.
-	ImageMaxFrames Capability = 0x111a
+	// UseImageMaxFrames is an alias for ICAP_MAXFRAMES.
+	UseImageMaxFrames Capability = 0x111a
 
-	// ImageTiles is an alias for ICAP_TILES.
-	ImageTiles Capability = 0x111b
+	// UseImageTiles is an alias for ICAP_TILES.
+	UseImageTiles Capability = 0x111b
 
-	// ImageBitOrder is an alias for ICAP_BITORDER.
-	ImageBitOrder Capability = 0x111c
+	// UseImageBitOrder is an alias for ICAP_BITORDER.
+	UseImageBitOrder Capability = 0x111c
 
-	// ImageCCITTKFactor is an alias for ICAP_CCITTKFACTOR.
-	ImageCCITTKFactor Capability = 0x111d
+	// UseImageCCITTKFactor is an alias for ICAP_CCITTKFACTOR.
+	UseImageCCITTKFactor Capability = 0x111d
 
-	// ImageLightPath is an alias for ICAP_LIGHTPATH.
-	ImageLightPath Capability = 0x111e
+	// UseImageLightPath is an alias for ICAP_LIGHTPATH.
+	UseImageLightPath Capability = 0x111e
 
-	// ImagePixelFlavor is an alias for ICAP_PIXELFLAVOR.
-	ImagePixelFlavor Capability = 0x111f
+	// UseImagePixelFlavor is an alias for ICAP_PIXELFLAVOR.
+	UseImagePixelFlavor Capability = 0x111f
 
-	// ImagePlanarChunky is an alias for ICAP_PLANARCHUNKY.
-	ImagePlanarChunky Capability = 0x1120
+	// UseImagePlanarChunky is an alias for ICAP_PLANARCHUNKY.
+	UseImagePlanarChunky Capability = 0x1120
 
-	// ImageRotation is an alias for ICAP_ROTATION.
-	ImageRotation Capability = 0x1121
+	// UseImageRotation is an alias for ICAP_ROTATION.
+	UseImageRotation Capability = 0x1121
 
-	// ImageSupportedSizes is an alias for ICAP_SUPPORTEDSIZES.
-	ImageSupportedSizes Capability = 0x1122
+	// UseImageSupportedSizes is an alias for ICAP_SUPPORTEDSIZES.
+	UseImageSupportedSizes Capability = 0x1122
 
-	// ImageThreshold is an alias for ICAP_THRESHOLD.
-	ImageThreshold Capability = 0x1123
+	// UseImageThreshold is an alias for ICAP_THRESHOLD.
+	UseImageThreshold Capability = 0x1123
 
-	// ImageXScaling is an alias for ICAP_XSCALING.
-	ImageXScaling Capability = 0x1124
+	// UseImageXScaling is an alias for ICAP_XSCALING.
+	UseImageXScaling Capability = 0x1124
 
-	// ImageYScaling is an alias for ICAP_YSCALING.
-	ImageYScaling Capability = 0x1125
+	// UseImageYScaling is an alias for ICAP_YSCALING.
+	UseImageYScaling Capability = 0x1125
 
-	// ImageBitOrderCodes is an alias for ICAP_BITORDERCODES.
-	ImageBitOrderCodes Capability = 0x1126
+	// UseImageBitOrderCodes is an alias for ICAP_BITORDERCODES.
+	UseImageBitOrderCodes Capability = 0x1126
 
-	// ImagePixelFlavorCodes is an alias for ICAP_PIXELFLAVORCODES.
-	ImagePixelFlavorCodes Capability = 0x1127
+	// UseImagePixelFlavorCodes is an alias for ICAP_PIXELFLAVORCODES.
+	UseImagePixelFlavorCodes Capability = 0x1127
 
-	// ImageJPEGPixelType is an alias for ICAP_JPEGPIXELTYPE.
-	ImageJPEGPixelType Capability = 0x1128
+	// UseImageJPEGPixelType is an alias for ICAP_JPEGPIXELTYPE.
+	UseImageJPEGPixelType Capability = 0x1128
 
-	// ImageTimeFill is an alias for ICAP_TIMEFILL.
-	ImageTimeFill Capability = 0x112a
+	// UseImageTimeFill is an alias for ICAP_TIMEFILL.
+	UseImageTimeFill Capability = 0x112a
 
-	// ImageBitDepth is an alias for ICAP_BITDEPTH.
-	ImageBitDepth Capability = 0x112b
+	// UseImageBitDepth is an alias for ICAP_BITDEPTH.
+	UseImageBitDepth Capability = 0x112b
 
-	// ImageBitDepthReduction is an alias for ICAP_BITDEPTHREDUCTION.
-	ImageBitDepthReduction Capability = 0x112c
+	// UseImageBitDepthReduction is an alias for ICAP_BITDEPTHREDUCTION.
+	UseImageBitDepthReduction Capability = 0x112c
 
-	// ImageUndefinedImageSize is an alias for ICAP_UNDEFINEDIMAGESIZE.
-	ImageUndefinedImageSize Capability = 0x112d
+	// UseImageUndefinedImageSize is an alias for ICAP_UNDEFINEDIMAGESIZE.
+	UseImageUndefinedImageSize Capability = 0x112d
 
-	// ImageImageDataset is an alias for ICAP_IMAGEDATASET.
-	ImageImageDataset Capability = 0x112e
+	// UseImageImageDataset is an alias for ICAP_IMAGEDATASET.
+	UseImageImageDataset Capability = 0x112e
 
-	// ImageExtImageInfo is an alias for ICAP_EXTIMAGEINFO.
-	ImageExtImageInfo Capability = 0x112f
+	// UseImageExtImageInfo is an alias for ICAP_EXTIMAGEINFO.
+	UseImageExtImageInfo Capability = 0x112f
 
-	// ImageMinimumHeight is an alias for ICAP_MINIMUMHEIGHT.
-	ImageMinimumHeight Capability = 0x1130
+	// UseImageMinimumHeight is an alias for ICAP_MINIMUMHEIGHT.
+	UseImageMinimumHeight Capability = 0x1130
 
-	// ImageMinimumWidth is an alias for ICAP_MINIMUMWIDTH.
-	ImageMinimumWidth Capability = 0x1131
+	// UseImageMinimumWidth is an alias for ICAP_MINIMUMWIDTH.
+	UseImageMinimumWidth Capability = 0x1131
 
-	// ImageAutoDiscardBlankPages is an alias for ICAP_AUTODISCARDBLANKPAGES.
-	ImageAutoDiscardBlankPages Capability = 0x1134
+	// UseImageAutoDiscardBlankPages is an alias for ICAP_AUTODISCARDBLANKPAGES.
+	UseImageAutoDiscardBlankPages Capability = 0x1134
 
-	// ImageFlipRotation is an alias for ICAP_FLIPROTATION.
-	ImageFlipRotation Capability = 0x1136
+	// UseImageFlipRotation is an alias for ICAP_FLIPROTATION.
+	UseImageFlipRotation Capability = 0x1136
 
-	// ImageBarcodeDetectionEnabled is an alias for ICAP_BARCODEDETECTIONENABLED.
-	ImageBarcodeDetectionEnabled Capability = 0x1137
+	// UseImageBarcodeDetectionEnabled is an alias for ICAP_BARCODEDETECTIONENABLED.
+	UseImageBarcodeDetectionEnabled Capability = 0x1137
 
-	// ImageSupportedBarcodeTypes is an alias for ICAP_SUPPORTEDBARCODETYPES.
-	ImageSupportedBarcodeTypes Capability = 0x1138
+	// UseImageSupportedBarcodeTypes is an alias for ICAP_SUPPORTEDBARCODETYPES.
+	UseImageSupportedBarcodeTypes Capability = 0x1138
 
-	// ImageBarcodeMaxSearchPriorities is an alias for ICAP_BARCODEMAXSEARCHPRIORITIES.
-	ImageBarcodeMaxSearchPriorities Capability = 0x1139
+	// UseImageBarcodeMaxSearchPriorities is an alias for ICAP_BARCODEMAXSEARCHPRIORITIES.
+	UseImageBarcodeMaxSearchPriorities Capability = 0x1139
 
-	// ImageBarcodeSearchPriorities is an alias for ICAP_BARCODESEARCHPRIORITIES.
-	ImageBarcodeSearchPriorities Capability = 0x113a
+	// UseImageBarcodeSearchPriorities is an alias for ICAP_BARCODESEARCHPRIORITIES.
+	UseImageBarcodeSearchPriorities Capability = 0x113a
 
-	// ImageBarcodeSearchMode is an alias for ICAP_BARCODESEARCHMODE.
-	ImageBarcodeSearchMode Capability = 0x113b
+	// UseImageBarcodeSearchMode is an alias for ICAP_BARCODESEARCHMODE.
+	UseImageBarcodeSearchMode Capability = 0x113b
 
-	// ImageBarcodeMaxRetries is an alias for ICAP_BARCODEMAXRETRIES.
-	ImageBarcodeMaxRetries Capability = 0x113c
+	// UseImageBarcodeMaxRetries is an alias for ICAP_BARCODEMAXRETRIES.
+	UseImageBarcodeMaxRetries Capability = 0x113c
 
-	// ImageBarcodeTimeout is an alias for ICAP_BARCODETIMEOUT.
-	ImageBarcodeTimeout Capability = 0x113d
+	// UseImageBarcodeTimeout is an alias for ICAP_BARCODETIMEOUT.
+	UseImageBarcodeTimeout Capability = 0x113d
 
-	// ImageZoomFactor is an alias for ICAP_ZOOMFACTOR.
-	ImageZoomFactor Capability = 0x113e
+	// UseImageZoomFactor is an alias for ICAP_ZOOMFACTOR.
+	UseImageZoomFactor Capability = 0x113e
 
-	// ImagePatchCodeDetectionEnabled is an alias for ICAP_PATCHCODEDETECTIONENABLED.
-	ImagePatchCodeDetectionEnabled Capability = 0x113f
+	// UseImagePatchCodeDetectionEnabled is an alias for ICAP_PATCHCODEDETECTIONENABLED.
+	UseImagePatchCodeDetectionEnabled Capability = 0x113f
 
-	// ImageSupportedPatchCodeTypes is an alias for ICAP_SUPPORTEDPATCHCODETYPES.
-	ImageSupportedPatchCodeTypes Capability = 0x1140
+	// UseImageSupportedPatchCodeTypes is an alias for ICAP_SUPPORTEDPATCHCODETYPES.
+	UseImageSupportedPatchCodeTypes Capability = 0x1140
 
-	// ImagePatchCodeMaxSearchPriorities is an alias for ICAP_PATCHCODEMAXSEARCHPRIORITIES.
-	ImagePatchCodeMaxSearchPriorities Capability = 0x1141
+	// UseImagePatchCodeMaxSearchPriorities is an alias for ICAP_PATCHCODEMAXSEARCHPRIORITIES.
+	UseImagePatchCodeMaxSearchPriorities Capability = 0x1141
 
-	// ImagePatchCodeSearchPriorities is an alias for ICAP_PATCHCODESEARCHPRIORITIES.
-	ImagePatchCodeSearchPriorities Capability = 0x1142
+	// UseImagePatchCodeSearchPriorities is an alias for ICAP_PATCHCODESEARCHPRIORITIES.
+	UseImagePatchCodeSearchPriorities Capability = 0x1142
 
-	// ImagePatchCodeSearchMode is an alias for ICAP_PATCHCODESEARCHMODE.
-	ImagePatchCodeSearchMode Capability = 0x1143
+	// UseImagePatchCodeSearchMode is an alias for ICAP_PATCHCODESEARCHMODE.
+	UseImagePatchCodeSearchMode Capability = 0x1143
 
-	// ImagePatchCodeMaxRetries is an alias for ICAP_PATCHCODEMAXRETRIES.
-	ImagePatchCodeMaxRetries Capability = 0x1144
+	// UseImagePatchCodeMaxRetries is an alias for ICAP_PATCHCODEMAXRETRIES.
+	UseImagePatchCodeMaxRetries Capability = 0x1144
 
-	// ImagePatchCodeTimeout is an alias for ICAP_PATCHCODETIMEOUT.
-	ImagePatchCodeTimeout Capability = 0x1145
+	// UseImagePatchCodeTimeout is an alias for ICAP_PATCHCODETIMEOUT.
+	UseImagePatchCodeTimeout Capability = 0x1145
 
-	// ImageFlashUsed2 is an alias for ICAP_FLASHUSED2.
-	ImageFlashUsed2 Capability = 0x1146
+	// UseImageFlashUsed2 is an alias for ICAP_FLASHUSED2.
+	UseImageFlashUsed2 Capability = 0x1146
 
-	// ImageImageFilter is an alias for ICAP_IMAGEFILTER.
-	ImageImageFilter Capability = 0x1147
+	// UseImageImageFilter is an alias for ICAP_IMAGEFILTER.
+	UseImageImageFilter Capability = 0x1147
 
-	// ImageNoiseFilter is an alias for ICAP_NOISEFILTER.
-	ImageNoiseFilter Capability = 0x1148
+	// UseImageNoiseFilter is an alias for ICAP_NOISEFILTER.
+	UseImageNoiseFilter Capability = 0x1148
 
-	// ImageOverScan is an alias for ICAP_OVERSCAN.
-	ImageOverScan Capability = 0x1149
+	// UseImageOverScan is an alias for ICAP_OVERSCAN.
+	UseImageOverScan Capability = 0x1149
 
-	// ImageAutomaticBorderDetection is an alias for ICAP_AUTOMATICBORDERDETECTION.
-	ImageAutomaticBorderDetection Capability = 0x1150
+	// UseImageAutomaticBorderDetection is an alias for ICAP_AUTOMATICBORDERDETECTION.
+	UseImageAutomaticBorderDetection Capability = 0x1150
 
-	// ImageAutomaticDESkew is an alias for ICAP_AUTOMATICDESKEW.
-	ImageAutomaticDESkew Capability = 0x1151
+	// UseImageAutomaticDESkew is an alias for ICAP_AUTOMATICDESKEW.
+	UseImageAutomaticDESkew Capability = 0x1151
 
-	// ImageAutomaticRotate is an alias for ICAP_AUTOMATICROTATE.
-	ImageAutomaticRotate Capability = 0x1152
+	// UseImageAutomaticRotate is an alias for ICAP_AUTOMATICROTATE.
+	UseImageAutomaticRotate Capability = 0x1152
 
-	// ImageJPEGQuality is an alias for ICAP_JPEGQUALITY.
-	ImageJPEGQuality Capability = 0x1153
+	// UseImageJPEGQuality is an alias for ICAP_JPEGQUALITY.
+	UseImageJPEGQuality Capability = 0x1153
 
-	// ImageFeederType is an alias for ICAP_FEEDERTYPE.
-	ImageFeederType Capability = 0x1154
+	// UseImageFeederType is an alias for ICAP_FEEDERTYPE.
+	UseImageFeederType Capability = 0x1154
 
-	// ImageICCProfile is an alias for ICAP_ICCPROFILE.
-	ImageICCProfile Capability = 0x1155
+	// UseImageICCProfile is an alias for ICAP_ICCPROFILE.
+	UseImageICCProfile Capability = 0x1155
 
-	// ImageAutoSize is an alias for ICAP_AUTOSIZE.
-	ImageAutoSize Capability = 0x1156
+	// UseImageAutoSize is an alias for ICAP_AUTOSIZE.
+	UseImageAutoSize Capability = 0x1156
 
-	// ImageAutomaticCropUsesFrame is an alias for ICAP_AUTOMATICCROPUSESFRAME.
-	ImageAutomaticCropUsesFrame Capability = 0x1157
+	// UseImageAutomaticCropUsesFrame is an alias for ICAP_AUTOMATICCROPUSESFRAME.
+	UseImageAutomaticCropUsesFrame Capability = 0x1157
 
-	// ImageAutomaticLengthDetection is an alias for ICAP_AUTOMATICLENGTHDETECTION.
-	ImageAutomaticLengthDetection Capability = 0x1158
+	// UseImageAutomaticLengthDetection is an alias for ICAP_AUTOMATICLENGTHDETECTION.
+	UseImageAutomaticLengthDetection Capability = 0x1158
 
-	// ImageAutomaticColorEnabled is an alias for ICAP_AUTOMATICCOLORENABLED.
-	ImageAutomaticColorEnabled Capability = 0x1159
+	// UseImageAutomaticColorEnabled is an alias for ICAP_AUTOMATICCOLORENABLED.
+	UseImageAutomaticColorEnabled Capability = 0x1159
 
-	// ImageAutomaticColorNonColorPixelType is an alias for ICAP_AUTOMATICCOLORNONCOLORPIXELTYPE.
-	ImageAutomaticColorNonColorPixelType Capability = 0x115a
+	// UseImageAutomaticColorNonColorPixelType is an alias for ICAP_AUTOMATICCOLORNONCOLORPIXELTYPE.
+	UseImageAutomaticColorNonColorPixelType Capability = 0x115a
 
-	// ImageColorManagementEnabled is an alias for ICAP_COLORMANAGEMENTENABLED.
-	ImageColorManagementEnabled Capability = 0x115b
+	// UseImageColorManagementEnabled is an alias for ICAP_COLORMANAGEMENTENABLED.
+	UseImageColorManagementEnabled Capability = 0x115b
 
-	// ImageImageMerge is an alias for ICAP_IMAGEMERGE.
-	ImageImageMerge Capability = 0x115c
+	// UseImageImageMerge is an alias for ICAP_IMAGEMERGE.
+	UseImageImageMerge Capability = 0x115c
 
-	// ImageImageMergeHeightThreshold is an alias for ICAP_IMAGEMERGEHEIGHTTHRESHOLD.
-	ImageImageMergeHeightThreshold Capability = 0x115d
+	// UseImageImageMergeHeightThreshold is an alias for ICAP_IMAGEMERGEHEIGHTTHRESHOLD.
+	UseImageImageMergeHeightThreshold Capability = 0x115d
 
-	// ImageSupportedExtImageInfo is an alias for ICAP_SUPPORTEDEXTIMAGEINFO.
-	ImageSupportedExtImageInfo Capability = 0x115e
+	// UseImageSupportedExtImageInfo is an alias for ICAP_SUPPORTEDEXTIMAGEINFO.
+	UseImageSupportedExtImageInfo Capability = 0x115e
 
-	// ImageFilmType is an alias for ICAP_FILMTYPE.
-	ImageFilmType Capability = 0x115f
+	// UseImageFilmType is an alias for ICAP_FILMTYPE.
+	UseImageFilmType Capability = 0x115f
 
-	// ImageMirror is an alias for ICAP_MIRROR.
-	ImageMirror Capability = 0x1160
+	// UseImageMirror is an alias for ICAP_MIRROR.
+	UseImageMirror Capability = 0x1160
 
-	// ImageJPEGSubsampling is an alias for ICAP_JPEGSUBSAMPLING.
-	ImageJPEGSubsampling Capability = 0x1161
+	// UseImageJPEGSubsampling is an alias for ICAP_JPEGSUBSAMPLING.
+	UseImageJPEGSubsampling Capability = 0x1161
 )
 
 // AudioTransferMechanism is an alias for ACAP_XFERMECH. Image data sources
 // _may_ support this audio capability.
-const AudioTransferMechanism Capability = 0x1202
+const UseAudioTransferMechanism Capability = 0x1202

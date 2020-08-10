@@ -38,7 +38,7 @@ const (
 	ContainerTypeRange ContainerType = 6
 )
 
-// MemoryFlag represents flags used in TW_MEMORY structure.
+// MemoryFlag represents flags used in the Memory (TW_MEMORY) structure.
 type MemoryFlag UInt32
 
 const (
@@ -58,7 +58,7 @@ const (
 	MemoryFlagHandle MemoryFlag = 0x0010
 )
 
-// TypeFlag represents the type used in the Memory structure.
+// TypeFlag represents the type used in the Memory (TW_MEMORY) structure.
 type TypeFlag UInt16
 
 const (

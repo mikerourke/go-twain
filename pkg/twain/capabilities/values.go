@@ -2,1015 +2,1016 @@ package capabilities
 
 import "github.com/mikerourke/go-twain/pkg/twain"
 
-// AlarmValue is an alias for the CAP_ALARMS constants.
-type AlarmValue twain.UInt16
+// Alarm is an alias for CAP_ALARMS values.
+type Alarm twain.UInt16
 
 const (
-	// AlarmValueAlarm is an alias for TWAL_ALARM.
-	AlarmValueAlarm AlarmValue = iota
+	// AlarmAlarm is an alias for TWAL_ALARM.
+	AlarmAlarm Alarm = iota
 
-	// AlarmValueFeedError is an alias for TWAL_FEEDERERROR.
-	AlarmValueFeedError
+	// AlarmFeedError is an alias for TWAL_FEEDERERROR.
+	AlarmFeedError
 
-	// AlarmValueFeederWarning is an alias for TWAL_FEEDERWARNING.
-	AlarmValueFeederWarning
+	// AlarmFeederWarning is an alias for TWAL_FEEDERWARNING.
+	AlarmFeederWarning
 
-	// AlarmValueBarcode is an alias for TWAL_BARCODE.
-	AlarmValueBarcode
+	// AlarmBarcode is an alias for TWAL_BARCODE.
+	AlarmBarcode
 
-	// AlarmValueDoubleFeed is an alias for TWAL_DOUBLEFEED.
-	AlarmValueDoubleFeed
+	// AlarmDoubleFeed is an alias for TWAL_DOUBLEFEED.
+	AlarmDoubleFeed
 
-	// AlarmValueJam is an alias for TWAL_JAM.
-	AlarmValueJam
+	// AlarmJam is an alias for TWAL_JAM.
+	AlarmJam
 
-	// AlarmValuePatchCode is an alias for TWAL_PATCHCODE.
-	AlarmValuePatchCode
+	// AlarmPatchCode is an alias for TWAL_PATCHCODE.
+	AlarmPatchCode
 
-	// AlarmValuePower is an alias for TWAL_POWER.
-	AlarmValuePower
+	// AlarmPower is an alias for TWAL_POWER.
+	AlarmPower
 
-	// AlarmValueSkew is an alias for TWAL_SKEW.
-	AlarmValueSkew
+	// AlarmSkew is an alias for TWAL_SKEW.
+	AlarmSkew
 )
 
-// AutoSizeValue is an alias for the ICAP_AUTOSIZE values.
-type AutoSizeValue twain.UInt16
+// AutoSize is an alias for the ICAP_AUTOSIZE values.
+type AutoSize twain.UInt16
 
 const (
-	// AutoSizeValueNone is an alias for TWAS_NONE.
-	AutoSizeValueNone AutoSizeValue = iota
+	// AutoSizeNone is an alias for TWAS_NONE.
+	AutoSizeNone AutoSize = iota
 
-	// AutoSizeValueAuto is an alias for TWAS_AUTO.
-	AutoSizeValueAuto
+	// AutoSizeAuto is an alias for TWAS_AUTO.
+	AutoSizeAuto
 
-	// AutoSizeValueCurrent is an alias for TWAS_CURRENT.
-	AutoSizeValueCurrent
+	// AutoSizeCurrent is an alias for TWAS_CURRENT.
+	AutoSizeCurrent
 )
 
-// BarcodeRotationValue is an alias for the TWEI_BARCODEROTATION values.
-type BarcodeRotationValue twain.UInt16
+// BarcodeRotation is an alias for the TWEI_BARCODEROTATION values.
+type BarcodeRotation twain.UInt16
 
 const (
-	// BarcodeRotationValue0 is an alias for TWBCOR_ROT0.
-	BarcodeRotationValue0 BarcodeRotationValue = iota
+	// BarcodeRotation0 is an alias for TWBCOR_ROT0.
+	BarcodeRotation0 BarcodeRotation = iota
 
-	// BarcodeRotationValue90 is an alias for TWBCOR_ROT90.
-	BarcodeRotationValue90
+	// BarcodeRotation90 is an alias for TWBCOR_ROT90.
+	BarcodeRotation90
 
-	// BarcodeRotationValue180 is an alias for TWBCOR_ROT180.
-	BarcodeRotationValue180
+	// BarcodeRotation180 is an alias for TWBCOR_ROT180.
+	BarcodeRotation180
 
-	// BarcodeRotationValue270 is an alias for TWBCOR_ROT270.
-	BarcodeRotationValue270
+	// BarcodeRotation270 is an alias for TWBCOR_ROT270.
+	BarcodeRotation270
 
-	// BarcodeRotationValueX is an alias for TWBCOR_ROTX.
-	BarcodeRotationValueX
+	// BarcodeRotationX is an alias for TWBCOR_ROTX.
+	BarcodeRotationX
 )
 
-// BarcodeSearchModeValue is an alias for ICAP_BARCODESEARCHMODE values.
-type BarcodeSearchModeValue twain.UInt16
+// BarcodeSearchMode is an alias for ICAP_BARCODESEARCHMODE values.
+type BarcodeSearchMode twain.UInt16
 
 const (
-	// BarcodeSearchModeValueHoriz is an alias for TWBD_HORZ.
-	BarcodeSearchModeValueHoriz BarcodeSearchModeValue = iota
+	// BarcodeSearchModeHoriz is an alias for TWBD_HORZ.
+	BarcodeSearchModeHoriz BarcodeSearchMode = iota
 
-	// BarcodeSearchModeValueVert is an alias for TWBD_VERT.
-	BarcodeSearchModeValueVert
+	// BarcodeSearchModeVert is an alias for TWBD_VERT.
+	BarcodeSearchModeVert
 
-	// BarcodeSearchModeValueHorizVert is an alias for TWBD_HORZVERT.
-	BarcodeSearchModeValueHorizVert
+	// BarcodeSearchModeHorizVert is an alias for TWBD_HORZVERT.
+	BarcodeSearchModeHorizVert
 
-	// BarcodeSearchModeValueVertHoriz is an alias for TWBD_VERTHORZ.
-	BarcodeSearchModeValueVertHoriz
+	// BarcodeSearchModeVertHoriz is an alias for TWBD_VERTHORZ.
+	BarcodeSearchModeVertHoriz
 )
 
-// BitOrderValue is an alias for ICAP_BITORDER values.
-type BitOrderValue twain.UInt16
+// BitOrder is an alias for ICAP_BITORDER values.
+type BitOrder twain.UInt16
 
 const (
-	// BitOrderValueLSBFirst is an alias for TWBO_LSBFIRST.
-	BitOrderValueLSBFirst BitOrderValue = iota
+	// BitOrderLSBFirst is an alias for TWBO_LSBFIRST.
+	BitOrderLSBFirst BitOrder = iota
 
-	// BitOrderValueMSBFirst is an alias for TWBO_MSBFIRST.
-	BitOrderValueMSBFirst
+	// BitOrderMSBFirst is an alias for TWBO_MSBFIRST.
+	BitOrderMSBFirst
 )
 
-// AutoDiscardBlankPagesValue is an alias for ICAP_AUTODISCARDBLANKPAGES values.
-type AutoDiscardBlankPagesValue twain.UInt16
+// AutoDiscardBlankPages is an alias for ICAP_AUTODISCARDBLANKPAGES values.
+type AutoDiscardBlankPages twain.UInt16
 
 const (
-	// AutoDiscardBlankPagesValueDisable is an alias for TWBP_DISABLE.
-	AutoDiscardBlankPagesValueDisable AutoDiscardBlankPagesValue = -2
+	// AutoDiscardBlankPagesDisable is an alias for TWBP_DISABLE.
+	AutoDiscardBlankPagesDisable AutoDiscardBlankPages = -2
 
-	// AutoDiscardBlankPagesValueAuto is an alias for TWBP_AUTO.
-	AutoDiscardBlankPagesValueAuto AutoDiscardBlankPagesValue = -1
+	// AutoDiscardBlankPagesAuto is an alias for TWBP_AUTO.
+	AutoDiscardBlankPagesAuto AutoDiscardBlankPages = -1
 )
 
-// BitDepthReductionValue is an alias for ICAP_BITDEPTHREDUCTION values.
-type BitDepthReductionValue twain.UInt16
+// BitDepthReduction is an alias for ICAP_BITDEPTHREDUCTION values.
+type BitDepthReduction twain.UInt16
 
 const (
-	// BitDepthReductionValueThreshold is an alias for TWBR_THRESHOLD.
-	BitDepthReductionValueThreshold BitDepthReductionValue = iota
+	// BitDepthReductionThreshold is an alias for TWBR_THRESHOLD.
+	BitDepthReductionThreshold BitDepthReduction = iota
 
-	// BitDepthReductionValueHalfTone is an alias for TWBR_HALFTONE.
-	BitDepthReductionValueHalfTone
+	// BitDepthReductionHalfTone is an alias for TWBR_HALFTONE.
+	BitDepthReductionHalfTone
 
-	// BitDepthReductionValueCustomHalfTone is an alias for TWBR_CUSTHALFTONE.
-	BitDepthReductionValueCustomHalfTone
+	// BitDepthReductionCustomHalfTone is an alias for TWBR_CUSTHALFTONE.
+	BitDepthReductionCustomHalfTone
 
-	// BitDepthReductionValueDiffusion is an alias for TWBR_DIFFUSION.
-	BitDepthReductionValueDiffusion
+	// BitDepthReductionDiffusion is an alias for TWBR_DIFFUSION.
+	BitDepthReductionDiffusion
 
-	// BitDepthReductionValueDynamicThreshold is an alias for TWBR_DYNAMICTHRESHOLD.
-	BitDepthReductionValueDynamicThreshold
+	// BitDepthReductionDynamicThreshold is an alias for TWBR_DYNAMICTHRESHOLD.
+	BitDepthReductionDynamicThreshold
 )
 
-// SupportedBarcodeTypeValue is an alias for ICAP_SUPPORTEDBARCODETYPES and
+// SupportedBarcodeType is an alias for ICAP_SUPPORTEDBARCODETYPES and
 // TWEI_BARCODETYPE values.
-type SupportedBarcodeTypeValue twain.UInt16
+type SupportedBarcodeType twain.UInt16
 
 const (
-	// SupportedBarcodeTypeValue3OF9 is an alias for TWBT_3OF9.
-	SupportedBarcodeTypeValue3OF9 SupportedBarcodeTypeValue = iota
+	// SupportedBarcodeType3OF9 is an alias for TWBT_3OF9.
+	SupportedBarcodeType3OF9 SupportedBarcodeType = iota
 
-	// SupportedBarcodeTypeValue2OF5Interleaved is an alias for TWBT_2OF5INTERLEAVED.
-	SupportedBarcodeTypeValue2OF5Interleaved
+	// SupportedBarcodeType2OF5Interleaved is an alias for TWBT_2OF5INTERLEAVED.
+	SupportedBarcodeType2OF5Interleaved
 
-	// SupportedBarcodeTypeValue2OF5NonInterleaved is an alias for TWBT_2OF5NONINTERLEAVED.
-	SupportedBarcodeTypeValue2OF5NonInterleaved
+	// SupportedBarcodeType2OF5NonInterleaved is an alias for TWBT_2OF5NONINTERLEAVED.
+	SupportedBarcodeType2OF5NonInterleaved
 
-	// SupportedBarcodeTypeValueCode93 is an alias for TWBT_CODE93.
-	SupportedBarcodeTypeValueCode93
+	// SupportedBarcodeTypeCode93 is an alias for TWBT_CODE93.
+	SupportedBarcodeTypeCode93
 
-	// SupportedBarcodeTypeValueCode128 is an alias for TWBT_CODE128.
-	SupportedBarcodeTypeValueCode128
+	// SupportedBarcodeTypeCode128 is an alias for TWBT_CODE128.
+	SupportedBarcodeTypeCode128
 
-	// SupportedBarcodeTypeValueUCC128 is an alias for TWBT_UCC128.
-	SupportedBarcodeTypeValueUCC128
+	// SupportedBarcodeTypeUCC128 is an alias for TWBT_UCC128.
+	SupportedBarcodeTypeUCC128
 
-	// SupportedBarcodeTypeValueCodaBar is an alias for TWBT_CODABAR.
-	SupportedBarcodeTypeValueCodaBar
+	// SupportedBarcodeTypeCodaBar is an alias for TWBT_CODABAR.
+	SupportedBarcodeTypeCodaBar
 
-	// SupportedBarcodeTypeValueUPCA is an alias for TWBT_UPCA.
-	SupportedBarcodeTypeValueUPCA
+	// SupportedBarcodeTypeUPCA is an alias for TWBT_UPCA.
+	SupportedBarcodeTypeUPCA
 
-	// SupportedBarcodeTypeValueUPCE is an alias for TWBT_UPCE.
-	SupportedBarcodeTypeValueUPCE
+	// SupportedBarcodeTypeUPCE is an alias for TWBT_UPCE.
+	SupportedBarcodeTypeUPCE
 
-	// SupportedBarcodeTypeValueEAN8 is an alias for TWBT_EAN8.
-	SupportedBarcodeTypeValueEAN8
+	// SupportedBarcodeTypeEAN8 is an alias for TWBT_EAN8.
+	SupportedBarcodeTypeEAN8
 
-	// SupportedBarcodeTypeValueEAN13 is an alias for TWBT_EAN13.
-	SupportedBarcodeTypeValueEAN13
+	// SupportedBarcodeTypeEAN13 is an alias for TWBT_EAN13.
+	SupportedBarcodeTypeEAN13
 
-	// SupportedBarcodeTypeValuePostNet is an alias for TWBT_POSTNET.
-	SupportedBarcodeTypeValuePostNet
+	// SupportedBarcodeTypePostNet is an alias for TWBT_POSTNET.
+	SupportedBarcodeTypePostNet
 
-	// SupportedBarcodeTypeValuePDF417 is an alias for TWBT_PDF417.
-	SupportedBarcodeTypeValuePDF417
+	// SupportedBarcodeTypePDF417 is an alias for TWBT_PDF417.
+	SupportedBarcodeTypePDF417
 
-	// SupportedBarcodeTypeValue2OF5Industrial is an alias for TWBT_2OF5INDUSTRIAL.
-	SupportedBarcodeTypeValue2OF5Industrial
+	// SupportedBarcodeType2OF5Industrial is an alias for TWBT_2OF5INDUSTRIAL.
+	SupportedBarcodeType2OF5Industrial
 
-	// SupportedBarcodeTypeValue2OF5Matrix is an alias for TWBT_2OF5MATRIX.
-	SupportedBarcodeTypeValue2OF5Matrix
+	// SupportedBarcodeType2OF5Matrix is an alias for TWBT_2OF5MATRIX.
+	SupportedBarcodeType2OF5Matrix
 
-	// SupportedBarcodeTypeValue2OF5DataLogic is an alias for TWBT_2OF5DATALOGIC.
-	SupportedBarcodeTypeValue2OF5DataLogic
+	// SupportedBarcodeType2OF5DataLogic is an alias for TWBT_2OF5DATALOGIC.
+	SupportedBarcodeType2OF5DataLogic
 
-	// SupportedBarcodeTypeValue2OF5IATA is an alias for TWBT_2OF5IATA.
-	SupportedBarcodeTypeValue2OF5IATA
+	// SupportedBarcodeType2OF5IATA is an alias for TWBT_2OF5IATA.
+	SupportedBarcodeType2OF5IATA
 
-	// SupportedBarcodeTypeValue3OF9FullASCII is an alias for TWBT_3OF9FULLASCII.
-	SupportedBarcodeTypeValue3OF9FullASCII
+	// SupportedBarcodeType3OF9FullASCII is an alias for TWBT_3OF9FULLASCII.
+	SupportedBarcodeType3OF9FullASCII
 
-	// SupportedBarcodeTypeValueCodaBarWithStartStop is an alias for TWBT_CODABARWITHSTARTSTOP.
-	SupportedBarcodeTypeValueCodaBarWithStartStop
+	// SupportedBarcodeTypeCodaBarWithStartStop is an alias for TWBT_CODABARWITHSTARTSTOP.
+	SupportedBarcodeTypeCodaBarWithStartStop
 
-	// SupportedBarcodeTypeValueMAXICode is an alias for TWBT_MAXICODE.
-	SupportedBarcodeTypeValueMAXICode
+	// SupportedBarcodeTypeMAXICode is an alias for TWBT_MAXICODE.
+	SupportedBarcodeTypeMAXICode
 
-	// SupportedBarcodeTypeValueQRCode is an alias for TWBT_QRCODE.
-	SupportedBarcodeTypeValueQRCode
+	// SupportedBarcodeTypeQRCode is an alias for TWBT_QRCODE.
+	SupportedBarcodeTypeQRCode
 )
 
-// CompressionValue is an alias for ICAP_COMPRESSION values.
-type CompressionValue twain.UInt16
+// Compression is an alias for ICAP_COMPRESSION values.
+type Compression twain.UInt16
 
 const (
-	// CompressionValueNone is an alias for TWCP_NONE.
-	CompressionValueNone CompressionValue = iota
+	// CompressionNone is an alias for TWCP_NONE.
+	CompressionNone Compression = iota
 
-	// CompressionValuePackBits is an alias for TWCP_PACKBITS.
-	CompressionValuePackBits
+	// CompressionPackBits is an alias for TWCP_PACKBITS.
+	CompressionPackBits
 
-	// CompressionValueGroup31D is an alias for TWCP_GROUP31D.
-	CompressionValueGroup31D
+	// CompressionGroup31D is an alias for TWCP_GROUP31D.
+	CompressionGroup31D
 
-	// CompressionValueGroup31DEOL is an alias for TWCP_GROUP31DEOL.
-	CompressionValueGroup31DEOL
+	// CompressionGroup31DEOL is an alias for TWCP_GROUP31DEOL.
+	CompressionGroup31DEOL
 
-	// CompressionValueGroup32D is an alias for TWCP_GROUP32D.
-	CompressionValueGroup32D
+	// CompressionGroup32D is an alias for TWCP_GROUP32D.
+	CompressionGroup32D
 
-	// CompressionValueGroup4 is an alias for TWCP_GROUP4.
-	CompressionValueGroup4
+	// CompressionGroup4 is an alias for TWCP_GROUP4.
+	CompressionGroup4
 
-	// CompressionValueJPEG is an alias for TWCP_JPEG.
-	CompressionValueJPEG
+	// CompressionJPEG is an alias for TWCP_JPEG.
+	CompressionJPEG
 
-	// CompressionValueLZW is an alias for TWCP_LZW.
-	CompressionValueLZW
+	// CompressionLZW is an alias for TWCP_LZW.
+	CompressionLZW
 
-	// CompressionValueJBIG is an alias for TWCP_JBIG.
-	CompressionValueJBIG
+	// CompressionJBIG is an alias for TWCP_JBIG.
+	CompressionJBIG
 
-	// CompressionValuePNG is an alias for TWCP_PNG.
-	CompressionValuePNG
+	// CompressionPNG is an alias for TWCP_PNG.
+	CompressionPNG
 
-	// CompressionValueRLE4 is an alias for TWCP_RLE4.
-	CompressionValueRLE4
+	// CompressionRLE4 is an alias for TWCP_RLE4.
+	CompressionRLE4
 
-	// CompressionValueRLE8 is an alias for TWCP_RLE8.
-	CompressionValueRLE8
+	// CompressionRLE8 is an alias for TWCP_RLE8.
+	CompressionRLE8
 
-	// CompressionValueBitFields is an alias for TWCP_BITFIELDS.
-	CompressionValueBitFields
+	// CompressionBitFields is an alias for TWCP_BITFIELDS.
+	CompressionBitFields
 
-	// CompressionValueZIP is an alias for TWCP_ZIP.
-	CompressionValueZIP
+	// CompressionZIP is an alias for TWCP_ZIP.
+	CompressionZIP
 
-	// CompressionValueJPEG2000 is an alias for TWCP_JPEG2000.
-	CompressionValueJPEG2000
+	// CompressionJPEG2000 is an alias for TWCP_JPEG2000.
+	CompressionJPEG2000
 )
 
-// CameraSideValue is an alias for CAP_CAMERASIDE and TWEI_PAGESIDE values.
-type CameraSideValue twain.UInt16
+// CameraSide is an alias for CAP_CAMERASIDE and TWEI_PAGESIDE values.
+type CameraSide twain.UInt16
 
 const (
-	// CameraSideValueBoth is an alias for TWCS_BOTH.
-	CameraSideValueBoth CameraSideValue = iota
+	// CameraSideBoth is an alias for TWCS_BOTH.
+	CameraSideBoth CameraSide = iota
 
-	// CameraSideValueTop is an alias for TWCS_TOP.
-	CameraSideValueTop
+	// CameraSideTop is an alias for TWCS_TOP.
+	CameraSideTop
 
-	// CameraSideValueBottom is an alias for TWCS_BOTTOM.
-	CameraSideValueBottom
+	// CameraSideBottom is an alias for TWCS_BOTTOM.
+	CameraSideBottom
 )
 
-// DeviceEventValue is an alias for CAP_DEVICEEVENT values.
-type DeviceEventValue twain.UInt16
+// DeviceEventType is an alias for CAP_DEVICEEVENT values.
+type DeviceEventType twain.UInt32
 
-const DeviceEventValueCustomEvents DeviceEventValue = 0x8000
+// DeviceEventTypeCustomEvents is an alias for TWDE_CUSTOMEVENTS.
+const DeviceEventTypeCustomEvents DeviceEventType = 0x8000
 
 const (
-	// DeviceEventValueCheckAutomaticCapture is an alias for TWDE_CHECKAUTOMATICCAPTURE.
-	DeviceEventValueCheckAutomaticCapture DeviceEventValue = iota
+	// DeviceEventTypeCheckAutomaticCapture is an alias for TWDE_CHECKAUTOMATICCAPTURE.
+	DeviceEventTypeCheckAutomaticCapture DeviceEventType = iota
 
-	// DeviceEventValueCheckBattery is an alias for TWDE_CHECKBATTERY.
-	DeviceEventValueCheckBattery
+	// DeviceEventTypeCheckBattery is an alias for TWDE_CHECKBATTERY.
+	DeviceEventTypeCheckBattery
 
-	// DeviceEventValueCheckDeviceOnline is an alias for TWDE_CHECKDEVICEONLINE.
-	DeviceEventValueCheckDeviceOnline
+	// DeviceEventTypeCheckDeviceOnline is an alias for TWDE_CHECKDEVICEONLINE.
+	DeviceEventTypeCheckDeviceOnline
 
-	// DeviceEventValueCheckFlash is an alias for TWDE_CHECKFLASH.
-	DeviceEventValueCheckFlash
+	// DeviceEventTypeCheckFlash is an alias for TWDE_CHECKFLASH.
+	DeviceEventTypeCheckFlash
 
-	// DeviceEventValueCheckPowerSupplyValue is an alias for TWDE_CHECKPOWERSUPPLY.
-	DeviceEventValueCheckPowerSupplyValue
+	// DeviceEventTypeCheckPowerSupplyValue is an alias for TWDE_CHECKPOWERSUPPLY.
+	DeviceEventTypeCheckPowerSupplyValue
 
-	// DeviceEventValueCheckResolution is an alias for TWDE_CHECKRESOLUTION.
-	DeviceEventValueCheckResolution
+	// DeviceEventTypeCheckResolution is an alias for TWDE_CHECKRESOLUTION.
+	DeviceEventTypeCheckResolution
 
-	// DeviceEventValueDeviceAdded is an alias for TWDE_DEVICEADDED.
-	DeviceEventValueDeviceAdded
+	// DeviceEventTypeDeviceAdded is an alias for TWDE_DEVICEADDED.
+	DeviceEventTypeDeviceAdded
 
-	// DeviceEventValueDeviceOffline is an alias for TWDE_DEVICEOFFLINE.
-	DeviceEventValueDeviceOffline
+	// DeviceEventTypeDeviceOffline is an alias for TWDE_DEVICEOFFLINE.
+	DeviceEventTypeDeviceOffline
 
-	// DeviceEventValueDeviceReady is an alias for TWDE_DEVICEREADY.
-	DeviceEventValueDeviceReady
+	// DeviceEventTypeDeviceReady is an alias for TWDE_DEVICEREADY.
+	DeviceEventTypeDeviceReady
 
-	// DeviceEventValueDeviceRemoved is an alias for TWDE_DEVICEREMOVED.
-	DeviceEventValueDeviceRemoved
+	// DeviceEventTypeDeviceRemoved is an alias for TWDE_DEVICEREMOVED.
+	DeviceEventTypeDeviceRemoved
 
-	// DeviceEventValueImageCaptured is an alias for TWDE_IMAGECAPTURED.
-	DeviceEventValueImageCaptured
+	// DeviceEventTypeImageCaptured is an alias for TWDE_IMAGECAPTURED.
+	DeviceEventTypeImageCaptured
 
-	// DeviceEventValueImageDeleted is an alias for TWDE_IMAGEDELETED.
-	DeviceEventValueImageDeleted
+	// DeviceEventTypeImageDeleted is an alias for TWDE_IMAGEDELETED.
+	DeviceEventTypeImageDeleted
 
-	// DeviceEventValuePaperDoubleFeed is an alias for TWDE_PAPERDOUBLEFEED.
-	DeviceEventValuePaperDoubleFeed
+	// DeviceEventTypePaperDoubleFeed is an alias for TWDE_PAPERDOUBLEFEED.
+	DeviceEventTypePaperDoubleFeed
 
-	// DeviceEventValuePaperJam is an alias for TWDE_PAPERJAM.
-	DeviceEventValuePaperJam
+	// DeviceEventTypePaperJam is an alias for TWDE_PAPERJAM.
+	DeviceEventTypePaperJam
 
-	// DeviceEventValueLampFailure is an alias for TWDE_LAMPFAILURE.
-	DeviceEventValueLampFailure
+	// DeviceEventTypeLampFailure is an alias for TWDE_LAMPFAILURE.
+	DeviceEventTypeLampFailure
 
-	// DeviceEventValuePowerSave is an alias for TWDE_POWERSAVE.
-	DeviceEventValuePowerSave
+	// DeviceEventTypePowerSave is an alias for TWDE_POWERSAVE.
+	DeviceEventTypePowerSave
 
-	// DeviceEventValuePowerSaveNotify is an alias for TWDE_POWERSAVENOTIFY.
-	DeviceEventValuePowerSaveNotify
+	// DeviceEventTypePowerSaveNotify is an alias for TWDE_POWERSAVENOTIFY.
+	DeviceEventTypePowerSaveNotify
 )
 
-// PassThruDirectionValue is an alias for TW_PASSTHRU.Direction values.
-type PassThruDirectionValue twain.UInt16
+// PassThruDirection is an alias for TW_PASSTHRU.Direction values.
+type PassThruDirection twain.Int32
 
 const (
-	// PassThruDirectionValueGet is an alias for TWDR_GET.
-	PassThruDirectionValueGet = 1
+	// PassThruDirectionGet is an alias for TWDR_GET.
+	PassThruDirectionGet PassThruDirection = iota + 1
 
-	// PassThruDirectionValueSet is an alias for TWDR_SET.
-	PassThruDirectionValueSet = 2
+	// PassThruDirectionSet is an alias for TWDR_SET.
+	PassThruDirectionSet
 )
 
-// DeskEWStatusValue is an alias for TWEI_DESKEWSTATUS values.
-type DeskEWStatusValue twain.UInt16
+// DeskEWStatus is an alias for TWEI_DESKEWSTATUS values.
+type DeskEWStatus twain.UInt16
 
 const (
-	// DeskEWStatusValueSuccess is an alias for TWDSK_SUCCESS.
-	DeskEWStatusValueSuccess DeskEWStatusValue = iota
+	// DeskEWStatusSuccess is an alias for TWDSK_SUCCESS.
+	DeskEWStatusSuccess DeskEWStatus = iota
 
-	// DeskEWStatusValueReportOnly is an alias for TWDSK_REPORTONLY.
-	DeskEWStatusValueReportOnly
+	// DeskEWStatusReportOnly is an alias for TWDSK_REPORTONLY.
+	DeskEWStatusReportOnly
 
-	// DeskEWStatusValueFail is an alias for TWDSK_FAIL.
-	DeskEWStatusValueFail
+	// DeskEWStatusFail is an alias for TWDSK_FAIL.
+	DeskEWStatusFail
 
-	// DeskEWStatusValueDisabled is an alias for TWDSK_DISABLED.
-	DeskEWStatusValueDisabled
+	// DeskEWStatusDisabled is an alias for TWDSK_DISABLED.
+	DeskEWStatusDisabled
 )
 
-// DuplexValue is an alias for CAP_DUPLEX values.
-type DuplexValue twain.UInt16
+// Duplex is an alias for CAP_DUPLEX values.
+type Duplex twain.UInt16
 
 const (
-	// DuplexValueNone is an alias for TWDX_NONE.
-	DuplexValueNone DuplexValue = iota
+	// DuplexNone is an alias for TWDX_NONE.
+	DuplexNone Duplex = iota
 
-	// DuplexValue1PassDuplex is an alias for TWDX_1PASSDUPLEX.
-	DuplexValue1PassDuplex
+	// Duplex1PassDuplex is an alias for TWDX_1PASSDUPLEX.
+	Duplex1PassDuplex
 
-	// DuplexValue2PassDuplex is an alias for TWDX_2PASSDUPLEX.
-	DuplexValue2PassDuplex
+	// Duplex2PassDuplex is an alias for TWDX_2PASSDUPLEX.
+	Duplex2PassDuplex
 )
 
-// FeederAlignmentValue is an alias for CAP_FEEDERALIGNMENT values.
-type FeederAlignmentValue twain.UInt16
+// FeederAlignment is an alias for CAP_FEEDERALIGNMENT values.
+type FeederAlignment twain.UInt16
 
 const (
-	// FeederAlignmentValueNone is an alias for TWFA_NONE.
-	FeederAlignmentValueNone FeederAlignmentValue = iota
+	// FeederAlignmentNone is an alias for TWFA_NONE.
+	FeederAlignmentNone FeederAlignment = iota
 
-	// FeederAlignmentValueLeft is an alias for TWFA_LEFT.
-	FeederAlignmentValueLeft
+	// FeederAlignmentLeft is an alias for TWFA_LEFT.
+	FeederAlignmentLeft
 
-	// FeederAlignmentValueCenter is an alias for TWFA_CENTER.
-	FeederAlignmentValueCenter
+	// FeederAlignmentCenter is an alias for TWFA_CENTER.
+	FeederAlignmentCenter
 
-	// FeederAlignmentValueRight is an alias for TWFA_RIGHT.
-	FeederAlignmentValueRight
+	// FeederAlignmentRight is an alias for TWFA_RIGHT.
+	FeederAlignmentRight
 )
 
-// FeederTypeValue is an alias for ICAP_FEEDERTYPE values.
-type FeederTypeValue twain.UInt16
+// FeederType is an alias for ICAP_FEEDERTYPE values.
+type FeederType twain.UInt16
 
 const (
-	// FeederTypeValueGeneral is an alias for TWFE_GENERAL.
-	FeederTypeValueGeneral FeederTypeValue = iota
+	// FeederTypeGeneral is an alias for TWFE_GENERAL.
+	FeederTypeGeneral FeederType = iota
 
-	// FeederTypeValuePhoto is an alias for TWFE_PHOTO.
-	FeederTypeValuePhoto
+	// FeederTypePhoto is an alias for TWFE_PHOTO.
+	FeederTypePhoto
 )
 
-// ImageFileFormatValue is an alias for ICAP_IMAGEFILEFORMAT values.
-type ImageFileFormatValue twain.UInt16
+// ImageFileFormat is an alias for ICAP_IMAGEFILEFORMAT values.
+type ImageFileFormat twain.UInt16
 
 const (
-	// ImageFileFormatValueTIFF is an alias for TWFF_TIFF.
-	ImageFileFormatValueTIFF ImageFileFormatValue = iota
+	// ImageFileFormatTIFF is an alias for TWFF_TIFF.
+	ImageFileFormatTIFF ImageFileFormat = iota
 
-	// ImageFileFormatValuePICT is an alias for TWFF_PICT.
-	ImageFileFormatValuePICT
+	// ImageFileFormatPICT is an alias for TWFF_PICT.
+	ImageFileFormatPICT
 
-	// ImageFileFormatValueBMP is an alias for TWFF_BMP.
-	ImageFileFormatValueBMP
+	// ImageFileFormatBMP is an alias for TWFF_BMP.
+	ImageFileFormatBMP
 
-	// ImageFileFormatValueXBM is an alias for TWFF_XBM.
-	ImageFileFormatValueXBM
+	// ImageFileFormatXBM is an alias for TWFF_XBM.
+	ImageFileFormatXBM
 
-	// ImageFileFormatValueJFIF is an alias for TWFF_JFIF.
-	ImageFileFormatValueJFIF
+	// ImageFileFormatJFIF is an alias for TWFF_JFIF.
+	ImageFileFormatJFIF
 
-	// ImageFileFormatValueFPX is an alias for TWFF_FPX.
-	ImageFileFormatValueFPX
+	// ImageFileFormatFPX is an alias for TWFF_FPX.
+	ImageFileFormatFPX
 
-	// ImageFileFormatValueTIFFMulti is an alias for TWFF_TIFFMULTI.
-	ImageFileFormatValueTIFFMulti
+	// ImageFileFormatTIFFMulti is an alias for TWFF_TIFFMULTI.
+	ImageFileFormatTIFFMulti
 
-	// ImageFileFormatValuePNG is an alias for TWFF_PNG.
-	ImageFileFormatValuePNG
+	// ImageFileFormatPNG is an alias for TWFF_PNG.
+	ImageFileFormatPNG
 
-	// ImageFileFormatValueSPIFF is an alias for TWFF_SPIFF.
-	ImageFileFormatValueSPIFF
+	// ImageFileFormatSPIFF is an alias for TWFF_SPIFF.
+	ImageFileFormatSPIFF
 
-	// ImageFileFormatValueEXIF is an alias for TWFF_EXIF.
-	ImageFileFormatValueEXIF
+	// ImageFileFormatEXIF is an alias for TWFF_EXIF.
+	ImageFileFormatEXIF
 
-	// ImageFileFormatValuePDF is an alias for TWFF_PDF.
-	ImageFileFormatValuePDF
+	// ImageFileFormatPDF is an alias for TWFF_PDF.
+	ImageFileFormatPDF
 
-	// ImageFileFormatValueJP2 is an alias for TWFF_JP2.
-	ImageFileFormatValueJP2
+	// ImageFileFormatJP2 is an alias for TWFF_JP2.
+	ImageFileFormatJP2
 
-	// ImageFileFormatValueJPX is an alias for TWFF_JPX.
-	ImageFileFormatValueJPX
+	// ImageFileFormatJPX is an alias for TWFF_JPX.
+	ImageFileFormatJPX
 
-	// ImageFileFormatValueDejaVu is an alias for TWFF_DEJAVU.
-	ImageFileFormatValueDejaVu
+	// ImageFileFormatDejaVu is an alias for TWFF_DEJAVU.
+	ImageFileFormatDejaVu
 
-	// ImageFileFormatValuePDFA is an alias for TWFF_PDFA.
-	ImageFileFormatValuePDFA
+	// ImageFileFormatPDFA is an alias for TWFF_PDFA.
+	ImageFileFormatPDFA
 
-	// ImageFileFormatValuePDFA2 is an alias for TWFF_PDFA2.
-	ImageFileFormatValuePDFA2
+	// ImageFileFormatPDFA2 is an alias for TWFF_PDFA2.
+	ImageFileFormatPDFA2
 
-	// ImageFileFormatValuePDFRaster is an alias for TWFF_PDFRASTER.
-	ImageFileFormatValuePDFRaster
+	// ImageFileFormatPDFRaster is an alias for TWFF_PDFRASTER.
+	ImageFileFormatPDFRaster
 )
 
-// FlashUsed2Value is an alias for ICAP_FLASHUSED2 values.
-type FlashUsed2Value twain.UInt16
+// FlashUsed2 is an alias for ICAP_FLASHUSED2 values.
+type FlashUsed2 twain.UInt32
 
 const (
-	// FlashUsed2ValueNone is an alias for TWFL_NONE.
-	FlashUsed2ValueNone FlashUsed2Value = iota
+	// FlashUsed2None is an alias for TWFL_NONE.
+	FlashUsed2None FlashUsed2 = iota
 
-	// FlashUsed2ValueOff is an alias for TWFL_OFF.
-	FlashUsed2ValueOff
+	// FlashUsed2Off is an alias for TWFL_OFF.
+	FlashUsed2Off
 
-	// FlashUsed2ValueOn is an alias for TWFL_ON.
-	FlashUsed2ValueOn
+	// FlashUsed2On is an alias for TWFL_ON.
+	FlashUsed2On
 
-	// FlashUsed2ValueAuto is an alias for TWFL_AUTO.
-	FlashUsed2ValueAuto
+	// FlashUsed2Auto is an alias for TWFL_AUTO.
+	FlashUsed2Auto
 
-	// FlashUsed2ValueRedEye is an alias for TWFL_REDEYE.
-	FlashUsed2ValueRedEye
+	// FlashUsed2RedEye is an alias for TWFL_REDEYE.
+	FlashUsed2RedEye
 )
 
-// FeedOrderValue is an alias for CAP_FEEDERORDER values.
-type FeedOrderValue twain.UInt16
+// FeedOrder is an alias for CAP_FEEDERORDER values.
+type FeedOrder twain.UInt16
 
 const (
-	// FeedOrderValueFirstPageFirst is an alias for TWFO_FIRSTPAGEFIRST.
-	FeedOrderValueFirstPageFirst FeedOrderValue = iota
+	// FeedOrderFirstPageFirst is an alias for TWFO_FIRSTPAGEFIRST.
+	FeedOrderFirstPageFirst FeedOrder = iota
 
-	// FeedOrderValueLastPageFirst is an alias for TWFO_LASTPAGEFIRST.
-	FeedOrderValueLastPageFirst
+	// FeedOrderLastPageFirst is an alias for TWFO_LASTPAGEFIRST.
+	FeedOrderLastPageFirst
 )
 
-// FeederPocketValue is an alias for CAP_FEEDERPOCKET values.
-type FeederPocketValue twain.UInt16
+// FeederPocket is an alias for CAP_FEEDERPOCKET values.
+type FeederPocket twain.UInt16
 
 const (
-	// FeederPocketValueError is an alias for TWFP_POCKETERROR.
-	FeederPocketValueError FeederPocketValue = iota
+	// FeederPocketError is an alias for TWFP_POCKETERROR.
+	FeederPocketError FeederPocket = iota
 
-	// FeederPocketValue1 is an alias for TWFP_POCKET1.
-	FeederPocketValue1
+	// FeederPocket1 is an alias for TWFP_POCKET1.
+	FeederPocket1
 
-	// FeederPocketValue2 is an alias for TWFP_POCKET2.
-	FeederPocketValue2
+	// FeederPocket2 is an alias for TWFP_POCKET2.
+	FeederPocket2
 
-	// FeederPocketValue3 is an alias for TWFP_POCKET3.
-	FeederPocketValue3
+	// FeederPocket3 is an alias for TWFP_POCKET3.
+	FeederPocket3
 
-	// FeederPocketValue4 is an alias for TWFP_POCKET4.
-	FeederPocketValue4
+	// FeederPocket4 is an alias for TWFP_POCKET4.
+	FeederPocket4
 
-	// FeederPocketValue5 is an alias for TWFP_POCKET5.
-	FeederPocketValue5
+	// FeederPocket5 is an alias for TWFP_POCKET5.
+	FeederPocket5
 
-	// FeederPocketValue6 is an alias for TWFP_POCKET6.
-	FeederPocketValue6
+	// FeederPocket6 is an alias for TWFP_POCKET6.
+	FeederPocket6
 
-	// FeederPocketValue7 is an alias for TWFP_POCKET7.
-	FeederPocketValue7
+	// FeederPocket7 is an alias for TWFP_POCKET7.
+	FeederPocket7
 
-	// FeederPocketValue8 is an alias for TWFP_POCKET8.
-	FeederPocketValue8
+	// FeederPocket8 is an alias for TWFP_POCKET8.
+	FeederPocket8
 
-	// FeederPocketValue9 is an alias for TWFP_POCKET9.
-	FeederPocketValue9
+	// FeederPocket9 is an alias for TWFP_POCKET9.
+	FeederPocket9
 
-	// FeederPocketValue10 is an alias for TWFP_POCKET10.
-	FeederPocketValue10
+	// FeederPocket10 is an alias for TWFP_POCKET10.
+	FeederPocket10
 
-	// FeederPocketValue11 is an alias for TWFP_POCKET11.
-	FeederPocketValue11
+	// FeederPocket11 is an alias for TWFP_POCKET11.
+	FeederPocket11
 
-	// FeederPocketValue12 is an alias for TWFP_POCKET12.
-	FeederPocketValue12
+	// FeederPocket12 is an alias for TWFP_POCKET12.
+	FeederPocket12
 
-	// FeederPocketValue13 is an alias for TWFP_POCKET13.
-	FeederPocketValue13
+	// FeederPocket13 is an alias for TWFP_POCKET13.
+	FeederPocket13
 
-	// FeederPocketValue14 is an alias for TWFP_POCKET14.
-	FeederPocketValue14
+	// FeederPocket14 is an alias for TWFP_POCKET14.
+	FeederPocket14
 
-	// FeederPocketValue15 is an alias for TWFP_POCKET15.
-	FeederPocketValue15
+	// FeederPocket15 is an alias for TWFP_POCKET15.
+	FeederPocket15
 
-	// FeederPocketValue16 is an alias for TWFP_POCKET16.
-	FeederPocketValue16
+	// FeederPocket16 is an alias for TWFP_POCKET16.
+	FeederPocket16
 )
 
-// FlipRotationValue is an alias for ICAP_FLIPROTATION values.
-type FlipRotationValue twain.UInt16
+// FlipRotation is an alias for ICAP_FLIPROTATION values.
+type FlipRotation twain.UInt16
 
 const (
-	// FlipRotationValueBook is an alias for TWFR_BOOK.
-	FlipRotationValueBook FlipRotationValue = iota
+	// FlipRotationBook is an alias for TWFR_BOOK.
+	FlipRotationBook FlipRotation = iota
 
-	// FlipRotationValueFanFold is an alias for TWFR_FANFOLD.
-	FlipRotationValueFanFold
+	// FlipRotationFanFold is an alias for TWFR_FANFOLD.
+	FlipRotationFanFold
 )
 
-// FilterValue is an alias for ICAP_FILTER values.
-type FilterValue twain.UInt16
+// Filter is an alias for ICAP_FILTER values.
+type Filter twain.UInt16
 
 const (
-	// FilterValueRed is an alias for TWFT_RED.
-	FilterValueRed FilterValue = iota
+	// FilterRed is an alias for TWFT_RED.
+	FilterRed Filter = iota
 
-	// FilterValueGreen is an alias for TWFT_GREEN.
-	FilterValueGreen
+	// FilterGreen is an alias for TWFT_GREEN.
+	FilterGreen
 
-	// FilterValueBlue is an alias for TWFT_BLUE.
-	FilterValueBlue
+	// FilterBlue is an alias for TWFT_BLUE.
+	FilterBlue
 
-	// FilterValueNone is an alias for TWFT_NONE.
-	FilterValueNone
+	// FilterNone is an alias for TWFT_NONE.
+	FilterNone
 
-	// FilterValueWhite is an alias for TWFT_WHITE.
-	FilterValueWhite
+	// FilterWhite is an alias for TWFT_WHITE.
+	FilterWhite
 
-	// FilterValueCyan is an alias for TWFT_CYAN.
-	FilterValueCyan
+	// FilterCyan is an alias for TWFT_CYAN.
+	FilterCyan
 
-	// FilterValueMagenta is an alias for TWFT_MAGENTA.
-	FilterValueMagenta
+	// FilterMagenta is an alias for TWFT_MAGENTA.
+	FilterMagenta
 
-	// FilterValueYellow is an alias for TWFT_YELLOW.
-	FilterValueYellow
+	// FilterYellow is an alias for TWFT_YELLOW.
+	FilterYellow
 
-	// FilterValueBlack is an alias for TWFT_BLACK.
-	FilterValueBlack
+	// FilterBlack is an alias for TWFT_BLACK.
+	FilterBlack
 )
 
-// ICCProfileValue is an alias for ICAP_ICCPROFILE values.
-type ICCProfileValue twain.UInt16
+// ICCProfile is an alias for ICAP_ICCPROFILE values.
+type ICCProfile twain.UInt16
 
 const (
-	// ICCProfileValueNone is an alias for TWIC_NONE.
-	ICCProfileValueNone ICCProfileValue = iota
+	// ICCProfileNone is an alias for TWIC_NONE.
+	ICCProfileNone ICCProfile = iota
 
-	// ICCProfileValueLink is an alias for TWIC_LINK.
-	ICCProfileValueLink
+	// ICCProfileLink is an alias for TWIC_LINK.
+	ICCProfileLink
 
-	// ICCProfileValueEmbed is an alias for TWIC_EMBED.
-	ICCProfileValueEmbed
+	// ICCProfileEmbed is an alias for TWIC_EMBED.
+	ICCProfileEmbed
 )
 
-// ImageFilterValue is an alias for ICAP_IMAGEFILTER values.
-type ImageFilterValue twain.UInt16
+// ImageFilter is an alias for ICAP_IMAGEFILTER values.
+type ImageFilter twain.UInt16
 
 const (
-	// ImageFilterValueNone is an alias for TWIF_NONE.
-	ImageFilterValueNone ImageFilterValue = iota
+	// ImageFilterNone is an alias for TWIF_NONE.
+	ImageFilterNone ImageFilter = iota
 
-	// ImageFilterValueAuto is an alias for TWIF_AUTO.
-	ImageFilterValueAuto
+	// ImageFilterAuto is an alias for TWIF_AUTO.
+	ImageFilterAuto
 
-	// ImageFilterValueLowPass is an alias for TWIF_LOWPASS.
-	ImageFilterValueLowPass
+	// ImageFilterLowPass is an alias for TWIF_LOWPASS.
+	ImageFilterLowPass
 
-	// ImageFilterValueBandPass is an alias for TWIF_BANDPASS.
-	ImageFilterValueBandPass
+	// ImageFilterBandPass is an alias for TWIF_BANDPASS.
+	ImageFilterBandPass
 
-	// ImageFilterValueHighPass is an alias for TWIF_HIGHPASS.
-	ImageFilterValueHighPass
+	// ImageFilterHighPass is an alias for TWIF_HIGHPASS.
+	ImageFilterHighPass
 
-	// ImageFilterValueText is an alias for TWIF_TEXT.
-	ImageFilterValueText = ImageFilterValueBandPass
+	// ImageFilterText is an alias for TWIF_TEXT.
+	ImageFilterText = ImageFilterBandPass
 
-	// ImageFilterValueFineLine is an alias for TWIF_FINELINE.
-	ImageFilterValueFineLine = ImageFilterValueHighPass
+	// ImageFilterFineLine is an alias for TWIF_FINELINE.
+	ImageFilterFineLine = ImageFilterHighPass
 )
 
-// ImageMergeValue is an alias for ICAP_IMAGEMERGE values.
-type ImageMergeValue twain.UInt16
+// ImageMerge is an alias for ICAP_IMAGEMERGE values.
+type ImageMerge twain.UInt16
 
 const (
-	// ImageMergeValueNone is an alias for TWIM_NONE.
-	ImageMergeValueNone ImageMergeValue = iota
+	// ImageMergeNone is an alias for TWIM_NONE.
+	ImageMergeNone ImageMerge = iota
 
-	// ImageMergeValueFrontOnTop is an alias for TWIM_FRONTONTOP.
-	ImageMergeValueFrontOnTop
+	// ImageMergeFrontOnTop is an alias for TWIM_FRONTONTOP.
+	ImageMergeFrontOnTop
 
-	// ImageMergeValueFrontOnBottom is an alias for TWIM_FRONTONBOTTOM.
-	ImageMergeValueFrontOnBottom
+	// ImageMergeFrontOnBottom is an alias for TWIM_FRONTONBOTTOM.
+	ImageMergeFrontOnBottom
 
-	// ImageMergeValueFrontOnLeft is an alias for TWIM_FRONTONLEFT.
-	ImageMergeValueFrontOnLeft
+	// ImageMergeFrontOnLeft is an alias for TWIM_FRONTONLEFT.
+	ImageMergeFrontOnLeft
 
-	// ImageMergeValueFrontOnRight is an alias for TWIM_FRONTONRIGHT.
-	ImageMergeValueFrontOnRight
+	// ImageMergeFrontOnRight is an alias for TWIM_FRONTONRIGHT.
+	ImageMergeFrontOnRight
 )
 
-// JobControlValue is an alias for CAP_JOBCONTROL values.
-type JobControlValue twain.UInt16
+// JobControl is an alias for CAP_JOBCONTROL values.
+type JobControl twain.UInt16
 
 const (
-	// JobControlValueNone is an alias for TWJC_NONE.
-	JobControlValueNone JobControlValue = iota
+	// JobControlNone is an alias for TWJC_NONE.
+	JobControlNone JobControl = iota
 
-	// JobControlValueJSIC is an alias for TWJC_JSIC.
-	JobControlValueJSIC
+	// JobControlJSIC is an alias for TWJC_JSIC.
+	JobControlJSIC
 
-	// JobControlValueJSIS is an alias for TWJC_JSIS.
-	JobControlValueJSIS
+	// JobControlJSIS is an alias for TWJC_JSIS.
+	JobControlJSIS
 
-	// JobControlValueJSXC is an alias for TWJC_JSXC.
-	JobControlValueJSXC
+	// JobControlJSXC is an alias for TWJC_JSXC.
+	JobControlJSXC
 
-	// JobControlValueJSXS is an alias for TWJC_JSXS.
-	JobControlValueJSXS
+	// JobControlJSXS is an alias for TWJC_JSXS.
+	JobControlJSXS
 )
 
-// JPEGQualityValue is an alias for ICAP_JPEGQUALITY values.
-type JPEGQualityValue twain.UInt16
+// JPEGQuality is an alias for ICAP_JPEGQUALITY values.
+type JPEGQuality twain.UInt16
 
 const (
-	// JPEGQualityValueUnknown is an alias for TWJQ_UNKNOWN.
-	JPEGQualityValueUnknown JPEGQualityValue = -4
+	// JPEGQualityUnknown is an alias for TWJQ_UNKNOWN.
+	JPEGQualityUnknown JPEGQuality = -4
 
-	// JPEGQualityValueLow is an alias for TWJQ_LOW.
-	JPEGQualityValueLow JPEGQualityValue = -3
+	// JPEGQualityLow is an alias for TWJQ_LOW.
+	JPEGQualityLow JPEGQuality = -3
 
-	// JPEGQualityValueMedium is an alias for TWJQ_MEDIUM.
-	JPEGQualityValueMedium JPEGQualityValue = -2
+	// JPEGQualityMedium is an alias for TWJQ_MEDIUM.
+	JPEGQualityMedium JPEGQuality = -2
 
-	// JPEGQualityValueHigh is an alias for TWJQ_HIGH.
-	JPEGQualityValueHigh JPEGQualityValue = -1
+	// JPEGQualityHigh is an alias for TWJQ_HIGH.
+	JPEGQualityHigh JPEGQuality = -1
 )
 
-// LightPathValue is an alias for ICAP_LIGHTPATH values.
-type LightPathValue twain.UInt16
+// LightPath is an alias for ICAP_LIGHTPATH values.
+type LightPath twain.UInt16
 
 const (
-	// LightPathValueReflective is an alias for TWLP_REFLECTIVE.
-	LightPathValueReflective LightPathValue = iota
+	// LightPathReflective is an alias for TWLP_REFLECTIVE.
+	LightPathReflective LightPath = iota
 
-	// LightPathValueTransmissive is an alias for TWLP_TRANSMISSIVE.
-	LightPathValueTransmissive
+	// LightPathTransmissive is an alias for TWLP_TRANSMISSIVE.
+	LightPathTransmissive
 )
 
-// LightSourceValue is an alias for ICAP_LIGHTSOURCE values.
-type LightSourceValue twain.UInt16
+// LightSource is an alias for ICAP_LIGHTSOURCE values.
+type LightSource twain.UInt16
 
 const (
-	// LightSourceValueRed is an alias for TWLS_RED.
-	LightSourceValueRed LightSourceValue = iota
+	// LightSourceRed is an alias for TWLS_RED.
+	LightSourceRed LightSource = iota
 
-	// LightSourceValueGreen is an alias for TWLS_GREEN.
-	LightSourceValueGreen
+	// LightSourceGreen is an alias for TWLS_GREEN.
+	LightSourceGreen
 
-	// LightSourceValueBlue is an alias for TWLS_BLUE.
-	LightSourceValueBlue
+	// LightSourceBlue is an alias for TWLS_BLUE.
+	LightSourceBlue
 
-	// LightSourceValueNone is an alias for TWLS_NONE.
-	LightSourceValueNone
+	// LightSourceNone is an alias for TWLS_NONE.
+	LightSourceNone
 
-	// LightSourceValueWhite is an alias for TWLS_WHITE.
-	LightSourceValueWhite
+	// LightSourceWhite is an alias for TWLS_WHITE.
+	LightSourceWhite
 
-	// LightSourceValueUV is an alias for TWLS_UV.
-	LightSourceValueUV
+	// LightSourceUV is an alias for TWLS_UV.
+	LightSourceUV
 
-	// LightSourceValueIR is an alias for TWLS_IR.
-	LightSourceValueIR
+	// LightSourceIR is an alias for TWLS_IR.
+	LightSourceIR
 )
 
-// NoiseFilterValue is an alias for ICAP_NOISEFILTER values.
-type NoiseFilterValue twain.UInt16
+// NoiseFilter is an alias for ICAP_NOISEFILTER values.
+type NoiseFilter twain.UInt16
 
 const (
-	// NoiseFilterValueNone is an alias for TWNF_NONE.
-	NoiseFilterValueNone NoiseFilterValue = iota
+	// NoiseFilterNone is an alias for TWNF_NONE.
+	NoiseFilterNone NoiseFilter = iota
 
-	// NoiseFilterValueAuto is an alias for TWNF_AUTO.
-	NoiseFilterValueAuto
+	// NoiseFilterAuto is an alias for TWNF_AUTO.
+	NoiseFilterAuto
 
-	// NoiseFilterValueLonePixel is an alias for TWNF_LONEPIXEL.
-	NoiseFilterValueLonePixel
+	// NoiseFilterLonePixel is an alias for TWNF_LONEPIXEL.
+	NoiseFilterLonePixel
 
-	// NoiseFilterValueMajorityRule is an alias for TWNF_MAJORITYRULE.
-	NoiseFilterValueMajorityRule
+	// NoiseFilterMajorityRule is an alias for TWNF_MAJORITYRULE.
+	NoiseFilterMajorityRule
 )
 
-// OrientationValue is an alias for ICAP_ORIENTATION values.
-type OrientationValue twain.UInt16
+// Orientation is an alias for ICAP_ORIENTATION values.
+type Orientation twain.UInt16
 
 const (
-	// OrientationValueRot0 is an alias for TWOR_ROT0.
-	OrientationValueRot0 OrientationValue = iota
+	// OrientationRot0 is an alias for TWOR_ROT0.
+	OrientationRot0 Orientation = iota
 
-	// OrientationValueRot90 is an alias for TWOR_ROT90.
-	OrientationValueRot90
+	// OrientationRot90 is an alias for TWOR_ROT90.
+	OrientationRot90
 
-	// OrientationValueRot180 is an alias for TWOR_ROT180.
-	OrientationValueRot180
+	// OrientationRot180 is an alias for TWOR_ROT180.
+	OrientationRot180
 
-	// OrientationValueRot270 is an alias for TWOR_ROT270.
-	OrientationValueRot270
+	// OrientationRot270 is an alias for TWOR_ROT270.
+	OrientationRot270
 
-	// OrientationValueAuto is an alias for TWOR_AUTO.
-	OrientationValueAuto
+	// OrientationAuto is an alias for TWOR_AUTO.
+	OrientationAuto
 
-	// OrientationValueAutoText is an alias for TWOR_AUTOTEXT.
-	OrientationValueAutoText
+	// OrientationAutoText is an alias for TWOR_AUTOTEXT.
+	OrientationAutoText
 
-	// OrientationValueAutoPicture is an alias for TWOR_AUTOPICTURE.
-	OrientationValueAutoPicture
+	// OrientationAutoPicture is an alias for TWOR_AUTOPICTURE.
+	OrientationAutoPicture
 
-	// OrientationValuePortrait is an alias for TWOR_PORTRAIT.
-	OrientationValuePortrait = OrientationValueRot0
+	// OrientationPortrait is an alias for TWOR_PORTRAIT.
+	OrientationPortrait = OrientationRot0
 
-	// OrientationValueLandscape is an alias for TWOR_LANDSCAPE.
-	OrientationValueLandscape = OrientationValueRot270
+	// OrientationLandscape is an alias for TWOR_LANDSCAPE.
+	OrientationLandscape = OrientationRot270
 )
 
-// OverScanValue is an alias for ICAP_OVERSCAN values.
-type OverScanValue twain.UInt16
+// OverScan is an alias for ICAP_OVERSCAN values.
+type OverScan twain.UInt16
 
 const (
-	// OverScanValueNone is an alias for TWOV_NONE.
-	OverScanValueNone OverScanValue = iota
+	// OverScanNone is an alias for TWOV_NONE.
+	OverScanNone OverScan = iota
 
-	// OverScanValueAuto is an alias for TWOV_AUTO.
-	OverScanValueAuto
+	// OverScanAuto is an alias for TWOV_AUTO.
+	OverScanAuto
 
-	// OverScanValueTopBottom is an alias for TWOV_TOPBOTTOM.
-	OverScanValueTopBottom
+	// OverScanTopBottom is an alias for TWOV_TOPBOTTOM.
+	OverScanTopBottom
 
-	// OverScanValueLeftRight is an alias for TWOV_LEFTRIGHT.
-	OverScanValueLeftRight
+	// OverScanLeftRight is an alias for TWOV_LEFTRIGHT.
+	OverScanLeftRight
 
-	// OverScanValueAll is an alias for TWOV_ALL.
-	OverScanValueAll
+	// OverScanAll is an alias for TWOV_ALL.
+	OverScanAll
 )
 
-// PlanarChunkyValue is an alias for ICAP_PLANARCHUNKY values.
-type PlanarChunkyValue twain.UInt16
+// PlanarChunky is an alias for ICAP_PLANARCHUNKY values.
+type PlanarChunky twain.UInt16
 
 const (
-	// PlanarChunkyValueChunky is an alias for TWPC_CHUNKY.
-	PlanarChunkyValueChunky PlanarChunkyValue = iota
+	// PlanarChunkyChunky is an alias for TWPC_CHUNKY.
+	PlanarChunkyChunky PlanarChunky = iota
 
-	// PlanarChunkyValuePlanar is an alias for TWPC_PLANAR.
-	PlanarChunkyValuePlanar
+	// PlanarChunkyPlanar is an alias for TWPC_PLANAR.
+	PlanarChunkyPlanar
 )
 
-// PixelFlavorValue is an alias for ICAP_PIXELFLAVOR values.
-type PixelFlavorValue twain.UInt16
+// PixelFlavor is an alias for ICAP_PIXELFLAVOR values.
+type PixelFlavor twain.UInt16
 
 const (
-	// PixelFlavorValueChocolate is an alias for TWPF_CHOCOLATE.
-	PixelFlavorValueChocolate PixelFlavorValue = iota
+	// PixelFlavorChocolate is an alias for TWPF_CHOCOLATE.
+	PixelFlavorChocolate PixelFlavor = iota
 
-	// PixelFlavorValueVanilla is an alias for TWPF_VANILLA.
-	PixelFlavorValueVanilla
+	// PixelFlavorVanilla is an alias for TWPF_VANILLA.
+	PixelFlavorVanilla
 )
 
-// PrinterModeValue is an alias for CAP_PRINTERMODE values.
-type PrinterModeValue twain.UInt16
+// PrinterMode is an alias for CAP_PRINTERMODE values.
+type PrinterMode twain.UInt16
 
 const (
-	// PrinterModeValueSingleString is an alias for TWPM_SINGLESTRING.
-	PrinterModeValueSingleString PrinterModeValue = iota
+	// PrinterModeSingleString is an alias for TWPM_SINGLESTRING.
+	PrinterModeSingleString PrinterMode = iota
 
-	// PrinterModeValueMultiString is an alias for TWPM_MULTISTRING.
-	PrinterModeValueMultiString
+	// PrinterModeMultiString is an alias for TWPM_MULTISTRING.
+	PrinterModeMultiString
 
-	// PrinterModeValueCompoundString is an alias for TWPM_COMPOUNDSTRING.
-	PrinterModeValueCompoundString
+	// PrinterModeCompoundString is an alias for TWPM_COMPOUNDSTRING.
+	PrinterModeCompoundString
 )
 
-// PrinterValue is an alias for CAP_PRINTER values.
-type PrinterValue twain.UInt16
+// Printer is an alias for CAP_PRINTER values.
+type Printer twain.UInt16
 
 const (
-	// PrinterValueImprinterTopBefore is an alias for TWPR_IMPRINTERTOPBEFORE.
-	PrinterValueImprinterTopBefore PrinterValue = iota
+	// PrinterImprinterTopBefore is an alias for TWPR_IMPRINTERTOPBEFORE.
+	PrinterImprinterTopBefore Printer = iota
 
-	// PrinterValueImprinterTopAfter is an alias for TWPR_IMPRINTERTOPAFTER.
-	PrinterValueImprinterTopAfter
+	// PrinterImprinterTopAfter is an alias for TWPR_IMPRINTERTOPAFTER.
+	PrinterImprinterTopAfter
 
-	// PrinterValueImprinterBottomBefore is an alias for TWPR_IMPRINTERBOTTOMBEFORE.
-	PrinterValueImprinterBottomBefore
+	// PrinterImprinterBottomBefore is an alias for TWPR_IMPRINTERBOTTOMBEFORE.
+	PrinterImprinterBottomBefore
 
-	// PrinterValueImprinterBottomAfter is an alias for TWPR_IMPRINTERBOTTOMAFTER.
-	PrinterValueImprinterBottomAfter
+	// PrinterImprinterBottomAfter is an alias for TWPR_IMPRINTERBOTTOMAFTER.
+	PrinterImprinterBottomAfter
 
-	// PrinterValueEndorserTopBefore is an alias for TWPR_ENDORSERTOPBEFORE.
-	PrinterValueEndorserTopBefore
+	// PrinterEndorserTopBefore is an alias for TWPR_ENDORSERTOPBEFORE.
+	PrinterEndorserTopBefore
 
-	// PrinterValueEndorserTopAfter is an alias for TWPR_ENDORSERTOPAFTER.
-	PrinterValueEndorserTopAfter
+	// PrinterEndorserTopAfter is an alias for TWPR_ENDORSERTOPAFTER.
+	PrinterEndorserTopAfter
 
-	// PrinterValueEndorserBottomBefore is an alias for TWPR_ENDORSERBOTTOMBEFORE.
-	PrinterValueEndorserBottomBefore
+	// PrinterEndorserBottomBefore is an alias for TWPR_ENDORSERBOTTOMBEFORE.
+	PrinterEndorserBottomBefore
 
-	// PrinterValueEndorserBottomAfter is an alias for TWPR_ENDORSERBOTTOMAFTER.
-	PrinterValueEndorserBottomAfter
+	// PrinterEndorserBottomAfter is an alias for TWPR_ENDORSERBOTTOMAFTER.
+	PrinterEndorserBottomAfter
 )
 
-// PrinterFontStyleValue is an alias for CAP_PRINTERFONTSTYLE values.
-type PrinterFontStyleValue twain.UInt16
+// PrinterFontStyle is an alias for CAP_PRINTERFONTSTYLE values.
+type PrinterFontStyle twain.UInt16
 
 const (
-	// PrinterFontStyleValueNormal is an alias for TWPF_NORMAL.
-	PrinterFontStyleValueNormal PrinterFontStyleValue = iota
+	// PrinterFontStyleNormal is an alias for TWPF_NORMAL.
+	PrinterFontStyleNormal PrinterFontStyle = iota
 
-	// PrinterFontStyleValueBold is an alias for TWPF_BOLD.
-	PrinterFontStyleValueBold
+	// PrinterFontStyleBold is an alias for TWPF_BOLD.
+	PrinterFontStyleBold
 
-	// PrinterFontStyleValueItalic is an alias for TWPF_ITALIC.
-	PrinterFontStyleValueItalic
+	// PrinterFontStyleItalic is an alias for TWPF_ITALIC.
+	PrinterFontStyleItalic
 
-	// PrinterFontStyleValueLargeSize is an alias for TWPF_LARGESIZE.
-	PrinterFontStyleValueLargeSize
+	// PrinterFontStyleLargeSize is an alias for TWPF_LARGESIZE.
+	PrinterFontStyleLargeSize
 
-	// PrinterFontStyleValueSmallSize is an alias for TWPF_SMALLSIZE.
-	PrinterFontStyleValueSmallSize
+	// PrinterFontStyleSmallSize is an alias for TWPF_SMALLSIZE.
+	PrinterFontStyleSmallSize
 )
 
-// PrinterIndexTriggerValue is an alias for CAP_PRINTERINDEXTRIGGER values.
-type PrinterIndexTriggerValue twain.UInt16
+// PrinterIndexTrigger is an alias for CAP_PRINTERINDEXTRIGGER values.
+type PrinterIndexTrigger twain.UInt16
 
 const (
-	// PrinterIndexTriggerValuePage is an alias for TWCT_PAGE.
-	PrinterIndexTriggerValuePage PrinterIndexTriggerValue = iota
+	// PrinterIndexTriggerPage is an alias for TWCT_PAGE.
+	PrinterIndexTriggerPage PrinterIndexTrigger = iota
 
-	// PrinterIndexTriggerValuePatch1 is an alias for TWCT_PATCH1.
-	PrinterIndexTriggerValuePatch1
+	// PrinterIndexTriggerPatch1 is an alias for TWCT_PATCH1.
+	PrinterIndexTriggerPatch1
 
-	// PrinterIndexTriggerValuePatch2 is an alias for TWCT_PATCH2.
-	PrinterIndexTriggerValuePatch2
+	// PrinterIndexTriggerPatch2 is an alias for TWCT_PATCH2.
+	PrinterIndexTriggerPatch2
 
-	// PrinterIndexTriggerValuePatch3 is an alias for TWCT_PATCH3.
-	PrinterIndexTriggerValuePatch3
+	// PrinterIndexTriggerPatch3 is an alias for TWCT_PATCH3.
+	PrinterIndexTriggerPatch3
 
-	// PrinterIndexTriggerValuePatch4 is an alias for TWCT_PATCH4.
-	PrinterIndexTriggerValuePatch4
+	// PrinterIndexTriggerPatch4 is an alias for TWCT_PATCH4.
+	PrinterIndexTriggerPatch4
 
-	// PrinterIndexTriggerValuePatchT is an alias for TWCT_PATCHT.
-	PrinterIndexTriggerValuePatchT
+	// PrinterIndexTriggerPatchT is an alias for TWCT_PATCHT.
+	PrinterIndexTriggerPatchT
 
-	// PrinterIndexTriggerValuePatch6 is an alias for TWCT_PATCH6.
-	PrinterIndexTriggerValuePatch6
+	// PrinterIndexTriggerPatch6 is an alias for TWCT_PATCH6.
+	PrinterIndexTriggerPatch6
 )
 
-// PowerSupplyValue is an alias for CAP_POWERSUPPLY values.
-type PowerSupplyValue twain.UInt16
+// PowerSupply is an alias for CAP_POWERSUPPLY values.
+type PowerSupply twain.Int32
 
 const (
-	// PowerSupplyValueExternal is an alias for TWPS_EXTERNAL.
-	PowerSupplyValueExternal PowerSupplyValue = iota
+	// PowerSupplyExternal is an alias for TWPS_EXTERNAL.
+	PowerSupplyExternal PowerSupply = iota
 
-	// PowerSupplyValueBattery is an alias for TWPS_BATTERY.
-	PowerSupplyValueBattery
+	// PowerSupplyBattery is an alias for TWPS_BATTERY.
+	PowerSupplyBattery
 )
 
-// PixelTypeValue is an alias for ICAP_PIXELTYPE values.
-type PixelTypeValue twain.UInt16
+// PixelType is an alias for ICAP_PIXELTYPE values.
+type PixelType twain.Int16
 
 const (
-	// PixelTypeValueBW is an alias for TWPT_BW.
-	PixelTypeValueBW PixelTypeValue = iota
+	// PixelTypeBW is an alias for TWPT_BW.
+	PixelTypeBW PixelType = iota
 
-	// PixelTypeValueGray is an alias for TWPT_GRAY.
-	PixelTypeValueGray
+	// PixelTypeGray is an alias for TWPT_GRAY.
+	PixelTypeGray
 
-	// PixelTypeValueRGB is an alias for TWPT_RGB.
-	PixelTypeValueRGB
+	// PixelTypeRGB is an alias for TWPT_RGB.
+	PixelTypeRGB
 
-	// PixelTypeValuePalette is an alias for TWPT_PALETTE.
-	PixelTypeValuePalette
+	// PixelTypePalette is an alias for TWPT_PALETTE.
+	PixelTypePalette
 
-	// PixelTypeValueCMY is an alias for TWPT_CMY.
-	PixelTypeValueCMY
+	// PixelTypeCMY is an alias for TWPT_CMY.
+	PixelTypeCMY
 
-	// PixelTypeValueCMYK is an alias for TWPT_CMYK.
-	PixelTypeValueCMYK
+	// PixelTypeCMYK is an alias for TWPT_CMYK.
+	PixelTypeCMYK
 
-	// PixelTypeValueYUV is an alias for TWPT_YUV.
-	PixelTypeValueYUV
+	// PixelTypeYUV is an alias for TWPT_YUV.
+	PixelTypeYUV
 
-	// PixelTypeValueYUVK is an alias for TWPT_YUVK.
-	PixelTypeValueYUVK
+	// PixelTypeYUVK is an alias for TWPT_YUVK.
+	PixelTypeYUVK
 
-	// PixelTypeValueCIEXYZ is an alias for TWPT_CIEXYZ.
-	PixelTypeValueCIEXYZ
+	// PixelTypeCIEXYZ is an alias for TWPT_CIEXYZ.
+	PixelTypeCIEXYZ
 
-	// PixelTypeValueLAB is an alias for TWPT_LAB.
-	PixelTypeValueLAB
+	// PixelTypeLAB is an alias for TWPT_LAB.
+	PixelTypeLAB
 
-	// PixelTypeValueSRGB is an alias for TWPT_SRGB.
-	PixelTypeValueSRGB
+	// PixelTypeSRGB is an alias for TWPT_SRGB.
+	PixelTypeSRGB
 
-	// PixelTypeValueSCRGB is an alias for TWPT_SCRGB.
-	PixelTypeValueSCRGB
+	// PixelTypeSCRGB is an alias for TWPT_SCRGB.
+	PixelTypeSCRGB
 
-	// PixelTypeValueInfrared is an alias for TWPT_INFRARED.
-	PixelTypeValueInfrared PixelTypeValue = 16
+	// PixelTypeInfrared is an alias for TWPT_INFRARED.
+	PixelTypeInfrared PixelType = 16
 )
 
-// SegmentedValue is an alias for CAP_SEGMENTED values.
-type SegmentedValue twain.UInt16
+// Segmented is an alias for CAP_SEGMENTED values.
+type Segmented twain.UInt16
 
 const (
-	// SegmentedValueNone is an alias for TWSG_NONE.
-	SegmentedValueNone SegmentedValue = iota
+	// SegmentedNone is an alias for TWSG_NONE.
+	SegmentedNone Segmented = iota
 
-	// SegmentedValueAuto is an alias for TWSG_AUTO.
-	SegmentedValueAuto
+	// SegmentedAuto is an alias for TWSG_AUTO.
+	SegmentedAuto
 
-	// SegmentedValueManual is an alias for TWSG_MANUAL.
-	SegmentedValueManual
+	// SegmentedManual is an alias for TWSG_MANUAL.
+	SegmentedManual
 )
 
-// FilmTypeValue is an alias for ICAP_FILMTYPE values.
-type FilmTypeValue twain.UInt16
+// FilmType is an alias for ICAP_FILMTYPE values.
+type FilmType twain.UInt16
 
 const (
-	// FilmTypeValuePositive is an alias for TWFM_POSITIVE.
-	FilmTypeValuePositive FilmTypeValue = iota
+	// FilmTypePositive is an alias for TWFM_POSITIVE.
+	FilmTypePositive FilmType = iota
 
-	// FilmTypeValueNegative is an alias for TWFM_NEGATIVE.
-	FilmTypeValueNegative
+	// FilmTypeNegative is an alias for TWFM_NEGATIVE.
+	FilmTypeNegative
 )
 
-// DoubleFeedDetectionValue is an alias for CAP_DOUBLEFEEDDETECTION values.
-type DoubleFeedDetectionValue twain.UInt16
+// DoubleFeedDetection is an alias for CAP_DOUBLEFEEDDETECTION values.
+type DoubleFeedDetection twain.UInt16
 
 const (
-	// DoubleFeedDetectionValueUltrasonic is an alias for TWDF_ULTRASONIC.
-	DoubleFeedDetectionValueUltrasonic DoubleFeedDetectionValue = iota
+	// DoubleFeedDetectionUltrasonic is an alias for TWDF_ULTRASONIC.
+	DoubleFeedDetectionUltrasonic DoubleFeedDetection = iota
 
-	// DoubleFeedDetectionValueByLength is an alias for TWDF_BYLENGTH.
-	DoubleFeedDetectionValueByLength
+	// DoubleFeedDetectionByLength is an alias for TWDF_BYLENGTH.
+	DoubleFeedDetectionByLength
 
-	// DoubleFeedDetectionValueInfrared is an alias for TWDF_INFRARED.
-	DoubleFeedDetectionValueInfrared
+	// DoubleFeedDetectionInfrared is an alias for TWDF_INFRARED.
+	DoubleFeedDetectionInfrared
 )
 
-// DoubleFeedDetectionSensitivityValue is an alias for CAP_DOUBLEFEEDDETECTIONSENSITIVITY values.
-type DoubleFeedDetectionSensitivityValue twain.UInt16
+// DoubleFeedDetectionSensitivity is an alias for CAP_DOUBLEFEEDDETECTIONSENSITIVITY values.
+type DoubleFeedDetectionSensitivity twain.UInt16
 
 const (
-	// DoubleFeedDetectionSensitivityValueLow is an alias for TWUS_LOW.
-	DoubleFeedDetectionSensitivityValueLow DoubleFeedDetectionSensitivityValue = iota
+	// DoubleFeedDetectionSensitivityLow is an alias for TWUS_LOW.
+	DoubleFeedDetectionSensitivityLow DoubleFeedDetectionSensitivity = iota
 
-	// DoubleFeedDetectionSensitivityValueMedium is an alias for TWUS_MEDIUM.
-	DoubleFeedDetectionSensitivityValueMedium
+	// DoubleFeedDetectionSensitivityMedium is an alias for TWUS_MEDIUM.
+	DoubleFeedDetectionSensitivityMedium
 
-	// DoubleFeedDetectionSensitivityValueHigh is an alias for TWUS_HIGH.
-	DoubleFeedDetectionSensitivityValueHigh
+	// DoubleFeedDetectionSensitivityHigh is an alias for TWUS_HIGH.
+	DoubleFeedDetectionSensitivityHigh
 )
 
-// DoubleFeedDetectionResponseValue is an alias for CAP_DOUBLEFEEDDETECTIONRESPONSE values.
-type DoubleFeedDetectionResponseValue twain.UInt16
+// DoubleFeedDetectionResponse is an alias for CAP_DOUBLEFEEDDETECTIONRESPONSE values.
+type DoubleFeedDetectionResponse twain.UInt16
 
 const (
-	// DoubleFeedDetectionResponseValueStop is an alias for TWDP_STOP.
-	DoubleFeedDetectionResponseValueStop DoubleFeedDetectionResponseValue = iota
+	// DoubleFeedDetectionResponseStop is an alias for TWDP_STOP.
+	DoubleFeedDetectionResponseStop DoubleFeedDetectionResponse = iota
 
-	// DoubleFeedDetectionResponseValueStopAndWait is an alias for TWDP_STOPANDWAIT.
-	DoubleFeedDetectionResponseValueStopAndWait
+	// DoubleFeedDetectionResponseStopAndWait is an alias for TWDP_STOPANDWAIT.
+	DoubleFeedDetectionResponseStopAndWait
 
-	// DoubleFeedDetectionResponseValueSound is an alias for TWDP_SOUND.
-	DoubleFeedDetectionResponseValueSound
+	// DoubleFeedDetectionResponseSound is an alias for TWDP_SOUND.
+	DoubleFeedDetectionResponseSound
 
-	// DoubleFeedDetectionResponseValueDoNotImprint is an alias for TWDP_DONOTIMPRINT.
-	DoubleFeedDetectionResponseValueDoNotImprint
+	// DoubleFeedDetectionResponseDoNotImprint is an alias for TWDP_DONOTIMPRINT.
+	DoubleFeedDetectionResponseDoNotImprint
 )
 
 // MirrorValue is an alias for ICAP_MIRROR values.
@@ -1027,282 +1028,282 @@ const (
 	MirrorValueHorizontal
 )
 
-// JPEGSubSamplingValue is an alias for ICAP_JPEGSUBSAMPLING values.
-type JPEGSubSamplingValue twain.UInt16
+// JPEGSubSampling is an alias for ICAP_JPEGSUBSAMPLING values.
+type JPEGSubSampling twain.UInt32
 
 const (
-	// JPEGSubSamplingValue444YCBCR is an alias for TWJS_444YCBCR.
-	JPEGSubSamplingValue444YCBCR JPEGSubSamplingValue = iota
+	// JPEGSubSampling444YCBCR is an alias for TWJS_444YCBCR.
+	JPEGSubSampling444YCBCR JPEGSubSampling = iota
 
-	// JPEGSubSamplingValue444RGB is an alias for TWJS_444RGB.
-	JPEGSubSamplingValue444RGB
+	// JPEGSubSampling444RGB is an alias for TWJS_444RGB.
+	JPEGSubSampling444RGB
 
-	// JPEGSubSamplingValue422 is an alias for TWJS_422.
-	JPEGSubSamplingValue422
+	// JPEGSubSampling422 is an alias for TWJS_422.
+	JPEGSubSampling422
 
-	// JPEGSubSamplingValue421 is an alias for TWJS_421.
-	JPEGSubSamplingValue421
+	// JPEGSubSampling421 is an alias for TWJS_421.
+	JPEGSubSampling421
 
-	// JPEGSubSamplingValue411 is an alias for TWJS_411.
-	JPEGSubSamplingValue411
+	// JPEGSubSampling411 is an alias for TWJS_411.
+	JPEGSubSampling411
 
-	// JPEGSubSamplingValue420 is an alias for TWJS_420.
-	JPEGSubSamplingValue420
+	// JPEGSubSampling420 is an alias for TWJS_420.
+	JPEGSubSampling420
 
-	// JPEGSubSamplingValue410 is an alias for TWJS_410.
-	JPEGSubSamplingValue410
+	// JPEGSubSampling410 is an alias for TWJS_410.
+	JPEGSubSampling410
 
-	// JPEGSubSamplingValue311 is an alias for TWJS_311.
-	JPEGSubSamplingValue311
+	// JPEGSubSampling311 is an alias for TWJS_311.
+	JPEGSubSampling311
 )
 
-// PaperHandlingValue is an alias for CAP_PAPERHANDLING values.
-type PaperHandlingValue twain.UInt16
+// PaperHandling is an alias for CAP_PAPERHANDLING values.
+type PaperHandling twain.UInt16
 
 const (
-	// PaperHandlingValueNormal is an alias for TWPH_NORMAL.
-	PaperHandlingValueNormal PaperHandlingValue = iota
+	// PaperHandlingNormal is an alias for TWPH_NORMAL.
+	PaperHandlingNormal PaperHandling = iota
 
-	// PaperHandlingValueFragile is an alias for TWPH_FRAGILE.
-	PaperHandlingValueFragile
+	// PaperHandlingFragile is an alias for TWPH_FRAGILE.
+	PaperHandlingFragile
 
-	// PaperHandlingValueThick is an alias for TWPH_THICK.
-	PaperHandlingValueThick
+	// PaperHandlingThick is an alias for TWPH_THICK.
+	PaperHandlingThick
 
-	// PaperHandlingValueTrifold is an alias for TWPH_TRIFOLD.
-	PaperHandlingValueTrifold
+	// PaperHandlingTrifold is an alias for TWPH_TRIFOLD.
+	PaperHandlingTrifold
 
-	// PaperHandlingValuePhotograph is an alias for TWPH_PHOTOGRAPH.
+	// PaperHandlingPhotograph is an alias for TWPH_PHOTOGRAPH.
 	PaperHandlingValuePhotograph
 )
 
-// IndicatorsModeValue is an alias for CAP_INDICATORSMODE values.
-type IndicatorsModeValue twain.UInt16
+// IndicatorsMode is an alias for CAP_INDICATORSMODE values.
+type IndicatorsMode twain.UInt16
 
 const (
-	// IndicatorsModeValueInfo is an alias for TWCI_INFO.
-	IndicatorsModeValueInfo IndicatorsModeValue = iota
+	// IndicatorsModeInfo is an alias for TWCI_INFO.
+	IndicatorsModeInfo IndicatorsMode = iota
 
-	// IndicatorsModeValueWarning is an alias for TWCI_WARNING.
-	IndicatorsModeValueWarning
+	// IndicatorsModeWarning is an alias for TWCI_WARNING.
+	IndicatorsModeWarning
 
-	// IndicatorsModeValueError is an alias for TWCI_ERROR.
-	IndicatorsModeValueError
+	// IndicatorsModeError is an alias for TWCI_ERROR.
+	IndicatorsModeError
 
-	// IndicatorsModeValueWarmup is an alias for TWCI_WARMUP.
-	IndicatorsModeValueWarmup
+	// IndicatorsModeWarmup is an alias for TWCI_WARMUP.
+	IndicatorsModeWarmup
 )
 
-// SupportedSizeValue is an alias for ICAP_SUPPORTEDSIZES values.
-type SupportedSizeValue twain.UInt16
+// SupportedSize is an alias for ICAP_SUPPORTEDSIZES values.
+type SupportedSize twain.UInt16
 
 const (
-	// SupportedSizeValueNone is an alias for TWSS_NONE.
-	SupportedSizeValueNone SupportedSizeValue = iota
+	// SupportedSizeNone is an alias for TWSS_NONE.
+	SupportedSizeNone SupportedSize = iota
 
-	// SupportedSizeValueA4 is an alias for TWSS_A4.
-	SupportedSizeValueA4
+	// SupportedSizeA4 is an alias for TWSS_A4.
+	SupportedSizeA4
 
-	// SupportedSizeValueJISB5 is an alias for TWSS_JISB5.
-	SupportedSizeValueJISB5
+	// SupportedSizeJISB5 is an alias for TWSS_JISB5.
+	SupportedSizeJISB5
 
-	// SupportedSizeValueUSLetter is an alias for TWSS_USLETTER.
-	SupportedSizeValueUSLetter
+	// SupportedSizeUSLetter is an alias for TWSS_USLETTER.
+	SupportedSizeUSLetter
 
-	// SupportedSizeValueUSLegal is an alias for TWSS_USLEGAL.
-	SupportedSizeValueUSLegal
+	// SupportedSizeUSLegal is an alias for TWSS_USLEGAL.
+	SupportedSizeUSLegal
 
-	// SupportedSizeValueA5 is an alias for TWSS_A5.
-	SupportedSizeValueA5
+	// SupportedSizeA5 is an alias for TWSS_A5.
+	SupportedSizeA5
 
-	// SupportedSizeValueISOB4 is an alias for TWSS_ISOB4.
-	SupportedSizeValueISOB4
+	// SupportedSizeISOB4 is an alias for TWSS_ISOB4.
+	SupportedSizeISOB4
 
-	// SupportedSizeValueISOB6 is an alias for TWSS_ISOB6.
-	SupportedSizeValueISOB6
+	// SupportedSizeISOB6 is an alias for TWSS_ISOB6.
+	SupportedSizeISOB6
 
-	// SupportedSizeValueUnused is needed because there is no size for 8.
+	// SupportedSizeUnused is needed because there is no size for 8.
 	// Do not use this.
-	SupportedSizeValueUnused
+	SupportedSizeUnused
 
-	// SupportedSizeValueUSLedger is an alias for TWSS_USLEDGER.
-	SupportedSizeValueUSLedger
+	// SupportedSizeUSLedger is an alias for TWSS_USLEDGER.
+	SupportedSizeUSLedger
 
-	// SupportedSizeValueUSExecutive is an alias for TWSS_USEXECUTIVE.
-	SupportedSizeValueUSExecutive
+	// SupportedSizeUSExecutive is an alias for TWSS_USEXECUTIVE.
+	SupportedSizeUSExecutive
 
-	// SupportedSizeValueA3 is an alias for TWSS_A3.
-	SupportedSizeValueA3
+	// SupportedSizeA3 is an alias for TWSS_A3.
+	SupportedSizeA3
 
-	// SupportedSizeValueISOB3 is an alias for TWSS_ISOB3.
-	SupportedSizeValueISOB3
+	// SupportedSizeISOB3 is an alias for TWSS_ISOB3.
+	SupportedSizeISOB3
 
-	// SupportedSizeValueA6 is an alias for TWSS_A6.
-	SupportedSizeValueA6
+	// SupportedSizeA6 is an alias for TWSS_A6.
+	SupportedSizeA6
 
-	// SupportedSizeValueC4 is an alias for TWSS_C4.
-	SupportedSizeValueC4
+	// SupportedSizeC4 is an alias for TWSS_C4.
+	SupportedSizeC4
 
-	// SupportedSizeValueC5 is an alias for TWSS_C5.
-	SupportedSizeValueC5
+	// SupportedSizeC5 is an alias for TWSS_C5.
+	SupportedSizeC5
 
-	// SupportedSizeValueC6 is an alias for TWSS_C6.
-	SupportedSizeValueC6
+	// SupportedSizeC6 is an alias for TWSS_C6.
+	SupportedSizeC6
 
-	// SupportedSizeValue4A0 is an alias for TWSS_4A0.
-	SupportedSizeValue4A0
+	// SupportedSize4A0 is an alias for TWSS_4A0.
+	SupportedSize4A0
 
-	// SupportedSizeValue2A0 is an alias for TWSS_2A0.
-	SupportedSizeValue2A0
+	// SupportedSize2A0 is an alias for TWSS_2A0.
+	SupportedSize2A0
 
-	// SupportedSizeValueA0 is an alias for TWSS_A0.
-	SupportedSizeValueA0
+	// SupportedSizeA0 is an alias for TWSS_A0.
+	SupportedSizeA0
 
-	// SupportedSizeValueA1 is an alias for TWSS_A1.
-	SupportedSizeValueA1
+	// SupportedSizeA1 is an alias for TWSS_A1.
+	SupportedSizeA1
 
-	// SupportedSizeValueA2 is an alias for TWSS_A2.
-	SupportedSizeValueA2
+	// SupportedSizeA2 is an alias for TWSS_A2.
+	SupportedSizeA2
 
-	// SupportedSizeValueA7 is an alias for TWSS_A7.
-	SupportedSizeValueA7
+	// SupportedSizeA7 is an alias for TWSS_A7.
+	SupportedSizeA7
 
-	// SupportedSizeValueA8 is an alias for TWSS_A8.
-	SupportedSizeValueA8
+	// SupportedSizeA8 is an alias for TWSS_A8.
+	SupportedSizeA8
 
-	// SupportedSizeValueA9 is an alias for TWSS_A9.
-	SupportedSizeValueA9
+	// SupportedSizeA9 is an alias for TWSS_A9.
+	SupportedSizeA9
 
-	// SupportedSizeValueA10 is an alias for TWSS_A10.
-	SupportedSizeValueA10
+	// SupportedSizeA10 is an alias for TWSS_A10.
+	SupportedSizeA10
 
-	// SupportedSizeValueISOB0 is an alias for TWSS_ISOB0.
-	SupportedSizeValueISOB0
+	// SupportedSizeISOB0 is an alias for TWSS_ISOB0.
+	SupportedSizeISOB0
 
-	// SupportedSizeValueISOB1 is an alias for TWSS_ISOB1.
-	SupportedSizeValueISOB1
+	// SupportedSizeISOB1 is an alias for TWSS_ISOB1.
+	SupportedSizeISOB1
 
-	// SupportedSizeValueISOB2 is an alias for TWSS_ISOB2.
-	SupportedSizeValueISOB2
+	// SupportedSizeISOB2 is an alias for TWSS_ISOB2.
+	SupportedSizeISOB2
 
-	// SupportedSizeValueISOB5 is an alias for TWSS_ISOB5.
-	SupportedSizeValueISOB5
+	// SupportedSizeISOB5 is an alias for TWSS_ISOB5.
+	SupportedSizeISOB5
 
-	// SupportedSizeValueISOB7 is an alias for TWSS_ISOB7.
-	SupportedSizeValueISOB7
+	// SupportedSizeISOB7 is an alias for TWSS_ISOB7.
+	SupportedSizeISOB7
 
-	// SupportedSizeValueISOB8 is an alias for TWSS_ISOB8.
-	SupportedSizeValueISOB8
+	// SupportedSizeISOB8 is an alias for TWSS_ISOB8.
+	SupportedSizeISOB8
 
-	// SupportedSizeValueISOB9 is an alias for TWSS_ISOB9.
-	SupportedSizeValueISOB9
+	// SupportedSizeISOB9 is an alias for TWSS_ISOB9.
+	SupportedSizeISOB9
 
-	// SupportedSizeValueISOB10 is an alias for TWSS_ISOB10.
-	SupportedSizeValueISOB10
+	// SupportedSizeISOB10 is an alias for TWSS_ISOB10.
+	SupportedSizeISOB10
 
-	// SupportedSizeValueJISB0 is an alias for TWSS_JISB0.
-	SupportedSizeValueJISB0
+	// SupportedSizeJISB0 is an alias for TWSS_JISB0.
+	SupportedSizeJISB0
 
-	// SupportedSizeValueJISB1 is an alias for TWSS_JISB1.
-	SupportedSizeValueJISB1
+	// SupportedSizeJISB1 is an alias for TWSS_JISB1.
+	SupportedSizeJISB1
 
-	// SupportedSizeValueJISB2 is an alias for TWSS_JISB2.
-	SupportedSizeValueJISB2
+	// SupportedSizeJISB2 is an alias for TWSS_JISB2.
+	SupportedSizeJISB2
 
-	// SupportedSizeValueJISB3 is an alias for TWSS_JISB3.
-	SupportedSizeValueJISB3
+	// SupportedSizeJISB3 is an alias for TWSS_JISB3.
+	SupportedSizeJISB3
 
-	// SupportedSizeValueJISB4 is an alias for TWSS_JISB4.
-	SupportedSizeValueJISB4
+	// SupportedSizeJISB4 is an alias for TWSS_JISB4.
+	SupportedSizeJISB4
 
-	// SupportedSizeValueJISB6 is an alias for TWSS_JISB6.
-	SupportedSizeValueJISB6
+	// SupportedSizeJISB6 is an alias for TWSS_JISB6.
+	SupportedSizeJISB6
 
-	// SupportedSizeValueJISB7 is an alias for TWSS_JISB7.
-	SupportedSizeValueJISB7
+	// SupportedSizeJISB7 is an alias for TWSS_JISB7.
+	SupportedSizeJISB7
 
-	// SupportedSizeValueJISB8 is an alias for TWSS_JISB8.
-	SupportedSizeValueJISB8
+	// SupportedSizeJISB8 is an alias for TWSS_JISB8.
+	SupportedSizeJISB8
 
-	// SupportedSizeValueJISB9 is an alias for TWSS_JISB9.
-	SupportedSizeValueJISB9
+	// SupportedSizeJISB9 is an alias for TWSS_JISB9.
+	SupportedSizeJISB9
 
-	// SupportedSizeValueJISB10 is an alias for TWSS_JISB10.
-	SupportedSizeValueJISB10
+	// SupportedSizeJISB10 is an alias for TWSS_JISB10.
+	SupportedSizeJISB10
 
-	// SupportedSizeValueC0 is an alias for TWSS_C0.
-	SupportedSizeValueC0
+	// SupportedSizeC0 is an alias for TWSS_C0.
+	SupportedSizeC0
 
-	// SupportedSizeValueC1 is an alias for TWSS_C1.
-	SupportedSizeValueC1
+	// SupportedSizeC1 is an alias for TWSS_C1.
+	SupportedSizeC1
 
-	// SupportedSizeValueC2 is an alias for TWSS_C2.
-	SupportedSizeValueC2
+	// SupportedSizeC2 is an alias for TWSS_C2.
+	SupportedSizeC2
 
-	// SupportedSizeValueC3 is an alias for TWSS_C3.
-	SupportedSizeValueC3
+	// SupportedSizeC3 is an alias for TWSS_C3.
+	SupportedSizeC3
 
-	// SupportedSizeValueC7 is an alias for TWSS_C7.
-	SupportedSizeValueC7
+	// SupportedSizeC7 is an alias for TWSS_C7.
+	SupportedSizeC7
 
-	// SupportedSizeValueC8 is an alias for TWSS_C8.
-	SupportedSizeValueC8
+	// SupportedSizeC8 is an alias for TWSS_C8.
+	SupportedSizeC8
 
-	// SupportedSizeValueC9 is an alias for TWSS_C9.
-	SupportedSizeValueC9
+	// SupportedSizeC9 is an alias for TWSS_C9.
+	SupportedSizeC9
 
-	// SupportedSizeValueC10 is an alias for TWSS_C10.
-	SupportedSizeValueC10
+	// SupportedSizeC10 is an alias for TWSS_C10.
+	SupportedSizeC10
 
-	// SupportedSizeValueUSStatement is an alias for TWSS_USSTATEMENT.
-	SupportedSizeValueUSStatement
+	// SupportedSizeUSStatement is an alias for TWSS_USSTATEMENT.
+	SupportedSizeUSStatement
 
-	// SupportedSizeValueBusinessCard is an alias for TWSS_BUSINESSCARD.
-	SupportedSizeValueBusinessCard
+	// SupportedSizeBusinessCard is an alias for TWSS_BUSINESSCARD.
+	SupportedSizeBusinessCard
 
-	// SupportedSizeValueMaxSize is an alias for TWSS_MAXSIZE.
-	SupportedSizeValueMaxSize
+	// SupportedSizeMaxSize is an alias for TWSS_MAXSIZE.
+	SupportedSizeMaxSize
 )
 
-// TransferMechanismValue is an alias for ICAP_XFERMECH values.
-type TransferMechanismValue twain.UInt16
+// TransferMechanism is an alias for ICAP_XFERMECH values.
+type TransferMechanism twain.UInt16
 
 const (
-	// TransferMechanismValueNative is an alias for TWSX_NATIVE.
-	TransferMechanismValueNative TransferMechanismValue = iota
+	// TransferMechanismNative is an alias for TWSX_NATIVE.
+	TransferMechanismNative TransferMechanism = iota
 
-	// TransferMechanismValueFile is an alias for TWSX_FILE.
-	TransferMechanismValueFile
+	// TransferMechanismFile is an alias for TWSX_FILE.
+	TransferMechanismFile
 
-	// TransferMechanismValueMemory is an alias for TWSX_MEMORY.
-	TransferMechanismValueMemory
+	// TransferMechanismMemory is an alias for TWSX_MEMORY.
+	TransferMechanismMemory
 
-	// TransferMechanismValueMemFile is an alias for TWSX_MEMFILE.
-	TransferMechanismValueMemFile
+	// TransferMechanismMemFile is an alias for TWSX_MEMFILE.
+	TransferMechanismMemFile
 )
 
 // UnitsValue is an alias for ICAP_UNITS values.
-type UnitsValue twain.UInt16
+type Units twain.UInt16
 
 const (
-	// UnitsValueInches is an alias for TWUN_INCHES.
-	UnitsValueInches UnitsValue = iota
+	// UnitsInches is an alias for TWUN_INCHES.
+	UnitsInches Units = iota
 
-	// UnitsValueCentimeters is an alias for TWUN_CENTIMETERS.
-	UnitsValueCentimeters
+	// UnitsCentimeters is an alias for TWUN_CENTIMETERS.
+	UnitsCentimeters
 
-	// UnitsValuePicas is an alias for TWUN_PICAS.
-	UnitsValuePicas
+	// UnitsPicas is an alias for TWUN_PICAS.
+	UnitsPicas
 
-	// UnitsValuePoints is an alias for TWUN_POINTS.
-	UnitsValuePoints
+	// UnitsPoints is an alias for TWUN_POINTS.
+	UnitsPoints
 
-	// UnitsValueTwips is an alias for TWUN_TWIPS.
-	UnitsValueTwips
+	// UnitsTwips is an alias for TWUN_TWIPS.
+	UnitsTwips
 
-	// UnitsValuePixels is an alias for TWUN_PIXELS.
-	UnitsValuePixels
+	// UnitsPixels is an alias for TWUN_PIXELS.
+	UnitsPixels
 
-	// UnitsValueMillimeters is an alias for TWUN_MILLIMETERS.
-	UnitsValueMillimeters
+	// UnitsMillimeters is an alias for TWUN_MILLIMETERS.
+	UnitsMillimeters
 )
