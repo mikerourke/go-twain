@@ -85,14 +85,14 @@ const (
 	// ControlPassThru is an alias for DAT_PASSTHRU.
 	ControlPassThru ArgumentType = 0x000f
 
-	// ControlCallBack is an alias for DAT_CALLBACK.
-	ControlCallBack ArgumentType = 0x0010
+	// ControlCallback is an alias for DAT_CALLBACK.
+	ControlCallback ArgumentType = 0x0010
 
 	// ControlStatusUTF8 is an alias for DAT_STATUSUTF8.
 	ControlStatusUTF8 ArgumentType = 0x0011
 
-	// ControlCallBack2 is an alias for DAT_CALLBACK2.
-	ControlCallBack2 ArgumentType = 0x0012
+	// ControlCallback2 is an alias for DAT_CALLBACK2.
+	ControlCallback2 ArgumentType = 0x0012
 
 	// ControlMetrics is an alias for DAT_METRICS.
 	ControlMetrics ArgumentType = 0x0013

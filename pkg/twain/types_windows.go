@@ -18,3 +18,23 @@ type Str128 [130]int8
 // Str255 is an alias for TW_STR255. It represents a string that can hold up to
 // 255 characters.
 type Str255 [256]int8
+
+// Callback (TW_CALLBACK) is used to register callbacks.
+type Callback struct {
+	CallbackProc MemRef
+	RefCon       UInt32
+	Message      Int16
+}
+
+// Identity (TW_IDENTITY) provides identification information about a TWAIN
+// entity.
+type Identity struct {
+	ID              UInt32
+	Version         Version
+	ProtocolMajor   UInt16
+	ProtocolMinor   UInt16
+	SupportedGroups UInt32
+	Manufacturer    Str32
+	ProductFamily   Str32
+	ProductName     Str32
+}

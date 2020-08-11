@@ -68,9 +68,9 @@ const (
 	// CheckStatus is an alias for MSG_CHECKSTATUS.
 	CheckStatus messages.Message = 0x0201
 
-	// InvokeCallBack is an alias for MSG_INVOKE_CALLBACK. Use data.Null
+	// InvokeCallback is an alias for MSG_INVOKE_CALLBACK. Use data.Null
 	// (DAT_NULL) and messages.* (MSG_xxx) instead.
-	InvokeCallBack messages.Message = 0x0903
+	InvokeCallback messages.Message = 0x0903
 )
 
 // QueryConstrainable is an alias for TWQC_CONSTRAINABLE.
