@@ -2,6 +2,11 @@ package twain
 
 import "unsafe"
 
+// Note that we don't have TW_INT8, TW_INT16, TW_UINT8, etc. defined here because
+// Go already takes care of those types automatically based on the target
+// platform. The TWAIN header file assigns them to accommodate for which
+// compiler/platform is being used.
+
 // Bool is an alias for TW_BOOL.
 type Bool uint16
 
@@ -11,9 +16,6 @@ type Handle unsafe.Pointer
 
 // MemRef is an alias for TW_MEMREF.
 type MemRef *uint8
-
-// UIntPtr is an alias for TW_UINTPTR.
-type UIntPtr uintptr
 
 // Byte is an alias for BYTE.
 type Byte uint8
@@ -69,7 +71,7 @@ type AudioInfo struct {
 // Callback2 (TW_CALLBACK2) is used to register callbacks.
 type Callback2 struct {
 	CallbackProc MemRef
-	RefCon       UIntPtr
+	RefCon       uintptr
 	Message      int16
 }
 
@@ -168,8 +170,8 @@ type Info struct {
 
 	// ReturnCode represents a union type that contains a ReturnCode or CondCode,
 	// but the CondCode has been deprecated.
-	ReturnCode uint16
-	Item       UIntPtr
+	ReturnCode [2]byte // uint16
+	Item       uintptr
 }
 
 // ExtImageInfo (TW_EXTIMAGEINFO) provides extended image information.
@@ -180,6 +182,7 @@ type ExtImageInfo struct {
 
 // FileSystem (TW_FILESYSTEM) provides information about the currently
 // selected device.
+// TODO: Find out if unions break this struct.
 type FileSystem struct {
 	InputName  Str255
 	OutputName Str255
@@ -187,11 +190,11 @@ type FileSystem struct {
 
 	// RecursiveOrSubdirectories is a union that can be either an int (for
 	// Recursive) or a Bool for Subdirectories.
-	RecursiveOrSubdirectories interface{}
+	RecursiveOrSubdirectories [4]byte // int or Bool
 
 	// FileTypeOrFileSystemType is a union that can be either a int32 for
 	// FileType or a uint32 for FileSystemType.
-	FileTypeOrFileSystemType interface{}
+	FileTypeOrFileSystemType [4]byte // int32 or uint32
 	Size                     uint32
 	CreateTimeDate           Str32
 	ModifiedTimeDate         Str32
@@ -314,7 +317,7 @@ type PassThru struct {
 // TODO: Find out if union breaks this struct.
 type PendingTransfers struct {
 	Count         uint16
-	EOJOrReserved uint32
+	EOJOrReserved [4]byte // uint32
 }
 
 // Range (TW_RANGE) stores a range of individual values describing a

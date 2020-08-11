@@ -2,9 +2,7 @@
 // file.
 package deprecated
 
-import (
-	"github.com/mikerourke/go-twain/pkg/twain"
-)
+import "github.com/mikerourke/go-twain"
 
 // TODO: Validate the Huge types to ensure they work correctly.
 
