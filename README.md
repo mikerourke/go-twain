@@ -1,6 +1,6 @@
 # go-twain
 
-Go library mapping for the TWAIN protocol.
+Go library mapping for the TWAIN protocol. It currently implements v2.4 of the protocol. You can view the header file (`twain.h`) [here](https://github.com/twain/twain-specification/blob/master/versions/2.4/twain.h).
 
 This library provides a means of writing TWAIN applications that communicate via the DSM with Go (instead of C/C++).
 My future goal is to port the DSM to Go as well. 
