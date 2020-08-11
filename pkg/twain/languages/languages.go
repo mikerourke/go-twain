@@ -1,3 +1,5 @@
+// Package languages wraps the language constants (prefixed with TWLG_) from the
+// TWAIN header file.
 package languages
 
 import "github.com/mikerourke/go-twain/pkg/twain"

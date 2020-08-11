@@ -1,7 +1,10 @@
+// Package imageinfo wraps the extended image info attrbutes constants (prefixed
+// with TWEI_) from the TWAIN header file.
 package imageinfo
 
 import "github.com/mikerourke/go-twain/pkg/twain"
 
+// ExtImageInfoAttr is an alias for TWEI values.
 type ExtImageInfoAttr twain.UInt16
 
 const (

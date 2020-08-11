@@ -20,8 +20,8 @@ const (
 	DontCare32 = 0xffffffff
 )
 
-// ContainerType is a generic constant used to represent the container type
-// in the capability struct.
+// ContainerType is an alias for TWON values. It represents a generic constant
+// used to represent the container type in the Capability struct.
 type ContainerType UInt16
 
 const (
@@ -38,7 +38,8 @@ const (
 	ContainerTypeRange ContainerType = 6
 )
 
-// MemoryFlag represents flags used in the Memory (TW_MEMORY) structure.
+// MemoryFlag is an alias for TWMF values. It represents flags used in the
+// Memory (TW_MEMORY) structure.
 type MemoryFlag UInt32
 
 const (
@@ -58,7 +59,8 @@ const (
 	MemoryFlagHandle MemoryFlag = 0x0010
 )
 
-// TypeFlag represents the type used in the Memory (TW_MEMORY) structure.
+// TypeFlag is an alias for TWTY values. It represents the type used in
+// the Memory (TW_MEMORY) structure.
 type TypeFlag UInt16
 
 const (
@@ -151,7 +153,8 @@ const (
 	MagTypeInvalid
 )
 
-// Palette8Type represents palette types for Palette8 struct.
+// Palette8Type is an alias for TWPA values. It represents palette types for
+// Palette8 struct.
 type Palette8Type UInt16
 
 const (

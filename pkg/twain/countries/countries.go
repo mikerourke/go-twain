@@ -1,3 +1,5 @@
+// Package countries wraps the countries constants (prefixed with TWCY_) from
+// the TWAIN header file.
 package countries
 
 import "github.com/mikerourke/go-twain/pkg/twain"

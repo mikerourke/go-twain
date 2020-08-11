@@ -1,3 +1,5 @@
+// Package messages wraps the messages constants (prefixed with MSG_) from the
+// TWAIN header file.
 package messages
 
 import "github.com/mikerourke/go-twain/pkg/twain"

@@ -352,7 +352,7 @@ type StatusUTF8 struct {
 	UTF8String Handle
 }
 
-// TwainDirect (TW_TWAINDIRECT) is not documented.
+// TwainDirect is an alias for TW_TWAINDIRECT.
 type TwainDirect struct {
 	SizeOf               UInt32
 	CommunicationManager UInt16
@@ -368,4 +368,25 @@ type UserInterface struct {
 	ShowUI       Bool
 	ModalUI      Bool
 	ParentHandle Handle
+}
+
+// FilterDescriptor (TW_FILTER_DESCRIPTOR) is used with data.Filter (DAT_FILTER).
+type FilterDescriptor struct {
+	Size            UInt32
+	HueStart        UInt32
+	HueEnd          UInt32
+	SaturationStart UInt32
+	SaturationEnd   UInt32
+	ValueStart      UInt32
+	ValueEnd        UInt32
+	Replacement     UInt32
+}
+
+// Filter (TW_FILTER) is used with data.Filter (DAT_FILTER).
+type Filter struct {
+	Size               UInt32
+	DescriptorCount    UInt32
+	MaxDescriptorCount UInt32
+	Condition          UInt32
+	DescriptorsHandle  Handle
 }

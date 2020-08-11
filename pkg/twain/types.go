@@ -2,33 +2,36 @@ package twain
 
 import "unsafe"
 
-// Int8 (TW_INT8) represents a signed 8-bit integer.
+// Int8 is an alias for TW_INT8.
 type Int8 int8
 
-// Int16 (TW_INT16) represents a signed 16-bit integer.
+// Int16 is an alias for TW_INT16.
 type Int16 int16
 
-// Int32 (TW_INT32) represents a signed 32-bit integer.
+// Int32 is an alias for TW_INT32.
 type Int32 int32
 
-// UInt8 (TW_UINT8) represents an unsigned 8-bit integer.
+// UInt8 is an alias for TW_UINT8.
 type UInt8 uint8
 
-// UInt16 (TW_UINT16) represents an unsigned 16-bit integer.
+// UInt16 is an alias for TW_UINT16.
 type UInt16 uint16
 
-// UInt32 (TW_UINT32) represents an unsigned 32-bit integer.
+// UInt32 is an alias for TW_UINT32.
 type UInt32 uint32
 
-// Bool (TW_BOOL) represents a boolean value.
+// Bool is an alias for TW_BOOL.
 type Bool uint16
 
 // TODO: Check if these types are valid.
-// Handle (TW_HANDLE) represents a pointer to a handle.
+// Handle is an alias for TW_HANDLE.
 type Handle unsafe.Pointer
 
-// MemRef (TW_MEMREF) represents a reference in memory.
+// MemRef is an alias for TW_MEMREF.
 type MemRef *uint8
 
-// UIntPtr (TW_UINTPTR) represents an unsigned integer pointer.
+// UIntPtr is an alias for TW_UINTPTR.
 type UIntPtr uintptr
+
+// Byte is an alias for BYTE.
+type Byte uint8

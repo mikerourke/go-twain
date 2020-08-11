@@ -1,3 +1,5 @@
+// Package capabilities provides the names and values associated with
+// capabilities (prefixed with CAP_ and ICAP_) from the TWAIN header file.
 package capabilities
 
 import "github.com/mikerourke/go-twain/pkg/twain"
