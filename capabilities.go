@@ -605,7 +605,7 @@ const (
 )
 
 // AutoDiscardBlankPages is an alias for ICAP_AUTODISCARDBLANKPAGES values.
-type AutoDiscardBlankPages uint16
+type AutoDiscardBlankPages int16
 
 const (
 	// AutoDiscardBlankPagesDisable is an alias for TWBP_DISABLE.
@@ -1164,7 +1164,7 @@ const (
 )
 
 // JPEGQuality is an alias for ICAP_JPEGQUALITY values.
-type JPEGQuality uint16
+type JPEGQuality int16
 
 const (
 	// JPEGQualityUnknown is an alias for TWJQ_UNKNOWN.

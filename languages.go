@@ -1,7 +1,7 @@
 package twain
 
 // Language is an alias for the TWLG_ values.
-type Language uint16
+type Language int16
 
 const (
 	// LanguageUserLocale is an alias for  TWLG_USERLOCALE.
