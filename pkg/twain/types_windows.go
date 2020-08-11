@@ -22,18 +22,18 @@ type Str255 [256]int8
 // Callback (TW_CALLBACK) is used to register callbacks.
 type Callback struct {
 	CallbackProc MemRef
-	RefCon       UInt32
-	Message      Int16
+	RefCon       uint32
+	Message      int16
 }
 
 // Identity (TW_IDENTITY) provides identification information about a TWAIN
 // entity.
 type Identity struct {
-	ID              UInt32
+	ID              uint32
 	Version         Version
-	ProtocolMajor   UInt16
-	ProtocolMinor   UInt16
-	SupportedGroups UInt32
+	ProtocolMajor   uint16
+	ProtocolMinor   uint16
+	SupportedGroups uint32
 	Manufacturer    Str32
 	ProductFamily   Str32
 	ProductName     Str32

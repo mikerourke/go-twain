@@ -2,24 +2,6 @@ package twain
 
 import "unsafe"
 
-// Int8 is an alias for TW_INT8.
-type Int8 int8
-
-// Int16 is an alias for TW_INT16.
-type Int16 int16
-
-// Int32 is an alias for TW_INT32.
-type Int32 int32
-
-// UInt8 is an alias for TW_UINT8.
-type UInt8 uint8
-
-// UInt16 is an alias for TW_UINT16.
-type UInt16 uint16
-
-// UInt32 is an alias for TW_UINT32.
-type UInt32 uint32
-
 // Bool is an alias for TW_BOOL.
 type Bool uint16
 
@@ -38,8 +20,8 @@ type Byte uint8
 
 // Fix32 (TW_FIX32) is a fixed point structure type.
 type Fix32 struct {
-	Whole Int16
-	Frac  UInt16
+	Whole int16
+	Frac  uint16
 }
 
 // Frame (TW_FRAME) defines a frame rectangle in ICAP_UNITS coordinates.
@@ -73,29 +55,29 @@ type TransformStage struct {
 
 // Array (TW_ARRAY) is a container for array of values.
 type Array struct {
-	ItemType UInt16
-	NumItems UInt32
-	ItemList [1]UInt8
+	ItemType uint16
+	NumItems uint32
+	ItemList [1]uint8
 }
 
 // AudioInfo (TW_AUDIO_INFO) is information about audio data.
 type AudioInfo struct {
 	Name     Str255
-	Reserved UInt32
+	Reserved uint32
 }
 
 // Callback2 (TW_CALLBACK2) is used to register callbacks.
 type Callback2 struct {
 	CallbackProc MemRef
 	RefCon       UIntPtr
-	Message      Int16
+	Message      int16
 }
 
 // Capability (TW_CAPABILITY) is used by application to get/set capability
 // from/in a data source.
 type Capability struct {
 	// Cap represents the capability ID to get or set.
-	Cap UInt16
+	Cap uint16
 
 	// ConType is the type of container to use.
 	ConType ContainerType
@@ -114,10 +96,10 @@ type CIEPoint struct {
 // CIEColor (TW_CIECOLOR) defines the mapping from an RGB color space device
 // into CIE 1931 (XYZ) color space.
 type CIEColor struct {
-	ColorSpace      UInt16
-	LowEndian       Int16
-	DeviceDependent Int16
-	VersionNumber   Int32
+	ColorSpace      uint16
+	LowEndian       int16
+	DeviceDependent int16
+	VersionNumber   int32
 	StageABC        TransformStage
 	StageLMN        TransformStage
 	WhitePoint      CIEPoint
@@ -130,69 +112,69 @@ type CIEColor struct {
 // CustomDSData (TW_CUSTOMDSDATA) allows for a data source and application to
 // pass custom data to each other.
 type CustomDSData struct {
-	InfoLength UInt32
+	InfoLength uint32
 	DataHandle Handle
 }
 
 // DeviceEvent (TW_DEVICEEVENT) provides information about the Event that was
 // raised by the Source.
 type DeviceEvent struct {
-	Event                  UInt32
+	Event                  uint32
 	DeviceName             Str255
-	BatteryMinutes         UInt32
-	BatteryPercentage      Int16
-	PowerSupply            Int32
+	BatteryMinutes         uint32
+	BatteryPercentage      int16
+	PowerSupply            int32
 	XResolution            Fix32
 	YResolution            Fix32
-	FlashUsed2             UInt32
-	AutomaticCapture       UInt32
-	TimeBeforeFirstCapture UInt32
-	TimeBetweenCaptures    UInt32
+	FlashUsed2             uint32
+	AutomaticCapture       uint32
+	TimeBeforeFirstCapture uint32
+	TimeBetweenCaptures    uint32
 }
 
 // Element8 (TW_ELEMENT8) holds the tri-stimulus color palette information
 // for Palette8 structures.
 type Element8 struct {
-	Index    UInt8
-	Channel1 UInt8
-	Channel2 UInt8
-	Channel3 UInt8
+	Index    uint8
+	Channel1 uint8
+	Channel2 uint8
+	Channel3 uint8
 }
 
 // Enumeration (TW_ENUMERATION) stores a group of individual values describing
 // a capability.
 type Enumeration struct {
-	ItemType     UInt16
-	NumItems     UInt32
-	CurrentIndex UInt32
-	DefaultIndex UInt32
-	ItemList     [1]UInt8
+	ItemType     uint16
+	NumItems     uint32
+	CurrentIndex uint32
+	DefaultIndex uint32
+	ItemList     [1]uint8
 }
 
 // Event (TW_EVENT) is used to pass application events/messages from the
 // application to the Source.
 type Event struct {
 	Event   MemRef
-	Message UInt16
+	Message uint16
 }
 
 // Info (TW_INFO) is used to pass specific information between the data source
 // and the application.
 // TODO: Find out if this will break with union. See https://stackoverflow.com/questions/31557539/golang-how-to-simulate-union-type-efficiently
 type Info struct {
-	InfoID   UInt16
-	ItemType UInt16
-	NumItems UInt16
+	InfoID   uint16
+	ItemType uint16
+	NumItems uint16
 
 	// ReturnCode represents a union type that contains a ReturnCode or CondCode,
 	// but the CondCode has been deprecated.
-	ReturnCode UInt16
+	ReturnCode uint16
 	Item       UIntPtr
 }
 
 // ExtImageInfo (TW_EXTIMAGEINFO) provides extended image information.
 type ExtImageInfo struct {
-	NumInfos UInt32
+	NumInfos uint32
 	Info     [1]Info
 }
 
@@ -207,18 +189,18 @@ type FileSystem struct {
 	// Recursive) or a Bool for Subdirectories.
 	RecursiveOrSubdirectories interface{}
 
-	// FileTypeOrFileSystemType is a union that can be either a Int32 for
-	// FileType or a UInt32 for FileSystemType.
+	// FileTypeOrFileSystemType is a union that can be either a int32 for
+	// FileType or a uint32 for FileSystemType.
 	FileTypeOrFileSystemType interface{}
-	Size                     UInt32
+	Size                     uint32
 	CreateTimeDate           Str32
 	ModifiedTimeDate         Str32
-	FreeSpace                UInt32
-	NewImageSize             Int32
-	NumberOfFiles            UInt32
-	NumberOfSnippets         UInt32
-	DeviceGroupMask          UInt32
-	Reserved                 [508]Int8
+	FreeSpace                uint32
+	NewImageSize             int32
+	NumberOfFiles            uint32
+	NumberOfSnippets         uint32
+	DeviceGroupMask          uint32
+	Reserved                 [508]int8
 }
 
 // GrayResponse (TW_GRAYRESPONSE) is used by the application to specify a set
@@ -230,10 +212,10 @@ type GrayResponse struct {
 // Version (TW_VERSION) represents a general way to describe the version of
 // software that is running.
 type Version struct {
-	MajorNum UInt16
-	MinorNum UInt16
-	Language UInt16
-	Country  UInt16
+	MajorNum uint16
+	MinorNum uint16
+	Language uint16
+	Country  uint16
 	Info     Str32
 }
 
@@ -242,77 +224,77 @@ type Version struct {
 type ImageInfo struct {
 	XResolution     Fix32
 	YResolution     Fix32
-	ImageWidth      Int32
-	ImageLength     Int32
-	SamplesPerPixel Int16
-	BitsPerSample   [8]Int16
-	BitsPerPixel    Int16
+	ImageWidth      int32
+	ImageLength     int32
+	SamplesPerPixel int16
+	BitsPerSample   [8]int16
+	BitsPerPixel    int16
 	Planar          Bool
-	PixelType       Int16
-	Compression     UInt16
+	PixelType       int16
+	Compression     uint16
 }
 
 // ImageLayout (TW_IMAGELAYOUT) contains information about the original size
 // of the acquired image.
 type ImageLayout struct {
 	Frame          Frame
-	DocumentNumber UInt32
-	PageNumber     UInt32
-	FrameNumber    UInt32
+	DocumentNumber uint32
+	PageNumber     uint32
+	FrameNumber    uint32
 }
 
 // Memory (TW_MEMORY) provides information for managing memory buffers.
 type Memory struct {
 	Flags  MemoryFlag
-	Length UInt32
+	Length uint32
 	TheMem MemRef
 }
 
 // ImageMemTransfer (TW_IMAGEMEMXFER) describes the form of the acquired data
 // being passed from the Source to the application.
 type ImageMemTransfer struct {
-	Compression  UInt16
-	BytesPerRow  UInt32
-	Columns      UInt32
-	Rows         UInt32
-	XOffset      UInt32
-	YOffset      UInt32
-	BytesWritten UInt32
+	Compression  uint16
+	BytesPerRow  uint32
+	Columns      uint32
+	Rows         uint32
+	XOffset      uint32
+	YOffset      uint32
+	BytesWritten uint32
 	Memory       Memory
 }
 
 // JPEGCompression (TW_JPEGCOMPRESSION) describes the information necessary
 // to transfer a JPEG-compressed image.
 type JPEGCompression struct {
-	ColorSpace       UInt16
-	SubSampling      UInt32
-	NumComponents    UInt16
-	RestartFrequency UInt16
-	QuantMap         [4]UInt16
+	ColorSpace       uint16
+	SubSampling      uint32
+	NumComponents    uint16
+	RestartFrequency uint16
+	QuantMap         [4]uint16
 	QuantTable       [4]Memory
-	HuffmanMap       [4]UInt16
+	HuffmanMap       [4]uint16
 	HuffmanDC        [2]Memory
 	HuffmanAC        [2]Memory
 }
 
 // Metrics (TW_METRICS) collects scanning metrics after returning to state 4.
 type Metrics struct {
-	SizeOf     UInt32
-	ImageCount UInt32
-	SheetCount UInt32
+	SizeOf     uint32
+	ImageCount uint32
+	SheetCount uint32
 }
 
 // OneValue (TW_ONEVALUE) stores a single value (item) which describes a
 // capability.
 type OneValue struct {
-	ItemType UInt16
-	Item     UInt32
+	ItemType uint16
+	Item     uint32
 }
 
 // Palette8 (TW_PALETTE8) holds the color palette information.
 type Palette8 struct {
-	NumColors   UInt16
-	PaletteType UInt16
+	NumColors   uint16
+	PaletteType uint16
 	Colors      [256]Element8
 }
 
@@ -320,30 +302,30 @@ type Palette8 struct {
 // communicating with a device.
 type PassThru struct {
 	Command              MemRef
-	CommandBytes         UInt32
-	Direction            Int32
+	CommandBytes         uint32
+	Direction            int32
 	DataHandle           MemRef
-	DataBytes            UInt32
-	DataBytesTransferred UInt32
+	DataBytes            uint32
+	DataBytesTransferred uint32
 }
 
 // PendingTransfers (TW_PENDINGXFERS) tells the application how many more
 // complete transfers the Source currently has available.
 // TODO: Find out if union breaks this struct.
 type PendingTransfers struct {
-	Count         UInt16
-	EOJOrReserved UInt32
+	Count         uint16
+	EOJOrReserved uint32
 }
 
 // Range (TW_RANGE) stores a range of individual values describing a
 // capability.
 type Range struct {
-	ItemType     UInt16
-	MinValue     UInt32
-	MaxValue     UInt32
-	StepSize     UInt32
-	DefaultValue UInt32
-	CurrentValue UInt32
+	ItemType     uint16
+	MinValue     uint32
+	MaxValue     uint32
+	StepSize     uint32
+	DefaultValue uint32
+	CurrentValue uint32
 }
 
 // RGBResponse (TW_RGBRESPONSE) is used by the application to specify a set
@@ -356,41 +338,41 @@ type RGBResponse struct {
 // specification information for a transfer through a disk file.
 type SetupFileTransfer struct {
 	FileName Str255
-	Format   UInt16
-	VRefNum  Int16
+	Format   uint16
+	VRefNum  int16
 }
 
 // SetupMemTransfer (TW_SETUPMEMXFER) provides the application information
 // about the Source's requirements and preferences regarding allocation of
 // transfer buffer(s).
 type SetupMemTransfer struct {
-	MinBufSize UInt32
-	MaxBufSize UInt32
-	Preferred  UInt32
+	MinBufSize uint32
+	MaxBufSize uint32
+	Preferred  uint32
 }
 
 // Status (TW_STATUS) describes the status of a source.
 type Status struct {
-	ConditionCode UInt16
-	Data          UInt16
+	ConditionCode uint16
+	Data          uint16
 }
 
 // StatusUTF8 (TW_STATUSUTF8) translates the contents of Status into a
 // localized UTF-8 string.
 type StatusUTF8 struct {
 	Status     Status
-	Size       UInt32
+	Size       uint32
 	UTF8String Handle
 }
 
 // TwainDirect is an alias for TW_TWAINDIRECT.
 type TwainDirect struct {
-	SizeOf               UInt32
-	CommunicationManager UInt16
+	SizeOf               uint32
+	CommunicationManager uint16
 	Send                 Handle
-	SendSize             UInt32
+	SendSize             uint32
 	Receive              Handle
-	ReceiveSize          UInt32
+	ReceiveSize          uint32
 }
 
 // UserInterface (TW_USERINTERFACE) is used to handle the user interface
@@ -403,21 +385,21 @@ type UserInterface struct {
 
 // FilterDescriptor (TW_FILTER_DESCRIPTOR) is used with data.Filter (DAT_FILTER).
 type FilterDescriptor struct {
-	Size            UInt32
-	HueStart        UInt32
-	HueEnd          UInt32
-	SaturationStart UInt32
-	SaturationEnd   UInt32
-	ValueStart      UInt32
-	ValueEnd        UInt32
-	Replacement     UInt32
+	Size            uint32
+	HueStart        uint32
+	HueEnd          uint32
+	SaturationStart uint32
+	SaturationEnd   uint32
+	ValueStart      uint32
+	ValueEnd        uint32
+	Replacement     uint32
 }
 
 // Filter (TW_FILTER) is used with data.Filter (DAT_FILTER).
 type Filter struct {
-	Size               UInt32
-	DescriptorCount    UInt32
-	MaxDescriptorCount UInt32
-	Condition          UInt32
+	Size               uint32
+	DescriptorCount    uint32
+	MaxDescriptorCount uint32
+	Condition          uint32
 	DescriptorsHandle  Handle
 }

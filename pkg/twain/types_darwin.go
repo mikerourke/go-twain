@@ -23,7 +23,7 @@ type Str255 [256]uint8
 type Callback struct {
 	CallbackProc MemRef
 	RefCon       MemRef
-	Message      Int16
+	Message      int16
 }
 
 // Identity (TW_IDENTITY) provides identification information about a TWAIN
@@ -31,9 +31,9 @@ type Callback struct {
 type Identity struct {
 	ID              MemRef
 	Version         Version
-	ProtocolMajor   UInt16
-	ProtocolMinor   UInt16
-	SupportedGroups UInt32
+	ProtocolMajor   uint16
+	ProtocolMinor   uint16
+	SupportedGroups uint32
 	Manufacturer    Str32
 	ProductFamily   Str32
 	ProductName     Str32

@@ -22,7 +22,7 @@ const (
 
 // ContainerType is an alias for TWON values. It represents a generic constant
 // used to represent the container type in the Capability struct.
-type ContainerType UInt16
+type ContainerType uint16
 
 const (
 	// ContainerTypeArray is an alias for TWON_ARRAY.
@@ -40,7 +40,7 @@ const (
 
 // MemoryFlag is an alias for TWMF values. It represents flags used in the
 // Memory (TW_MEMORY) structure.
-type MemoryFlag UInt32
+type MemoryFlag uint32
 
 const (
 	// MemoryFlagAppOwns is an alias for TWMF_APPOWNS.
@@ -61,26 +61,26 @@ const (
 
 // TypeFlag is an alias for TWTY values. It represents the type used in
 // the Memory (TW_MEMORY) structure.
-type TypeFlag UInt16
+type TypeFlag uint16
 
 const (
-	// TypeFlagInt8 is an alias for TWTY_INT8.
-	TypeFlagInt8 TypeFlag = 0x0000
+	// TypeFlagint8 is an alias for TWTY_INT8.
+	TypeFlagint8 TypeFlag = 0x0000
 
-	// TypeFlagInt16 is an alias for TWTY_INT16.
-	TypeFlagInt16 TypeFlag = 0x0001
+	// TypeFlagint16 is an alias for TWTY_INT16.
+	TypeFlagint16 TypeFlag = 0x0001
 
-	// TypeFlagInt32 is an alias for TWTY_INT32.
-	TypeFlagInt32 TypeFlag = 0x0002
+	// TypeFlagint32 is an alias for TWTY_INT32.
+	TypeFlagint32 TypeFlag = 0x0002
 
-	// TypeFlagUInt8 is an alias for TWTY_UINT8.
-	TypeFlagUInt8 TypeFlag = 0x0003
+	// TypeFlagUint8 is an alias for TWTY_UINT8.
+	TypeFlagUint8 TypeFlag = 0x0003
 
-	// TypeFlagUInt16 is an alias for TWTY_UINT16.
-	TypeFlagUInt16 TypeFlag = 0x0004
+	// TypeFlaguint16 is an alias for TWTY_UINT16.
+	TypeFlaguint16 TypeFlag = 0x0004
 
-	// TypeFlagUInt32 is an alias for TWTY_UINT32.
-	TypeFlagUInt32 TypeFlag = 0x0005
+	// TypeFlaguint32 is an alias for TWTY_UINT32.
+	TypeFlaguint32 TypeFlag = 0x0005
 
 	// TypeFlagBool is an alias for TWTY_BOOL.
 	TypeFlagBool TypeFlag = 0x0006
@@ -108,7 +108,7 @@ const (
 )
 
 // FileSystemFileType is an alias for TW_FILESYSTEM.FileType values.
-type FileSystemFileType UInt16
+type FileSystemFileType uint16
 
 const (
 	// FileSystemFileTypeCamera is an alias for TWFY_CAMERA.
@@ -140,7 +140,7 @@ const (
 )
 
 // MagType is an alias for TWEI_MAGTYPE values.
-type MagType UInt16
+type MagType uint16
 
 const (
 	// MagTypeMICR is an alias for TWMD_MICR.
@@ -155,7 +155,7 @@ const (
 
 // Palette8Type is an alias for TWPA values. It represents palette types for
 // Palette8 struct.
-type Palette8Type UInt16
+type Palette8Type uint16
 
 const (
 	// Palette8TypeRGB is an alias for TWPA_RGB.
@@ -169,7 +169,7 @@ const (
 )
 
 // PatchCode is an alias for TWEI_PATCHCODE values.
-type PatchCode UInt16
+type PatchCode uint16
 
 const (
 	// PatchCode1 is an alias for TWPCH_PATCH1.

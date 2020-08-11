@@ -1,9 +1,517 @@
-package capabilities
+package twain
 
-import "github.com/mikerourke/go-twain/pkg/twain"
+// CapabilityType is an alias for CAP_ and ICAP_ values.
+type CapabilityType uint16
+
+// CapabilityCustomBase is the base of custom capabilities. It is an alias for
+// CAP_CUSTOMBASE.
+const CapabilityCustomBase CapabilityType = 0x8000
+
+// CapabilityTransferCount is an alias for CAP_XFERCOUNT. All data sources are
+// required to support this capability.
+const CapabilityTransferCount CapabilityType = 0x8000
+
+// Image data sources are _required_ to support these capabilities.
+const (
+	// CapabilityCompression is an alias for ICAP_COMPRESSION.
+	CapabilityCompression CapabilityType = 0x0100
+
+	// CapabilityPixelType is an alias for ICAP_PIXELTYPE.
+	CapabilityPixelType CapabilityType = 0x0101
+
+	// CapabilityUnits is an alias for ICAP_UNITS.
+	CapabilityUnits CapabilityType = 0x0102
+
+	// CapabilityTransferMechanism is an alias for ICAP_XFERMECH.
+	CapabilityTransferMechanism CapabilityType = 0x0103
+)
+
+// All data sources _may_ support these capabilities.
+const (
+	// CapabilityAuthor is an alias for CAP_AUTHOR.
+	CapabilityAuthor CapabilityType = 0x1000
+
+	// CapabilityCaption is an alias for CAP_CAPTION.
+	CapabilityCaption CapabilityType = 0x1001
+
+	// CapabilityFeederEnabled is an alias for CAP_FEEDERENABLED.
+	CapabilityFeederEnabled CapabilityType = 0x1002
+
+	// CapabilityFeederLoaded is an alias for CAP_FEEDERLOADED.
+	CapabilityFeederLoaded CapabilityType = 0x1003
+
+	// CapabilityTimeDate is an alias for CAP_TIMEDATE.
+	CapabilityTimeDate CapabilityType = 0x1004
+
+	// CapabilitySupportedCaps is an alias for CAP_SUPPORTEDCAPS.
+	CapabilitySupportedCaps CapabilityType = 0x1005
+
+	// CapabilityExtendedCaps is an alias for CAP_EXTENDEDCAPS.
+	CapabilityExtendedCaps CapabilityType = 0x1006
+
+	// CapabilityAutoFeed is an alias for CAP_AUTOFEED.
+	CapabilityAutoFeed CapabilityType = 0x1007
+
+	// CapabilityClearPage is an alias for CAP_CLEARPAGE.
+	CapabilityClearPage CapabilityType = 0x1008
+
+	// CapabilityFeedPage is an alias for CAP_FEEDPAGE.
+	CapabilityFeedPage CapabilityType = 0x1009
+
+	// CapabilityRewindPage is an alias for CAP_REWINDPAGE.
+	CapabilityRewindPage CapabilityType = 0x100a
+
+	// CapabilityIndicators is an alias for CAP_INDICATORS.
+	CapabilityIndicators CapabilityType = 0x100b
+
+	// CapabilityPaperDetectable is an alias for CAP_PAPERDETECTABLE.
+	CapabilityPaperDetectable CapabilityType = 0x100d
+
+	// CapabilityUIControllable is an alias for CAP_UICONTROLLABLE.
+	CapabilityUIControllable CapabilityType = 0x100e
+
+	// CapabilityDeviceOnline is an alias for CAP_DEVICEONLINE.
+	CapabilityDeviceOnline CapabilityType = 0x100f
+
+	// CapabilityAutoScan is an alias for CAP_AUTOSCAN.
+	CapabilityAutoScan CapabilityType = 0x1010
+
+	// CapabilityThumbnailsEnabled is an alias for CAP_THUMBNAILSENABLED.
+	CapabilityThumbnailsEnabled CapabilityType = 0x1011
+
+	// CapabilityDuplex is an alias for CAP_DUPLEX.
+	CapabilityDuplex CapabilityType = 0x1012
+
+	// CapabilityDuplexEnabled is an alias for CAP_DUPLEXENABLED.
+	CapabilityDuplexEnabled CapabilityType = 0x1013
+
+	// CapabilityEnabledSUIOnly is an alias for CAP_ENABLEDSUIONLY.
+	CapabilityEnabledSUIOnly CapabilityType = 0x1014
+
+	// CapabilityCustomdsData is an alias for CAP_CUSTOMDSDATA.
+	CapabilityCustomdsData CapabilityType = 0x1015
+
+	// CapabilityEndorser is an alias for CAP_ENDORSER.
+	CapabilityEndorser CapabilityType = 0x1016
+
+	// CapabilityJobControl is an alias for CAP_JOBCONTROL.
+	CapabilityJobControl CapabilityType = 0x1017
+
+	// CapabilityAlarms is an alias for CAP_ALARMS.
+	CapabilityAlarms CapabilityType = 0x1018
+
+	// CapabilityAlarmVolume is an alias for CAP_ALARMVOLUME.
+	CapabilityAlarmVolume CapabilityType = 0x1019
+
+	// CapabilityAutomaticCapture is an alias for CAP_AUTOMATICCAPTURE.
+	CapabilityAutomaticCapture CapabilityType = 0x101a
+
+	// CapabilityTimeBeforeFirstCapture is an alias for CAP_TIMEBEFOREFIRSTCAPTURE.
+	CapabilityTimeBeforeFirstCapture CapabilityType = 0x101b
+
+	// CapabilityTimeBetweenCaptures is an alias for CAP_TIMEBETWEENCAPTURES.
+	CapabilityTimeBetweenCaptures CapabilityType = 0x101c
+
+	// CapabilityMaxBatchBuffers is an alias for CAP_MAXBATCHBUFFERS.
+	CapabilityMaxBatchBuffers CapabilityType = 0x101e
+
+	// CapabilityDeviceTimeDate is an alias for CAP_DEVICETIMEDATE.
+	CapabilityDeviceTimeDate CapabilityType = 0x101f
+
+	// CapabilityPowerSupply is an alias for CAP_POWERSUPPLY.
+	CapabilityPowerSupply CapabilityType = 0x1020
+
+	// CapabilityCameraPreviewUI is an alias for CAP_CAMERAPREVIEWUI.
+	CapabilityCameraPreviewUI CapabilityType = 0x1021
+
+	// CapabilityDeviceEvent is an alias for CAP_DEVICEEVENT.
+	CapabilityDeviceEvent CapabilityType = 0x1022
+
+	// CapabilitySerialNumber is an alias for CAP_SERIALNUMBER.
+	CapabilitySerialNumber CapabilityType = 0x1024
+
+	// CapabilityPrinter is an alias for CAP_PRINTER.
+	CapabilityPrinter CapabilityType = 0x1026
+
+	// CapabilityPrinterEnabled is an alias for CAP_PRINTERENABLED.
+	CapabilityPrinterEnabled CapabilityType = 0x1027
+
+	// CapabilityPrinterIndex is an alias for CAP_PRINTERINDEX.
+	CapabilityPrinterIndex CapabilityType = 0x1028
+
+	// CapabilityPrinterMode is an alias for CAP_PRINTERMODE.
+	CapabilityPrinterMode CapabilityType = 0x1029
+
+	// CapabilityPrinterString is an alias for CAP_PRINTERSTRING.
+	CapabilityPrinterString CapabilityType = 0x102a
+
+	// CapabilityPrinterSuffix is an alias for CAP_PRINTERSUFFIX.
+	CapabilityPrinterSuffix CapabilityType = 0x102b
+
+	// CapabilityLanguage is an alias for CAP_LANGUAGE.
+	CapabilityLanguage CapabilityType = 0x102c
+
+	// CapabilityFeederAlignment is an alias for CAP_FEEDERALIGNMENT.
+	CapabilityFeederAlignment CapabilityType = 0x102d
+
+	// CapabilityFeederOrder is an alias for CAP_FEEDERORDER.
+	CapabilityFeederOrder CapabilityType = 0x102e
+
+	// CapabilityReacquireAllowed is an alias for CAP_REACQUIREALLOWED.
+	CapabilityReacquireAllowed CapabilityType = 0x1030
+
+	// CapabilityBatteryMinutes is an alias for CAP_BATTERYMINUTES.
+	CapabilityBatteryMinutes CapabilityType = 0x1032
+
+	// CapabilityBatteryPercentage is an alias for CAP_BATTERYPERCENTAGE.
+	CapabilityBatteryPercentage CapabilityType = 0x1033
+
+	// CapabilityCameraSide is an alias for CAP_CAMERASIDE.
+	CapabilityCameraSide CapabilityType = 0x1034
+
+	// CapabilitySegmented is an alias for CAP_SEGMENTED.
+	CapabilitySegmented CapabilityType = 0x1035
+
+	// CapabilityCameraEnabled is an alias for CAP_CAMERAENABLED.
+	CapabilityCameraEnabled CapabilityType = 0x1036
+
+	// CapabilityCameraOrder is an alias for CAP_CAMERAORDER.
+	CapabilityCameraOrder CapabilityType = 0x1037
+
+	// CapabilityMICREnabled is an alias for CAP_MICRENABLED.
+	CapabilityMICREnabled CapabilityType = 0x1038
+
+	// CapabilityFeederPrep is an alias for CAP_FEEDERPREP.
+	CapabilityFeederPrep CapabilityType = 0x1039
+
+	// CapabilityFeederPocket is an alias for CAP_FEEDERPOCKET.
+	CapabilityFeederPocket CapabilityType = 0x103a
+
+	// CapabilityAutomaticSenseMedium is an alias for CAP_AUTOMATICSENSEMEDIUM.
+	CapabilityAutomaticSenseMedium CapabilityType = 0x103b
+
+	// CapabilityCustomInterfaceGUID is an alias for CAP_CUSTOMINTERFACEGUID.
+	CapabilityCustomInterfaceGUID CapabilityType = 0x103c
+
+	// CapabilitySupportedCapsSegmentUnique is an alias for CAP_SUPPORTEDCAPSSEGMENTUNIQUE.
+	CapabilitySupportedCapsSegmentUnique CapabilityType = 0x103d
+
+	// CapabilitySupportedDATs is an alias for CAP_SUPPORTEDDATS.
+	CapabilitySupportedDATs CapabilityType = 0x103e
+
+	// CapabilityDoubleFeedDetection is an alias for CAP_DOUBLEFEEDDETECTION.
+	CapabilityDoubleFeedDetection CapabilityType = 0x103f
+
+	// CapabilityDoubleFeedDetectionLength is an alias for CAP_DOUBLEFEEDDETECTIONLENGTH.
+	CapabilityDoubleFeedDetectionLength CapabilityType = 0x1040
+
+	// CapabilityDoubleFeedDetectionSensitivity is an alias for CAP_DOUBLEFEEDDETECTIONSENSITIVITY.
+	CapabilityDoubleFeedDetectionSensitivity CapabilityType = 0x1041
+
+	// CapabilityDoubleFeedDetectionResponse is an alias for CAP_DOUBLEFEEDDETECTIONRESPONSE.
+	CapabilityDoubleFeedDetectionResponse CapabilityType = 0x1042
+
+	// CapabilityPaperHandling is an alias for CAP_PAPERHANDLING.
+	CapabilityPaperHandling CapabilityType = 0x1043
+
+	// CapabilityIndicatorsMode is an alias for CAP_INDICATORSMODE.
+	CapabilityIndicatorsMode CapabilityType = 0x1044
+
+	// CapabilityPrinterVerticalOffset is an alias for CAP_PRINTERVERTICALOFFSET.
+	CapabilityPrinterVerticalOffset CapabilityType = 0x1045
+
+	// CapabilityPowerSaveTime is an alias for CAP_POWERSAVETIME.
+	CapabilityPowerSaveTime CapabilityType = 0x1046
+
+	// CapabilityPrinterCharRotation is an alias for CAP_PRINTERCHARROTATION.
+	CapabilityPrinterCharRotation CapabilityType = 0x1047
+
+	// CapabilityPrinterFontStyle is an alias for CAP_PRINTERFONTSTYLE.
+	CapabilityPrinterFontStyle CapabilityType = 0x1048
+
+	// CapabilityPrinterIndexLeadChar is an alias for CAP_PRINTERINDEXLEADCHAR.
+	CapabilityPrinterIndexLeadChar CapabilityType = 0x1049
+
+	// CapabilityPrinterIndexMaxValue is an alias for CAP_PRINTERINDEXMAXVALUE.
+	CapabilityPrinterIndexMaxValue CapabilityType = 0x104A
+
+	// CapabilityPrinterIndexNumDigits is an alias for CAP_PRINTERINDEXNUMDIGITS.
+	CapabilityPrinterIndexNumDigits CapabilityType = 0x104B
+
+	// CapabilityPrinterIndexStep is an alias for CAP_PRINTERINDEXSTEP.
+	CapabilityPrinterIndexStep CapabilityType = 0x104C
+
+	// CapabilityPrinterIndexTrigger is an alias for CAP_PRINTERINDEXTRIGGER.
+	CapabilityPrinterIndexTrigger CapabilityType = 0x104D
+
+	// CapabilityPrinterStringPreview is an alias for CAP_PRINTERSTRINGPREVIEW.
+	CapabilityPrinterStringPreview CapabilityType = 0x104E
+
+	// CapabilitySheetCount is an alias for CAP_SHEETCOUNT.
+	CapabilitySheetCount CapabilityType = 0x104F
+)
+
+// Image data sources _may_ support these capabilities.
+const (
+	// CapabilityImageAutoBright is an alias for ICAP_AUTOBRIGHT.
+	CapabilityImageAutoBright CapabilityType = 0x1100
+
+	// CapabilityImageBrightness is an alias for ICAP_BRIGHTNESS.
+	CapabilityImageBrightness CapabilityType = 0x1101
+
+	// CapabilityImageContrast is an alias for ICAP_CONTRAST.
+	CapabilityImageContrast CapabilityType = 0x1103
+
+	// CapabilityImageCustHalftone is an alias for ICAP_CUSTHALFTONE.
+	CapabilityImageCustHalftone CapabilityType = 0x1104
+
+	// CapabilityImageExposureTime is an alias for ICAP_EXPOSURETIME.
+	CapabilityImageExposureTime CapabilityType = 0x1105
+
+	// CapabilityImageFilter is an alias for ICAP_FILTER.
+	CapabilityImageFilter CapabilityType = 0x1106
+
+	// CapabilityImageFlashUsed is an alias for ICAP_FLASHUSED.
+	CapabilityImageFlashUsed CapabilityType = 0x1107
+
+	// CapabilityImageGamma is an alias for ICAP_GAMMA.
+	CapabilityImageGamma CapabilityType = 0x1108
+
+	// CapabilityImageHalftones is an alias for ICAP_HALFTONES.
+	CapabilityImageHalftones CapabilityType = 0x1109
+
+	// CapabilityImageHighlight is an alias for ICAP_HIGHLIGHT.
+	CapabilityImageHighlight CapabilityType = 0x110a
+
+	// CapabilityImageImageFileFormat is an alias for ICAP_IMAGEFILEFORMAT.
+	CapabilityImageImageFileFormat CapabilityType = 0x110c
+
+	// CapabilityImageLampState is an alias for ICAP_LAMPSTATE.
+	CapabilityImageLampState CapabilityType = 0x110d
+
+	// CapabilityImageLightSource is an alias for ICAP_LIGHTSOURCE.
+	CapabilityImageLightSource CapabilityType = 0x110e
+
+	// CapabilityImageOrientation is an alias for ICAP_ORIENTATION.
+	CapabilityImageOrientation CapabilityType = 0x1110
+
+	// CapabilityImagePhysicalWidth is an alias for ICAP_PHYSICALWIDTH.
+	CapabilityImagePhysicalWidth CapabilityType = 0x1111
+
+	// CapabilityImagePhysicalHeight is an alias for ICAP_PHYSICALHEIGHT.
+	CapabilityImagePhysicalHeight CapabilityType = 0x1112
+
+	// CapabilityImageShadow is an alias for ICAP_SHADOW.
+	CapabilityImageShadow CapabilityType = 0x1113
+
+	// CapabilityImageFrames is an alias for ICAP_FRAMES.
+	CapabilityImageFrames CapabilityType = 0x1114
+
+	// CapabilityImageXNativeResolution is an alias for ICAP_XNATIVERESOLUTION.
+	CapabilityImageXNativeResolution CapabilityType = 0x1116
+
+	// CapabilityImageYNativeResolution is an alias for ICAP_YNATIVERESOLUTION.
+	CapabilityImageYNativeResolution CapabilityType = 0x1117
+
+	// CapabilityImageXResolution is an alias for ICAP_XRESOLUTION.
+	CapabilityImageXResolution CapabilityType = 0x1118
+
+	// CapabilityImageYResolution is an alias for ICAP_YRESOLUTION.
+	CapabilityImageYResolution CapabilityType = 0x1119
+
+	// CapabilityImageMaxFrames is an alias for ICAP_MAXFRAMES.
+	CapabilityImageMaxFrames CapabilityType = 0x111a
+
+	// CapabilityImageTiles is an alias for ICAP_TILES.
+	CapabilityImageTiles CapabilityType = 0x111b
+
+	// CapabilityImageBitOrder is an alias for ICAP_BITORDER.
+	CapabilityImageBitOrder CapabilityType = 0x111c
+
+	// CapabilityImageCCITTKFactor is an alias for ICAP_CCITTKFACTOR.
+	CapabilityImageCCITTKFactor CapabilityType = 0x111d
+
+	// CapabilityImageLightPath is an alias for ICAP_LIGHTPATH.
+	CapabilityImageLightPath CapabilityType = 0x111e
+
+	// CapabilityImagePixelFlavor is an alias for ICAP_PIXELFLAVOR.
+	CapabilityImagePixelFlavor CapabilityType = 0x111f
+
+	// CapabilityImagePlanarChunky is an alias for ICAP_PLANARCHUNKY.
+	CapabilityImagePlanarChunky CapabilityType = 0x1120
+
+	// CapabilityImageRotation is an alias for ICAP_ROTATION.
+	CapabilityImageRotation CapabilityType = 0x1121
+
+	// CapabilityImageSupportedSizes is an alias for ICAP_SUPPORTEDSIZES.
+	CapabilityImageSupportedSizes CapabilityType = 0x1122
+
+	// CapabilityImageThreshold is an alias for ICAP_THRESHOLD.
+	CapabilityImageThreshold CapabilityType = 0x1123
+
+	// CapabilityImageXScaling is an alias for ICAP_XSCALING.
+	CapabilityImageXScaling CapabilityType = 0x1124
+
+	// CapabilityImageYScaling is an alias for ICAP_YSCALING.
+	CapabilityImageYScaling CapabilityType = 0x1125
+
+	// CapabilityImageBitOrderCodes is an alias for ICAP_BITORDERCODES.
+	CapabilityImageBitOrderCodes CapabilityType = 0x1126
+
+	// CapabilityImagePixelFlavorCodes is an alias for ICAP_PIXELFLAVORCODES.
+	CapabilityImagePixelFlavorCodes CapabilityType = 0x1127
+
+	// CapabilityImageJPEGPixelType is an alias for ICAP_JPEGPIXELTYPE.
+	CapabilityImageJPEGPixelType CapabilityType = 0x1128
+
+	// CapabilityImageTimeFill is an alias for ICAP_TIMEFILL.
+	CapabilityImageTimeFill CapabilityType = 0x112a
+
+	// CapabilityImageBitDepth is an alias for ICAP_BITDEPTH.
+	CapabilityImageBitDepth CapabilityType = 0x112b
+
+	// CapabilityImageBitDepthReduction is an alias for ICAP_BITDEPTHREDUCTION.
+	CapabilityImageBitDepthReduction CapabilityType = 0x112c
+
+	// CapabilityImageUndefinedImageSize is an alias for ICAP_UNDEFINEDIMAGESIZE.
+	CapabilityImageUndefinedImageSize CapabilityType = 0x112d
+
+	// CapabilityImageImageDataset is an alias for ICAP_IMAGEDATASET.
+	CapabilityImageImageDataset CapabilityType = 0x112e
+
+	// CapabilityImageExtImageInfo is an alias for ICAP_EXTIMAGEINFO.
+	CapabilityImageExtImageInfo CapabilityType = 0x112f
+
+	// CapabilityImageMinimumHeight is an alias for ICAP_MINIMUMHEIGHT.
+	CapabilityImageMinimumHeight CapabilityType = 0x1130
+
+	// CapabilityImageMinimumWidth is an alias for ICAP_MINIMUMWIDTH.
+	CapabilityImageMinimumWidth CapabilityType = 0x1131
+
+	// CapabilityImageAutoDiscardBlankPages is an alias for ICAP_AUTODISCARDBLANKPAGES.
+	CapabilityImageAutoDiscardBlankPages CapabilityType = 0x1134
+
+	// CapabilityImageFlipRotation is an alias for ICAP_FLIPROTATION.
+	CapabilityImageFlipRotation CapabilityType = 0x1136
+
+	// CapabilityImageBarcodeDetectionEnabled is an alias for ICAP_BARCODEDETECTIONENABLED.
+	CapabilityImageBarcodeDetectionEnabled CapabilityType = 0x1137
+
+	// CapabilityImageSupportedBarcodeTypes is an alias for ICAP_SUPPORTEDBARCODETYPES.
+	CapabilityImageSupportedBarcodeTypes CapabilityType = 0x1138
+
+	// CapabilityImageBarcodeMaxSearchPriorities is an alias for ICAP_BARCODEMAXSEARCHPRIORITIES.
+	CapabilityImageBarcodeMaxSearchPriorities CapabilityType = 0x1139
+
+	// CapabilityImageBarcodeSearchPriorities is an alias for ICAP_BARCODESEARCHPRIORITIES.
+	CapabilityImageBarcodeSearchPriorities CapabilityType = 0x113a
+
+	// CapabilityImageBarcodeSearchMode is an alias for ICAP_BARCODESEARCHMODE.
+	CapabilityImageBarcodeSearchMode CapabilityType = 0x113b
+
+	// CapabilityImageBarcodeMaxRetries is an alias for ICAP_BARCODEMAXRETRIES.
+	CapabilityImageBarcodeMaxRetries CapabilityType = 0x113c
+
+	// CapabilityImageBarcodeTimeout is an alias for ICAP_BARCODETIMEOUT.
+	CapabilityImageBarcodeTimeout CapabilityType = 0x113d
+
+	// CapabilityImageZoomFactor is an alias for ICAP_ZOOMFACTOR.
+	CapabilityImageZoomFactor CapabilityType = 0x113e
+
+	// CapabilityImagePatchCodeDetectionEnabled is an alias for ICAP_PATCHCODEDETECTIONENABLED.
+	CapabilityImagePatchCodeDetectionEnabled CapabilityType = 0x113f
+
+	// CapabilityImageSupportedPatchCodeTypes is an alias for ICAP_SUPPORTEDPATCHCODETYPES.
+	CapabilityImageSupportedPatchCodeTypes CapabilityType = 0x1140
+
+	// CapabilityImagePatchCodeMaxSearchPriorities is an alias for ICAP_PATCHCODEMAXSEARCHPRIORITIES.
+	CapabilityImagePatchCodeMaxSearchPriorities CapabilityType = 0x1141
+
+	// CapabilityImagePatchCodeSearchPriorities is an alias for ICAP_PATCHCODESEARCHPRIORITIES.
+	CapabilityImagePatchCodeSearchPriorities CapabilityType = 0x1142
+
+	// CapabilityImagePatchCodeSearchMode is an alias for ICAP_PATCHCODESEARCHMODE.
+	CapabilityImagePatchCodeSearchMode CapabilityType = 0x1143
+
+	// CapabilityImagePatchCodeMaxRetries is an alias for ICAP_PATCHCODEMAXRETRIES.
+	CapabilityImagePatchCodeMaxRetries CapabilityType = 0x1144
+
+	// CapabilityImagePatchCodeTimeout is an alias for ICAP_PATCHCODETIMEOUT.
+	CapabilityImagePatchCodeTimeout CapabilityType = 0x1145
+
+	// CapabilityImageFlashUsed2 is an alias for ICAP_FLASHUSED2.
+	CapabilityImageFlashUsed2 CapabilityType = 0x1146
+
+	// CapabilityImageImageFilter is an alias for ICAP_IMAGEFILTER.
+	CapabilityImageImageFilter CapabilityType = 0x1147
+
+	// CapabilityImageNoiseFilter is an alias for ICAP_NOISEFILTER.
+	CapabilityImageNoiseFilter CapabilityType = 0x1148
+
+	// CapabilityImageOverScan is an alias for ICAP_OVERSCAN.
+	CapabilityImageOverScan CapabilityType = 0x1149
+
+	// CapabilityImageAutomaticBorderDetection is an alias for ICAP_AUTOMATICBORDERDETECTION.
+	CapabilityImageAutomaticBorderDetection CapabilityType = 0x1150
+
+	// CapabilityImageAutomaticDESkew is an alias for ICAP_AUTOMATICDESKEW.
+	CapabilityImageAutomaticDESkew CapabilityType = 0x1151
+
+	// CapabilityImageAutomaticRotate is an alias for ICAP_AUTOMATICROTATE.
+	CapabilityImageAutomaticRotate CapabilityType = 0x1152
+
+	// CapabilityImageJPEGQuality is an alias for ICAP_JPEGQUALITY.
+	CapabilityImageJPEGQuality CapabilityType = 0x1153
+
+	// CapabilityImageFeederType is an alias for ICAP_FEEDERTYPE.
+	CapabilityImageFeederType CapabilityType = 0x1154
+
+	// CapabilityImageICCProfile is an alias for ICAP_ICCPROFILE.
+	CapabilityImageICCProfile CapabilityType = 0x1155
+
+	// CapabilityImageAutoSize is an alias for ICAP_AUTOSIZE.
+	CapabilityImageAutoSize CapabilityType = 0x1156
+
+	// CapabilityImageAutomaticCropUsesFrame is an alias for ICAP_AUTOMATICCROPUSESFRAME.
+	CapabilityImageAutomaticCropUsesFrame CapabilityType = 0x1157
+
+	// CapabilityImageAutomaticLengthDetection is an alias for ICAP_AUTOMATICLENGTHDETECTION.
+	CapabilityImageAutomaticLengthDetection CapabilityType = 0x1158
+
+	// CapabilityImageAutomaticColorEnabled is an alias for ICAP_AUTOMATICCOLORENABLED.
+	CapabilityImageAutomaticColorEnabled CapabilityType = 0x1159
+
+	// CapabilityImageAutomaticColorNonColorPixelType is an alias for ICAP_AUTOMATICCOLORNONCOLORPIXELTYPE.
+	CapabilityImageAutomaticColorNonColorPixelType CapabilityType = 0x115a
+
+	// CapabilityImageColorManagementEnabled is an alias for ICAP_COLORMANAGEMENTENABLED.
+	CapabilityImageColorManagementEnabled CapabilityType = 0x115b
+
+	// CapabilityImageImageMerge is an alias for ICAP_IMAGEMERGE.
+	CapabilityImageImageMerge CapabilityType = 0x115c
+
+	// CapabilityImageImageMergeHeightThreshold is an alias for ICAP_IMAGEMERGEHEIGHTTHRESHOLD.
+	CapabilityImageImageMergeHeightThreshold CapabilityType = 0x115d
+
+	// CapabilityImageSupportedExtImageInfo is an alias for ICAP_SUPPORTEDEXTIMAGEINFO.
+	CapabilityImageSupportedExtImageInfo CapabilityType = 0x115e
+
+	// CapabilityImageFilmType is an alias for ICAP_FILMTYPE.
+	CapabilityImageFilmType CapabilityType = 0x115f
+
+	// CapabilityImageMirror is an alias for ICAP_MIRROR.
+	CapabilityImageMirror CapabilityType = 0x1160
+
+	// CapabilityImageJPEGSubsampling is an alias for ICAP_JPEGSUBSAMPLING.
+	CapabilityImageJPEGSubsampling CapabilityType = 0x1161
+)
+
+// CapabilityAudioTransferMechanism is an alias for ACAP_XFERMECH. Image data
+// sources _may_ support this audio capability.
+const CapabilityAudioTransferMechanism CapabilityType = 0x1202
 
 // Alarm is an alias for CAP_ALARMS values.
-type Alarm twain.UInt16
+type Alarm uint16
 
 const (
 	// AlarmAlarm is an alias for TWAL_ALARM.
@@ -35,7 +543,7 @@ const (
 )
 
 // AutoSize is an alias for the ICAP_AUTOSIZE values.
-type AutoSize twain.UInt16
+type AutoSize uint16
 
 const (
 	// AutoSizeNone is an alias for TWAS_NONE.
@@ -49,7 +557,7 @@ const (
 )
 
 // BarcodeRotation is an alias for the TWEI_BARCODEROTATION values.
-type BarcodeRotation twain.UInt16
+type BarcodeRotation uint16
 
 const (
 	// BarcodeRotation0 is an alias for TWBCOR_ROT0.
@@ -69,7 +577,7 @@ const (
 )
 
 // BarcodeSearchMode is an alias for ICAP_BARCODESEARCHMODE values.
-type BarcodeSearchMode twain.UInt16
+type BarcodeSearchMode uint16
 
 const (
 	// BarcodeSearchModeHoriz is an alias for TWBD_HORZ.
@@ -86,7 +594,7 @@ const (
 )
 
 // BitOrder is an alias for ICAP_BITORDER values.
-type BitOrder twain.UInt16
+type BitOrder uint16
 
 const (
 	// BitOrderLSBFirst is an alias for TWBO_LSBFIRST.
@@ -97,7 +605,7 @@ const (
 )
 
 // AutoDiscardBlankPages is an alias for ICAP_AUTODISCARDBLANKPAGES values.
-type AutoDiscardBlankPages twain.UInt16
+type AutoDiscardBlankPages uint16
 
 const (
 	// AutoDiscardBlankPagesDisable is an alias for TWBP_DISABLE.
@@ -108,7 +616,7 @@ const (
 )
 
 // BitDepthReduction is an alias for ICAP_BITDEPTHREDUCTION values.
-type BitDepthReduction twain.UInt16
+type BitDepthReduction uint16
 
 const (
 	// BitDepthReductionThreshold is an alias for TWBR_THRESHOLD.
@@ -129,7 +637,7 @@ const (
 
 // SupportedBarcodeType is an alias for ICAP_SUPPORTEDBARCODETYPES and
 // TWEI_BARCODETYPE values.
-type SupportedBarcodeType twain.UInt16
+type SupportedBarcodeType uint16
 
 const (
 	// SupportedBarcodeType3OF9 is an alias for TWBT_3OF9.
@@ -197,7 +705,7 @@ const (
 )
 
 // Compression is an alias for ICAP_COMPRESSION values.
-type Compression twain.UInt16
+type Compression uint16
 
 const (
 	// CompressionNone is an alias for TWCP_NONE.
@@ -247,7 +755,7 @@ const (
 )
 
 // CameraSide is an alias for CAP_CAMERASIDE and TWEI_PAGESIDE values.
-type CameraSide twain.UInt16
+type CameraSide uint16
 
 const (
 	// CameraSideBoth is an alias for TWCS_BOTH.
@@ -261,7 +769,7 @@ const (
 )
 
 // DeviceEventType is an alias for CAP_DEVICEEVENT values.
-type DeviceEventType twain.UInt32
+type DeviceEventType uint32
 
 // DeviceEventTypeCustomEvents is an alias for TWDE_CUSTOMEVENTS.
 const DeviceEventTypeCustomEvents DeviceEventType = 0x8000
@@ -320,7 +828,7 @@ const (
 )
 
 // PassThruDirection is an alias for TW_PASSTHRU.Direction values.
-type PassThruDirection twain.Int32
+type PassThruDirection int32
 
 const (
 	// PassThruDirectionGet is an alias for TWDR_GET.
@@ -331,7 +839,7 @@ const (
 )
 
 // DeskEWStatus is an alias for TWEI_DESKEWSTATUS values.
-type DeskEWStatus twain.UInt16
+type DeskEWStatus uint16
 
 const (
 	// DeskEWStatusSuccess is an alias for TWDSK_SUCCESS.
@@ -348,7 +856,7 @@ const (
 )
 
 // Duplex is an alias for CAP_DUPLEX values.
-type Duplex twain.UInt16
+type Duplex uint16
 
 const (
 	// DuplexNone is an alias for TWDX_NONE.
@@ -362,7 +870,7 @@ const (
 )
 
 // FeederAlignment is an alias for CAP_FEEDERALIGNMENT values.
-type FeederAlignment twain.UInt16
+type FeederAlignment uint16
 
 const (
 	// FeederAlignmentNone is an alias for TWFA_NONE.
@@ -379,7 +887,7 @@ const (
 )
 
 // FeederType is an alias for ICAP_FEEDERTYPE values.
-type FeederType twain.UInt16
+type FeederType uint16
 
 const (
 	// FeederTypeGeneral is an alias for TWFE_GENERAL.
@@ -390,7 +898,7 @@ const (
 )
 
 // ImageFileFormat is an alias for ICAP_IMAGEFILEFORMAT values.
-type ImageFileFormat twain.UInt16
+type ImageFileFormat uint16
 
 const (
 	// ImageFileFormatTIFF is an alias for TWFF_TIFF.
@@ -446,7 +954,7 @@ const (
 )
 
 // FlashUsed2 is an alias for ICAP_FLASHUSED2 values.
-type FlashUsed2 twain.UInt32
+type FlashUsed2 uint32
 
 const (
 	// FlashUsed2None is an alias for TWFL_NONE.
@@ -466,7 +974,7 @@ const (
 )
 
 // FeedOrder is an alias for CAP_FEEDERORDER values.
-type FeedOrder twain.UInt16
+type FeedOrder uint16
 
 const (
 	// FeedOrderFirstPageFirst is an alias for TWFO_FIRSTPAGEFIRST.
@@ -477,7 +985,7 @@ const (
 )
 
 // FeederPocket is an alias for CAP_FEEDERPOCKET values.
-type FeederPocket twain.UInt16
+type FeederPocket uint16
 
 const (
 	// FeederPocketError is an alias for TWFP_POCKETERROR.
@@ -533,7 +1041,7 @@ const (
 )
 
 // FlipRotation is an alias for ICAP_FLIPROTATION values.
-type FlipRotation twain.UInt16
+type FlipRotation uint16
 
 const (
 	// FlipRotationBook is an alias for TWFR_BOOK.
@@ -543,40 +1051,40 @@ const (
 	FlipRotationFanFold
 )
 
-// Filter is an alias for ICAP_FILTER values.
-type Filter twain.UInt16
+// FilterType is an alias for ICAP_FILTER values.
+type FilterType uint16
 
 const (
-	// FilterRed is an alias for TWFT_RED.
-	FilterRed Filter = iota
+	// FilterTypeRed is an alias for TWFT_RED.
+	FilterTypeRed FilterType = iota
 
-	// FilterGreen is an alias for TWFT_GREEN.
-	FilterGreen
+	// FilterTypeGreen is an alias for TWFT_GREEN.
+	FilterTypeGreen
 
-	// FilterBlue is an alias for TWFT_BLUE.
-	FilterBlue
+	// FilterTypeBlue is an alias for TWFT_BLUE.
+	FilterTypeBlue
 
-	// FilterNone is an alias for TWFT_NONE.
-	FilterNone
+	// FilterTypeNone is an alias for TWFT_NONE.
+	FilterTypeNone
 
-	// FilterWhite is an alias for TWFT_WHITE.
-	FilterWhite
+	// FilterTypeWhite is an alias for TWFT_WHITE.
+	FilterTypeWhite
 
-	// FilterCyan is an alias for TWFT_CYAN.
-	FilterCyan
+	// FilterTypeCyan is an alias for TWFT_CYAN.
+	FilterTypeCyan
 
-	// FilterMagenta is an alias for TWFT_MAGENTA.
-	FilterMagenta
+	// FilterTypeMagenta is an alias for TWFT_MAGENTA.
+	FilterTypeMagenta
 
-	// FilterYellow is an alias for TWFT_YELLOW.
-	FilterYellow
+	// FilterTypeYellow is an alias for TWFT_YELLOW.
+	FilterTypeYellow
 
-	// FilterBlack is an alias for TWFT_BLACK.
-	FilterBlack
+	// FilterTypeBlack is an alias for TWFT_BLACK.
+	FilterTypeBlack
 )
 
 // ICCProfile is an alias for ICAP_ICCPROFILE values.
-type ICCProfile twain.UInt16
+type ICCProfile uint16
 
 const (
 	// ICCProfileNone is an alias for TWIC_NONE.
@@ -590,7 +1098,7 @@ const (
 )
 
 // ImageFilter is an alias for ICAP_IMAGEFILTER values.
-type ImageFilter twain.UInt16
+type ImageFilter uint16
 
 const (
 	// ImageFilterNone is an alias for TWIF_NONE.
@@ -616,7 +1124,7 @@ const (
 )
 
 // ImageMerge is an alias for ICAP_IMAGEMERGE values.
-type ImageMerge twain.UInt16
+type ImageMerge uint16
 
 const (
 	// ImageMergeNone is an alias for TWIM_NONE.
@@ -636,7 +1144,7 @@ const (
 )
 
 // JobControl is an alias for CAP_JOBCONTROL values.
-type JobControl twain.UInt16
+type JobControl uint16
 
 const (
 	// JobControlNone is an alias for TWJC_NONE.
@@ -656,7 +1164,7 @@ const (
 )
 
 // JPEGQuality is an alias for ICAP_JPEGQUALITY values.
-type JPEGQuality twain.UInt16
+type JPEGQuality uint16
 
 const (
 	// JPEGQualityUnknown is an alias for TWJQ_UNKNOWN.
@@ -673,7 +1181,7 @@ const (
 )
 
 // LightPath is an alias for ICAP_LIGHTPATH values.
-type LightPath twain.UInt16
+type LightPath uint16
 
 const (
 	// LightPathReflective is an alias for TWLP_REFLECTIVE.
@@ -684,7 +1192,7 @@ const (
 )
 
 // LightSource is an alias for ICAP_LIGHTSOURCE values.
-type LightSource twain.UInt16
+type LightSource uint16
 
 const (
 	// LightSourceRed is an alias for TWLS_RED.
@@ -710,7 +1218,7 @@ const (
 )
 
 // NoiseFilter is an alias for ICAP_NOISEFILTER values.
-type NoiseFilter twain.UInt16
+type NoiseFilter uint16
 
 const (
 	// NoiseFilterNone is an alias for TWNF_NONE.
@@ -727,7 +1235,7 @@ const (
 )
 
 // Orientation is an alias for ICAP_ORIENTATION values.
-type Orientation twain.UInt16
+type Orientation uint16
 
 const (
 	// OrientationRot0 is an alias for TWOR_ROT0.
@@ -759,7 +1267,7 @@ const (
 )
 
 // OverScan is an alias for ICAP_OVERSCAN values.
-type OverScan twain.UInt16
+type OverScan uint16
 
 const (
 	// OverScanNone is an alias for TWOV_NONE.
@@ -779,7 +1287,7 @@ const (
 )
 
 // PlanarChunky is an alias for ICAP_PLANARCHUNKY values.
-type PlanarChunky twain.UInt16
+type PlanarChunky uint16
 
 const (
 	// PlanarChunkyChunky is an alias for TWPC_CHUNKY.
@@ -790,7 +1298,7 @@ const (
 )
 
 // PixelFlavor is an alias for ICAP_PIXELFLAVOR values.
-type PixelFlavor twain.UInt16
+type PixelFlavor uint16
 
 const (
 	// PixelFlavorChocolate is an alias for TWPF_CHOCOLATE.
@@ -801,7 +1309,7 @@ const (
 )
 
 // PrinterMode is an alias for CAP_PRINTERMODE values.
-type PrinterMode twain.UInt16
+type PrinterMode uint16
 
 const (
 	// PrinterModeSingleString is an alias for TWPM_SINGLESTRING.
@@ -815,7 +1323,7 @@ const (
 )
 
 // Printer is an alias for CAP_PRINTER values.
-type Printer twain.UInt16
+type Printer uint16
 
 const (
 	// PrinterImprinterTopBefore is an alias for TWPR_IMPRINTERTOPBEFORE.
@@ -844,7 +1352,7 @@ const (
 )
 
 // PrinterFontStyle is an alias for CAP_PRINTERFONTSTYLE values.
-type PrinterFontStyle twain.UInt16
+type PrinterFontStyle uint16
 
 const (
 	// PrinterFontStyleNormal is an alias for TWPF_NORMAL.
@@ -864,7 +1372,7 @@ const (
 )
 
 // PrinterIndexTrigger is an alias for CAP_PRINTERINDEXTRIGGER values.
-type PrinterIndexTrigger twain.UInt16
+type PrinterIndexTrigger uint16
 
 const (
 	// PrinterIndexTriggerPage is an alias for TWCT_PAGE.
@@ -890,7 +1398,7 @@ const (
 )
 
 // PowerSupply is an alias for CAP_POWERSUPPLY values.
-type PowerSupply twain.Int32
+type PowerSupply int32
 
 const (
 	// PowerSupplyExternal is an alias for TWPS_EXTERNAL.
@@ -901,7 +1409,7 @@ const (
 )
 
 // PixelType is an alias for ICAP_PIXELTYPE values.
-type PixelType twain.Int16
+type PixelType int16
 
 const (
 	// PixelTypeBW is an alias for TWPT_BW.
@@ -945,7 +1453,7 @@ const (
 )
 
 // Segmented is an alias for CAP_SEGMENTED values.
-type Segmented twain.UInt16
+type Segmented uint16
 
 const (
 	// SegmentedNone is an alias for TWSG_NONE.
@@ -959,7 +1467,7 @@ const (
 )
 
 // FilmType is an alias for ICAP_FILMTYPE values.
-type FilmType twain.UInt16
+type FilmType uint16
 
 const (
 	// FilmTypePositive is an alias for TWFM_POSITIVE.
@@ -970,7 +1478,7 @@ const (
 )
 
 // DoubleFeedDetection is an alias for CAP_DOUBLEFEEDDETECTION values.
-type DoubleFeedDetection twain.UInt16
+type DoubleFeedDetection uint16
 
 const (
 	// DoubleFeedDetectionUltrasonic is an alias for TWDF_ULTRASONIC.
@@ -984,7 +1492,7 @@ const (
 )
 
 // DoubleFeedDetectionSensitivity is an alias for CAP_DOUBLEFEEDDETECTIONSENSITIVITY values.
-type DoubleFeedDetectionSensitivity twain.UInt16
+type DoubleFeedDetectionSensitivity uint16
 
 const (
 	// DoubleFeedDetectionSensitivityLow is an alias for TWUS_LOW.
@@ -998,7 +1506,7 @@ const (
 )
 
 // DoubleFeedDetectionResponse is an alias for CAP_DOUBLEFEEDDETECTIONRESPONSE values.
-type DoubleFeedDetectionResponse twain.UInt16
+type DoubleFeedDetectionResponse uint16
 
 const (
 	// DoubleFeedDetectionResponseStop is an alias for TWDP_STOP.
@@ -1015,7 +1523,7 @@ const (
 )
 
 // MirrorValue is an alias for ICAP_MIRROR values.
-type MirrorValue twain.UInt16
+type MirrorValue uint16
 
 const (
 	// MirrorValueNone is an alias for TWMR_NONE.
@@ -1029,7 +1537,7 @@ const (
 )
 
 // JPEGSubSampling is an alias for ICAP_JPEGSUBSAMPLING values.
-type JPEGSubSampling twain.UInt32
+type JPEGSubSampling uint32
 
 const (
 	// JPEGSubSampling444YCBCR is an alias for TWJS_444YCBCR.
@@ -1058,7 +1566,7 @@ const (
 )
 
 // PaperHandling is an alias for CAP_PAPERHANDLING values.
-type PaperHandling twain.UInt16
+type PaperHandling uint16
 
 const (
 	// PaperHandlingNormal is an alias for TWPH_NORMAL.
@@ -1078,7 +1586,7 @@ const (
 )
 
 // IndicatorsMode is an alias for CAP_INDICATORSMODE values.
-type IndicatorsMode twain.UInt16
+type IndicatorsMode uint16
 
 const (
 	// IndicatorsModeInfo is an alias for TWCI_INFO.
@@ -1095,7 +1603,7 @@ const (
 )
 
 // SupportedSize is an alias for ICAP_SUPPORTEDSIZES values.
-type SupportedSize twain.UInt16
+type SupportedSize uint16
 
 const (
 	// SupportedSizeNone is an alias for TWSS_NONE.
@@ -1266,7 +1774,7 @@ const (
 )
 
 // TransferMechanism is an alias for ICAP_XFERMECH values.
-type TransferMechanism twain.UInt16
+type TransferMechanism uint16
 
 const (
 	// TransferMechanismNative is an alias for TWSX_NATIVE.
@@ -1283,7 +1791,7 @@ const (
 )
 
 // UnitsValue is an alias for ICAP_UNITS values.
-type Units twain.UInt16
+type Units uint16
 
 const (
 	// UnitsInches is an alias for TWUN_INCHES.
